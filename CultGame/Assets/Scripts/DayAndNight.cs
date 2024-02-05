@@ -4,12 +4,26 @@ using UnityEngine;
 
 public class DayAndNight : MonoBehaviour
 {
-    [SerializeField] float time = 0;
-    [SerializeField] string timeText;
-    [SerializeField] float timeMultiplier;
+    [SerializeField] float time = 0; // The current time tracked in seconds
+    [SerializeField] string timeText; // The text which displays the time in hours and minutes.
+    [SerializeField] float nightIntervalInSeconds; // How many seconds the game intervals by each real second. This controls the in-game speed time relative to real time.
+    [SerializeField] float dayIntervalInSeconds; // How many seconds the game interval by each second. This controls the in-game speed time relative to real time.
+    [SerializeField] float dayStartHour; // The hour at which the time of day starts and the time of night ends.
+    [SerializeField] float nightStartHour; // The hour at which the time of night starts and the time of day ends.
+    public float day = 0; // Tracking days
+    public bool night = true; // Using a bool we track whether or not the current time of day is considered day or night. false = night, true = day
     void Update()
     {
-        time += Time.deltaTime * timeMultiplier;
+        if (time >= nightStartHour*60*60 || time < dayStartHour*60*60)
+        {
+            night = true;
+            time += Time.deltaTime * nightIntervalInSeconds;
+        }
+        else
+        {
+            night = false;
+            time += Time.deltaTime * dayIntervalInSeconds;
+        }
         
         float Minutes = Mathf.Round(Mathf.Round(time) / 60);
         if (Minutes * 60 > Mathf.Round(time))
@@ -21,7 +35,12 @@ public class DayAndNight : MonoBehaviour
         {
             Hours -= 1;
         }
-        float Seconds = Mathf.Round(time) - 60 * Minutes;
+        if (time >= 86400)
+        {
+            time = 0;
+            day +=1;
+        }
+        //float Seconds = Mathf.Round(time) - 60 * Minutes;
 
         Minutes -= Hours * 60;
 
@@ -35,14 +54,6 @@ public class DayAndNight : MonoBehaviour
         {
             inbetweens[1] = "";
         }
-        if (Seconds < 10)
-        {
-            inbetweens[2] = "0";
-        }
-        else
-        {
-            inbetweens[2] = "";
-        }
         if (Hours < 10)
         {
             inbetweens[0] = "0";
@@ -52,7 +63,6 @@ public class DayAndNight : MonoBehaviour
             inbetweens[0] = "";
         }
 
-
-        timeText = inbetweens[0] + Hours.ToString() + ":" + inbetweens[1] + Minutes.ToString() + ":" + inbetweens[2] + Seconds.ToString();
+        timeText = inbetweens[0] + Hours.ToString() + ":" + inbetweens[1] + Minutes.ToString();
     }
 }

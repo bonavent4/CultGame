@@ -1019,7 +1019,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 0
   timeText: 
-  timeMultiplier: 1
+  nightIntervalInSeconds: 30
+  dayIntervalInSeconds: 25
+  dayStartHour: 6
+  nightStartHour: 19
+  day: 0
+  night: 1
 --- !u!4 &1571778777
 Transform:
   m_ObjectHideFlags: 0
