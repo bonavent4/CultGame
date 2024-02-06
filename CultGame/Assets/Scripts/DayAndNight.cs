@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DayAndNight : MonoBehaviour
 {
+    [SerializeField] GameObject text; // The text
     [SerializeField] float time = 0; // The current time tracked in seconds
     [SerializeField] string timeText; // The text which displays the time in hours and minutes.
     [SerializeField] float nightIntervalInSeconds; // How many seconds the game intervals by each real second. This controls the in-game speed time relative to real time.
@@ -65,5 +67,6 @@ public class DayAndNight : MonoBehaviour
         }
 
         timeText = inbetweens[0] + Hours.ToString() + ":" + inbetweens[1] + Minutes.ToString();
+        text.GetComponent<TextMeshProUGUI>().text = timeText;
     }
 }
