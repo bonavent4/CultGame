@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
+using UnityEditor.AI;
 
 
 public class ControllCharacters : MonoBehaviour
@@ -14,14 +15,35 @@ public class ControllCharacters : MonoBehaviour
 
     [SerializeField] Camera cam;
 
-    [SerializeField] GameObject building;
+    [SerializeField] GameObject[] buildings;
+    [SerializeField] GameObject[] buildingsGreen;
+    [SerializeField] GameObject[] notBuildBuildings;
 
     bool placeBuilding;
     [SerializeField] GameObject buildingMenu;
     GameObject buildingToPlace;
+
+    GameObject Building;
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
+        if (placeBuilding)
+        {
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+            {
+                if (hit.transform.gameObject.CompareTag("Ground"))
+                {
+                    if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
+                    {
+                        placeBuildings();
+                    }
+                    Building.transform.position = hit.point;
+
+                }
+            }
+            
+        }
+        else if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
@@ -31,7 +53,6 @@ public class ControllCharacters : MonoBehaviour
                     navMeshAgent.SetDestination(hit.point);
                     Debug.Log(hit.point);
 
-                    placeBuildings();
                 }
             }
         }
@@ -41,8 +62,10 @@ public class ControllCharacters : MonoBehaviour
 
     void placeBuildings()
     {
-        if(placeBuilding)
-        Instantiate(building, hit.point, Quaternion.identity);
+        
+            Instantiate(buildingToPlace, hit.point, Quaternion.identity);
+            UnityEditor.AI.NavMeshBuilder.ClearAllNavMeshes();
+            UnityEditor.AI.NavMeshBuilder.BuildNavMesh();
     }
     void activateBuildMenu()
     {
@@ -51,17 +74,26 @@ public class ControllCharacters : MonoBehaviour
             if (buildingMenu.activeSelf)
             {
                 buildingMenu.SetActive(false);
+                Destroy(Building);
             }
             else
             {
                 buildingMenu.SetActive(true);
                 placeBuilding = false;
+                Destroy(Building);
             }
+        }
+        if(Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1))
+        {
+            placeBuilding = false;
+            Destroy(Building);
         }
     }
     public void ChooseBuilding(int index)
     {
+        buildingToPlace = notBuildBuildings[index];
         placeBuilding = true;
         buildingMenu.SetActive(false);
+        Building = Instantiate(buildingsGreen[index]);
     }
 }
