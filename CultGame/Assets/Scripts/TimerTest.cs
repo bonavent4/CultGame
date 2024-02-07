@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,10 +21,12 @@ public class TimerTest : MonoBehaviour
     {
         Minutes = Mathf.Round(Mathf.Round(time) / 60);
         time += Time.deltaTime;
+
+        print(time);
         while (time >= 60)
         {
             
             favor.SetFavor((int) Mathf.Round(time));
         }
-    }
+    } 
 }
