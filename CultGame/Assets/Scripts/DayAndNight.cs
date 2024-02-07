@@ -6,6 +6,7 @@ using TMPro;
 public class DayAndNight : MonoBehaviour
 {
     [SerializeField] GameObject text; // The text
+    [SerializeField] GameObject light; // The object that light is adjusted to with day night cycle
     [SerializeField] float time = 0; // The current time tracked in seconds
     [SerializeField] string timeText; // The text which displays the time in hours and minutes.
     [SerializeField] float nightIntervalInSeconds; // How many seconds the game intervals by each real second. This controls the in-game speed time relative to real time.
@@ -65,6 +66,22 @@ public class DayAndNight : MonoBehaviour
         {
             inbetweens[0] = "";
         }
+
+        float dayStart = (dayStartHour-1f)*60*60;
+        float nightEnd = (dayStartHour+1f)*60*60;
+        float nightStart = (nightStartHour-1f)*60*60;
+        float dayEnd = (nightStartHour+1f)*60*60;
+        float dayTime = 0.7f;
+
+        if (time >= dayStart && time < nightEnd)
+        {
+            light.GetComponent<Light>().intensity = (time-dayStart)*dayTime/(nightEnd-dayStart);
+        }
+        else if (time >= nightStart && time < dayEnd)
+        {
+            light.GetComponent<Light>().intensity = dayTime-(time-nightStart)*dayTime/(dayEnd-nightStart);
+        }
+        
 
         timeText = inbetweens[0] + Hours.ToString() + ":" + inbetweens[1] + Minutes.ToString();
         text.GetComponent<TextMeshProUGUI>().text = timeText;
