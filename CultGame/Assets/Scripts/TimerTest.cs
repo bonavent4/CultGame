@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,7 @@ public class TimerTest : MonoBehaviour
     float time = 0;
     float Minutes = 0;
     public FavorBar favor;
-    
+    public FavorBar content;
     
     // Start is called before the first frame update
     void Start()
@@ -20,10 +21,12 @@ public class TimerTest : MonoBehaviour
     {
         Minutes = Mathf.Round(Mathf.Round(time) / 60);
         time += Time.deltaTime;
-        while (time >= 60)
-        {
+
+        print(time);
             
-            favor.SetFavor((int) Mathf.Round(time));
-        }
-    }
+        favor.SetFavor((int) Mathf.Round(time));
+
+        content.SetContent((int)Mathf.Round(time)*5);
+
+    } 
 }
