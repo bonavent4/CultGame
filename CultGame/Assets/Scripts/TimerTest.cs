@@ -8,7 +8,7 @@ public class TimerTest : MonoBehaviour
     float time = 0;
     float Minutes = 0;
     public FavorBar favor;
-    
+    public FavorBar content;
     
     // Start is called before the first frame update
     void Start()
@@ -23,10 +23,10 @@ public class TimerTest : MonoBehaviour
         time += Time.deltaTime;
 
         print(time);
-        while (time >= 60)
-        {
             
-            favor.SetFavor((int) Mathf.Round(time));
-        }
+        favor.SetFavor((int) Mathf.Round(time));
+
+        content.SetContent((int)Mathf.Round(time)*5);
+
     } 
 }
