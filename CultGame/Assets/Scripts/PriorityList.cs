@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PriorityList : MonoBehaviour
 {
@@ -19,11 +20,7 @@ public class PriorityList : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            GameObject g = Instantiate(jobPrefab, gameObject.transform);
-            g.transform.position += new Vector3(0, offset, 0);
-            offset -= plusToOffset;
-            jobs.Add(g);
-            ResetJobs();
+            AddJobToList("dd");
         }
         if (Input.mouseScrollDelta.y != 0)
         {
@@ -42,6 +39,16 @@ public class PriorityList : MonoBehaviour
 
         }
 
+    }
+    public void AddJobToList(string jobName)
+    {
+        GameObject g = Instantiate(jobPrefab, gameObject.transform);
+        g.transform.position += new Vector3(0, offset, 0);
+        g.GetComponentInChildren<TextMeshProUGUI>().text = jobName;
+
+        offset -= plusToOffset;
+        jobs.Add(g);
+        ResetJobs();
     }
     void ResetJobs()
     {
