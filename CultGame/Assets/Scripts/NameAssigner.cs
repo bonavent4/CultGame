@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
 using TMPro;
 
 public class NameAssigner : MonoBehaviour
@@ -18,8 +20,22 @@ public class NameAssigner : MonoBehaviour
     // Function to set the assigned name when the player confirms the input
     public void SetName()
     {
-        AssignedName = nameInputField.text;
-        displayText.text = "Assigned Name: " + AssignedName; // Update the display text
+        string newName = nameInputField.text;
+
+        // Check if the input field is not empty
+        if (!string.IsNullOrEmpty(newName))
+        {
+            // Display a confirmation dialog or perform any other confirmation process here
+            // For now, let's assume we don't need a confirmation and set the name directly
+            AssignedName = newName;
+            displayText.text = "Assigned Name: " + AssignedName; // Update the display text
+        }
+        else
+        {
+            // Handle the case where the input field is empty
+            Debug.Log("Please enter a valid name.");
+        }
+           
     }
 
     // Example usage
