@@ -35,7 +35,7 @@ public class NameAssigner : MonoBehaviour
             // Handle the case where the input field is empty
             Debug.Log("Please enter a valid name.");
         }
-           
+
     }
 
     // Example usage
@@ -45,5 +45,6 @@ public class NameAssigner : MonoBehaviour
         Debug.Log("Assigned Name: " + AssignedName);
     }
 }
+
 
 
