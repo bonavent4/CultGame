@@ -33,6 +33,6 @@ public class ResourceSystem : MonoBehaviour
 
     public void AddResource(float value)
       {
-         
+         resources.Add(value);
       }
 }
