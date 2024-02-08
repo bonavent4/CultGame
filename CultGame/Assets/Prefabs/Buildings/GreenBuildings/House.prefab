@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7268380276824763081}
   - component: {fileID: 6600827596017799123}
   - component: {fileID: 2811017942768038269}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 7365913494121462762}
   - component: {fileID: 3976999783118138461}
   - component: {fileID: 6962567685413223908}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.017
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 5329181771602721225}
   - component: {fileID: 8527970248859707510}
   - component: {fileID: 6991265093289551780}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 3055969306864961870}
   - component: {fileID: 2101805328306583651}
   - component: {fileID: 5718874326118963212}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 5483536780851232837}
   - component: {fileID: 8802653700812438917}
   - component: {fileID: 5270758304132727891}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.015
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 7870845562184150440}
   - component: {fileID: 8025825198207747941}
   - component: {fileID: 4698896261994268661}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.016
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -509,7 +509,7 @@ GameObject:
   - component: {fileID: 2286409865959951413}
   - component: {fileID: 4103298623853236223}
   - component: {fileID: 4747003336457510754}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Torus.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -592,7 +592,7 @@ GameObject:
   - component: {fileID: 3714718548128502885}
   - component: {fileID: 1397055994659210649}
   - component: {fileID: 8498569963484752042}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Torus.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -675,7 +675,7 @@ GameObject:
   - component: {fileID: 5614548157715696064}
   - component: {fileID: 7640551987834414784}
   - component: {fileID: 7819937115127543181}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.018
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -758,7 +758,7 @@ GameObject:
   - component: {fileID: 8974305903900150387}
   - component: {fileID: 2979877736084813137}
   - component: {fileID: 7941721570742699908}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.019
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -841,7 +841,7 @@ GameObject:
   - component: {fileID: 115679019827509617}
   - component: {fileID: 3777538063397954546}
   - component: {fileID: 162756851932429291}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -924,7 +924,7 @@ GameObject:
   - component: {fileID: 4331574428816573953}
   - component: {fileID: 4501354120687338380}
   - component: {fileID: 209274865235985809}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Torus.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1007,7 +1007,7 @@ GameObject:
   - component: {fileID: 9038019002691541433}
   - component: {fileID: 5767299077436179971}
   - component: {fileID: 5163924932089808663}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Torus.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1090,7 +1090,7 @@ GameObject:
   - component: {fileID: 8139435235069173649}
   - component: {fileID: 4495835086762522111}
   - component: {fileID: 8083233122974764859}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.014
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1173,7 +1173,7 @@ GameObject:
   - component: {fileID: 465722498494603956}
   - component: {fileID: 493463202720120056}
   - component: {fileID: 6344392096129751616}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Torus.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1254,7 +1254,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3505768816094427084}
-  m_Layer: 0
+  - component: {fileID: 6792749930399539175}
+  - component: {fileID: 782842675031039285}
+  - component: {fileID: 4662660363964770260}
+  m_Layer: 6
   m_Name: House
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1277,6 +1280,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6792749930399539175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7623764420211577203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6351012e23d38ba48a87e6d6c3338ff5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cc: {fileID: 0}
+  child: {fileID: 8675611392173822424}
+--- !u!65 &782842675031039285
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7623764420211577203}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.9, y: 2.5, z: 7.4}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &4662660363964770260
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7623764420211577203}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 1
 --- !u!1 &8048495779332468508
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,7 +1334,7 @@ GameObject:
   - component: {fileID: 6673690326960882504}
   - component: {fileID: 7304637208592840184}
   - component: {fileID: 6059240128287275473}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.013
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1369,7 +1415,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8299613168564046690}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SmallHouseMideavel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

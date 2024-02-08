@@ -292,6 +292,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d1eaeb6ba517a4f9eed865ed6cddb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ignoreGreenLayer:
+    serializedVersion: 2
+    m_Bits: 55
   buildings:
   - {fileID: 4350346445883527359, guid: acb31e47d12bc5842a25d838fa4c3c62, type: 3}
   - {fileID: 6926581355872438736, guid: 71edbc4321a069c478a71497d264c2d2, type: 3}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5833139277567122962}
   - component: {fileID: 841412083419466200}
   - component: {fileID: 4328187275641570047}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.106
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 7124429966908929135}
   - component: {fileID: 4097404044085567700}
   - component: {fileID: 6221465980001407072}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Torus.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 302873094785580064}
   - component: {fileID: 6558551885449638993}
   - component: {fileID: 6622479235720031324}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.022
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7409269689882467180}
-  m_Layer: 0
+  - component: {fileID: 2679216946964554061}
+  - component: {fileID: 5318322897580668673}
+  - component: {fileID: 2439186176991387666}
+  m_Layer: 6
   m_Name: BigHouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,6 +284,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2679216946964554061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439014926369940501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6351012e23d38ba48a87e6d6c3338ff5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cc: {fileID: 0}
+  child: {fileID: 5863429070557127642}
+--- !u!54 &5318322897580668673
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439014926369940501}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!65 &2439186176991387666
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439014926369940501}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.9, y: 2.5, z: 7.4}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1074586579792449226
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,7 +338,7 @@ GameObject:
   - component: {fileID: 7287823181463073351}
   - component: {fileID: 5986319451558514567}
   - component: {fileID: 6926428425320035921}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.015
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,7 +421,7 @@ GameObject:
   - component: {fileID: 4899986086134669226}
   - component: {fileID: 5069811053380416871}
   - component: {fileID: 7498271781389579767}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.016
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -458,7 +504,7 @@ GameObject:
   - component: {fileID: 544137289115743397}
   - component: {fileID: 4742004052498109760}
   - component: {fileID: 1737947236909728850}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.021
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -541,7 +587,7 @@ GameObject:
   - component: {fileID: 6294366729402209343}
   - component: {fileID: 8416844789302139684}
   - component: {fileID: 8986691787687298498}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Torus.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -624,7 +670,7 @@ GameObject:
   - component: {fileID: 1108471325772645996}
   - component: {fileID: 6762844172375896761}
   - component: {fileID: 6097002454417848864}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.026
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -707,7 +753,7 @@ GameObject:
   - component: {fileID: 5612780833636325579}
   - component: {fileID: 8259666097480367569}
   - component: {fileID: 1024673200999220095}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -790,7 +836,7 @@ GameObject:
   - component: {fileID: 3044291747949101100}
   - component: {fileID: 3174537351014639340}
   - component: {fileID: 2652026429509875242}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Torus.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -873,7 +919,7 @@ GameObject:
   - component: {fileID: 5693139816662059496}
   - component: {fileID: 2165042914513919583}
   - component: {fileID: 5303799312242757606}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.017
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -956,7 +1002,7 @@ GameObject:
   - component: {fileID: 1662531281258054784}
   - component: {fileID: 7045529707722677428}
   - component: {fileID: 3035678951663335440}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.023
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1039,7 +1085,7 @@ GameObject:
   - component: {fileID: 8477840250690679114}
   - component: {fileID: 5504995110655166458}
   - component: {fileID: 9019687503996718035}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.013
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1122,7 +1168,7 @@ GameObject:
   - component: {fileID: 1001561465187553364}
   - component: {fileID: 689361616251615901}
   - component: {fileID: 3473072046149576216}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Torus.010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1205,7 +1251,7 @@ GameObject:
   - component: {fileID: 6077499196652596155}
   - component: {fileID: 8733443675828155393}
   - component: {fileID: 7967731311444292885}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Torus.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1288,7 +1334,7 @@ GameObject:
   - component: {fileID: 6471661724192959891}
   - component: {fileID: 1683933965262276605}
   - component: {fileID: 6419752105460825401}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.014
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1371,7 +1417,7 @@ GameObject:
   - component: {fileID: 7158460579423703791}
   - component: {fileID: 8241483654017871573}
   - component: {fileID: 5810850824168189902}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.024
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1454,7 +1500,7 @@ GameObject:
   - component: {fileID: 3408229933266653366}
   - component: {fileID: 3450814078790930170}
   - component: {fileID: 8156350751489648706}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Torus.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1535,7 +1581,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6491029567257573728}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HouseMideavel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1602,7 +1648,7 @@ GameObject:
   - component: {fileID: 7954873795822281221}
   - component: {fileID: 1700163846260495515}
   - component: {fileID: 7106187533591889988}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1685,7 +1731,7 @@ GameObject:
   - component: {fileID: 3692131737299192275}
   - component: {fileID: 5658254012659221338}
   - component: {fileID: 2148993214369568852}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Torus.012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1768,7 +1814,7 @@ GameObject:
   - component: {fileID: 5624752786738321162}
   - component: {fileID: 2647265075930996770}
   - component: {fileID: 4168630417240424361}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.117
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1851,7 +1897,7 @@ GameObject:
   - component: {fileID: 1961526664559716348}
   - component: {fileID: 1375040158361410884}
   - component: {fileID: 3791183759278678051}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Torus.011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1934,7 +1980,7 @@ GameObject:
   - component: {fileID: 5689902850119848723}
   - component: {fileID: 4750045138454706484}
   - component: {fileID: 6009427639810933417}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2017,7 +2063,7 @@ GameObject:
   - component: {fileID: 7264309469053205442}
   - component: {fileID: 4842023504727348418}
   - component: {fileID: 5025766958722320271}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.018
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2100,7 +2146,7 @@ GameObject:
   - component: {fileID: 2739679416309030492}
   - component: {fileID: 2733593048227503132}
   - component: {fileID: 758365573722986876}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.020
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2183,7 +2229,7 @@ GameObject:
   - component: {fileID: 6174928357263882353}
   - component: {fileID: 27096602102843219}
   - component: {fileID: 5119548811684279686}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.019
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2266,7 +2312,7 @@ GameObject:
   - component: {fileID: 3927163737506987575}
   - component: {fileID: 1282183869822729725}
   - component: {fileID: 7555453949935824224}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Torus.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2349,7 +2395,7 @@ GameObject:
   - component: {fileID: 1925209549402990183}
   - component: {fileID: 4204589855971604379}
   - component: {fileID: 6686191157309594280}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Torus.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2432,7 +2478,7 @@ GameObject:
   - component: {fileID: 3104564795401131202}
   - component: {fileID: 883607116331017609}
   - component: {fileID: 5638867362484025135}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.025
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2515,7 +2561,7 @@ GameObject:
   - component: {fileID: 1523963567313581059}
   - component: {fileID: 1676155505545097614}
   - component: {fileID: 3160855504320001939}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Torus.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2598,7 +2644,7 @@ GameObject:
   - component: {fileID: 5484984953226093477}
   - component: {fileID: 3911432386365004581}
   - component: {fileID: 7385416449220552176}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Torus.013
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2681,7 +2727,7 @@ GameObject:
   - component: {fileID: 6764283773720665537}
   - component: {fileID: 4542714885981199226}
   - component: {fileID: 1777265931869835729}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Torus.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2764,7 +2810,7 @@ GameObject:
   - component: {fileID: 883417578865085684}
   - component: {fileID: 1838561629124819105}
   - component: {fileID: 244923314609847157}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.170
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2847,7 +2893,7 @@ GameObject:
   - component: {fileID: 5342599201075248794}
   - component: {fileID: 1360121212092334965}
   - component: {fileID: 5333118311773041347}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Torus.014
   m_TagString: Untagged
   m_Icon: {fileID: 0}

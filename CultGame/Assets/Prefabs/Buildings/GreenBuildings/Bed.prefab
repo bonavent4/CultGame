@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2725227961583230629}
   - component: {fileID: 8632499258076932646}
   - component: {fileID: 3495398895671179051}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 7753730310595617821}
   - component: {fileID: 3575625121126021569}
   - component: {fileID: 2529252422839168506}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 828300177450141805}
   - component: {fileID: 7813108107591378820}
   - component: {fileID: 3692633974201905049}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 6808110443241379929}
   - component: {fileID: 8087652989578836466}
   - component: {fileID: 4898404990844834223}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 9007330083505787385}
   - component: {fileID: 7560414816052491220}
   - component: {fileID: 3320158480406096453}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -424,7 +424,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4765174719192788927}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BedMideavel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -465,7 +465,7 @@ GameObject:
   - component: {fileID: 8525573282766091482}
   - component: {fileID: 1129763772241019460}
   - component: {fileID: 8839360736419667611}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -546,7 +546,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1108763585665894335}
-  m_Layer: 0
+  - component: {fileID: 4339755306588439542}
+  - component: {fileID: 6182884951208013251}
+  - component: {fileID: 6139588632055061117}
+  m_Layer: 6
   m_Name: Bed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -569,6 +572,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4339755306588439542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5974348853233535799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6351012e23d38ba48a87e6d6c3338ff5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cc: {fileID: 0}
+  child: {fileID: 5290213904249009413}
+--- !u!65 &6182884951208013251
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5974348853233535799}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.3, y: 5.5, z: 5.3}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &6139588632055061117
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5974348853233535799}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 1
 --- !u!1 &6447326112144729125
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,7 +626,7 @@ GameObject:
   - component: {fileID: 3114455847716762548}
   - component: {fileID: 3466801239718719359}
   - component: {fileID: 3566552455836967210}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -663,7 +709,7 @@ GameObject:
   - component: {fileID: 127438889005214816}
   - component: {fileID: 433942675231430243}
   - component: {fileID: 6320687801201650318}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
