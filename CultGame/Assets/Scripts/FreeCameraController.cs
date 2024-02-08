@@ -3,7 +3,7 @@ using UnityEngine;
 public class FreeCameraController : MonoBehaviour
 {
     public float movementSpeed = 5f; // Speed of camera movement
-    public float rotationSpeed = 3f; // Speed of camera rotation
+    //public float rotationSpeed = 3f; // Speed of camera rotation
     public float dragSpeed = 2f; // Speed of camera dragging
 
     private bool isDragging = false;
@@ -13,8 +13,8 @@ public class FreeCameraController : MonoBehaviour
     public KeyCode moveBackwardKey = KeyCode.S;
     public KeyCode strafeLeftKey = KeyCode.A;
     public KeyCode strafeRightKey = KeyCode.D;
-    public KeyCode rotateLeftKey = KeyCode.Q;
-    public KeyCode rotateRightKey = KeyCode.E;
+    //public KeyCode rotateLeftKey = KeyCode.Q;
+    //public KeyCode rotateRightKey = KeyCode.E;
 
     void Update()
     {
@@ -23,22 +23,22 @@ public class FreeCameraController : MonoBehaviour
         // Camera movement controls
         Vector3 movement = Vector3.zero;
         if (Input.GetKey(moveForwardKey))
-            movement += transform.forward;
+            movement += transform.parent.forward;
         if (Input.GetKey(moveBackwardKey))
-            movement -= transform.forward;
+            movement -= transform.parent.forward;
         if (Input.GetKey(strafeLeftKey))
-            movement -= transform.right;
+            movement -= transform.parent.right;
         if (Input.GetKey(strafeRightKey))
-            movement += transform.right;
+            movement += transform.parent.right;
         movement.Normalize();
         movement *= movementSpeed * Time.deltaTime;
         transform.position += movement;
 
         // Camera rotation controls
-        if (Input.GetKey(rotateLeftKey))
+        /*if (Input.GetKey(rotateLeftKey))
             transform.Rotate(Vector3.up, -rotationSpeed);
         if (Input.GetKey(rotateRightKey))
-            transform.Rotate(Vector3.up, rotationSpeed);
+            transform.Rotate(Vector3.up, rotationSpeed);*/
     }
 
     void HandleMouseInput()
