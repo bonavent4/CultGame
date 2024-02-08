@@ -71,7 +71,7 @@ public class DayAndNight : MonoBehaviour
         float nightEnd = (dayStartHour+1f)*60*60;
         float nightStart = (nightStartHour-1f)*60*60;
         float dayEnd = (nightStartHour+1f)*60*60;
-        float dayTime = 0.7f;
+        float dayTime = 0.7f; // Light level of daytime, nighttime = 0.0f
 
         if (time >= dayStart && time < nightEnd)
         {
