@@ -25,9 +25,9 @@ public class TimerTest : MonoBehaviour
         Minutes = Mathf.Round(Mathf.Round(time) / 60);
         time += Time.deltaTime;
 
-        testText.text = timertest.peopleWorkingText;
 
-        print(timertest.peopleWorkingText);
+
+        print(time);
             
         favor.SetFavor((int) Mathf.Round(time));
 

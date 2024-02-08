@@ -25,6 +25,7 @@ public class FavorBar : MonoBehaviour
     }
     void Update()
     {
+
         currentFavor = favorSlider.value;
     }
 }
