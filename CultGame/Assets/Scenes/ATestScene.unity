@@ -1210,8 +1210,8 @@ MonoBehaviour:
   light: {fileID: 2103847060}
   time: 0
   timeText: 
-  nightIntervalInSeconds: 500
-  dayIntervalInSeconds: 400
+  nightIntervalInSeconds: 28800
+  dayIntervalInSeconds: 28800
   dayStartHour: 6
   nightStartHour: 19
   fastForwardMultiplier: 1
@@ -1244,11 +1244,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d1eaeb6ba517a4f9eed865ed6cddb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 95301054}
-  maxDistance: 100
-  cam: {fileID: 873136357}
-  building: {fileID: 4723434033437940095, guid: e49ba05223d17444389e97de1ff220c4, type: 3}
+  buildings: []
+  buildingsGreen: []
+  notBuildBuildings: []
+  gridXandZ: []
   buildingMenu: {fileID: 1110651131}
+  gridDistance: 0
 --- !u!1 &1629319056
 GameObject:
   m_ObjectHideFlags: 0
@@ -1930,7 +1931,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.86989677, b: 0.76862746, a: 1}
-  m_Intensity: 0.7
+  m_Intensity: 0
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
