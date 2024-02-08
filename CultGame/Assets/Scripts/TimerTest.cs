@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class TimerTest : MonoBehaviour
 {
@@ -9,11 +10,13 @@ public class TimerTest : MonoBehaviour
     float Minutes = 0;
     public FavorBar favor;
     public FavorBar content;
+    public WorkTimer timertest;
+    public TextMeshProUGUI testText;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
@@ -22,7 +25,9 @@ public class TimerTest : MonoBehaviour
         Minutes = Mathf.Round(Mathf.Round(time) / 60);
         time += Time.deltaTime;
 
-        print(time);
+        testText.text = timertest.peopleWorkingText;
+
+        print(timertest.peopleWorkingText);
             
         favor.SetFavor((int) Mathf.Round(time));
 
