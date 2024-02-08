@@ -12,27 +12,29 @@ public class PriorityList : MonoBehaviour
     float offset = 0;
     [SerializeField] float plusToOffset;
 
-    [SerializeField] List<GameObject> jobs;
+    public List<GameObject> jobs;
+    public List<int> People;
+    //[SerializeField] List<int> peopleAlreadyWorkingOnIt;
+    public List<string> jobNames;
+    
 
     [SerializeField] float mouseScrollMultiplier;
 
+    
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            AddJobToList("dd");
-        }
         if (Input.mouseScrollDelta.y != 0)
         {
-            if (gameObject.transform.position.y < (maxYPosition - offset - 100) && Input.mouseScrollDelta.y > 0)
+            if (gameObject.transform.position.y < (maxYPosition - offset - 100) && -Input.mouseScrollDelta.y > 0)
             {
                 Debug.Log(Input.mouseScrollDelta.y);
-                gameObject.transform.position += new Vector3(0, Input.mouseScrollDelta.y * mouseScrollMultiplier, 0);
+                gameObject.transform.position += new Vector3(0, -Input.mouseScrollDelta.y * mouseScrollMultiplier, 0);
             }
-            else if (gameObject.transform.position.y > (minYPostion + 100) && Input.mouseScrollDelta.y < 0)
+            else if (gameObject.transform.position.y > (minYPostion + 100) && -Input.mouseScrollDelta.y < 0)
             {
                 Debug.Log(Input.mouseScrollDelta.y);
-                gameObject.transform.position += new Vector3(0, Input.mouseScrollDelta.y * mouseScrollMultiplier, 0);
+                gameObject.transform.position += new Vector3(0, -Input.mouseScrollDelta.y * mouseScrollMultiplier, 0);
             }
 
             ResetJobs();
@@ -40,15 +42,32 @@ public class PriorityList : MonoBehaviour
         }
 
     }
-    public void AddJobToList(string jobName)
+    public void AddJobToList(string jobName, int PeopleNeeded)
     {
         GameObject g = Instantiate(jobPrefab, gameObject.transform);
         g.transform.position += new Vector3(0, offset, 0);
-        g.GetComponentInChildren<TextMeshProUGUI>().text = jobName;
+        g.GetComponentInChildren<TextMeshProUGUI>().text = "0/" + PeopleNeeded + " " + jobName;
 
         offset -= plusToOffset;
         jobs.Add(g);
+        People.Add(PeopleNeeded);
+        jobNames.Add(jobName);
         ResetJobs();
+    }
+    public void RemoveJobFromList(string jobName)
+    {
+
+    }
+    public void UpdateJobFromList(string jobName, int numberOfPeople)
+    {
+        for (int i = 0; i < jobs.Count; i++)
+        {
+            if (jobNames[i] == jobName)
+            {
+                People[i] += numberOfPeople;
+                jobs[i].GetComponentInChildren<TextMeshProUGUI>().text = "0/" + People[i] + " " + jobName;
+            }
+        }
     }
     void ResetJobs()
     {
