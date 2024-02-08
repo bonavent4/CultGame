@@ -13,6 +13,8 @@ public class ResourceSystem : MonoBehaviour
        Item3
     };// your custom enumeration
     
+    public List<float> resources;
+
     // var dropDown = myEnum.Item1;  // this public var should appear as a drop down
 
     // Start is called before the first frame update
@@ -29,8 +31,8 @@ public class ResourceSystem : MonoBehaviour
         
     }
 
-    public void AddResource(string name)
+    public void AddResource(float value)
       {
-         Debug.Log("Adding resource");
+         
       }
 }
