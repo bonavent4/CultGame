@@ -10,14 +10,13 @@ public class WorkCharacters : MonoBehaviour
     ControllCharacters cc;
      PriorityList pList;
 
-    [SerializeField] NavMeshAgent navMeshAgent;
+    
     RaycastHit hit;
 
     [SerializeField] string[] differnetJobs;
     [SerializeField] bool[] isOnList;
 
     public List<GameObject> Workers;
-    List<GameObject> placesToWork = new List<GameObject>();
 
     private void Awake()
     {
@@ -44,20 +43,51 @@ public class WorkCharacters : MonoBehaviour
     {
         if (!isOnList[jobIndex])
         {
-            pList.AddJobToList(differnetJobs[jobIndex], extraPeopleNeeded);
+            pList.AddJobToList(differnetJobs[jobIndex], extraPeopleNeeded, WhereToWork);
             isOnList[jobIndex] = true;
         }
         else
         {
-            pList.UpdateJobFromList(differnetJobs[jobIndex], extraPeopleNeeded);
+            pList.UpdateJobFromList(differnetJobs[jobIndex], extraPeopleNeeded, WhereToWork);
             
         }
-        placesToWork.Add(WhereToWork);
         MakeWorkersWork();
 
     }
     void MakeWorkersWork()
     {
+        int totalNumberOfWorkStations = 0;
+        foreach (int i in pList.numberOfWorkStations)
+        {
+            totalNumberOfWorkStations += i;
+        }
+        int workingStation = 0;
+        int workersUsed = 0;
+      //  for (int i = 0; i < pList.numberOfWorkStations.Count; i++)
+      //  {
+            for (int j = 0; j < totalNumberOfWorkStations; j++)
+            {
+                
+                for (int k = 0; k < pList.workStationPeople[j]; k++)
+                {
+                    Debug.Log(k);
+                    if (workersUsed == Workers.Count)
+                    {
+                       // Debug.Log("used up");
+                        return;
+                        
+                    }
+                    
+                   
+                    Workers[workersUsed].GetComponent<NavMeshAgent>().SetDestination(pList.workStations[workingStation].transform.position);
+                    
+                    workersUsed++;
+                }
+                workingStation++;
+            }
+       // }
+
+        /*bool noMoreWorkLeft = false;
         List<int> PeopleWanted = new List<int>();
         foreach (int i in pList.People)
         {
@@ -65,15 +95,26 @@ public class WorkCharacters : MonoBehaviour
         }
         
         int number = 0;
+
+
         for (int i = 0; i < Workers.Count; i++)
         {
-            if (PeopleWanted[number] == 0)
+            if(number + 1 > PeopleWanted.Count)
+            {
+                noMoreWorkLeft = true;
+            }
+            else if (PeopleWanted[number] == 0 )
                 number++;
 
-            Debug.Log(pList.jobNames[number]);
-            Destroy(gameObject);
-            //if()
-            PeopleWanted[number]--;
-        }
+            if(number + 1 <= PeopleWanted.Count && !noMoreWorkLeft)
+            {
+                Debug.Log(pList.jobNames[number]);
+
+                PeopleWanted[number]--;
+
+            }
+            
+        }*/
+
     }
 }

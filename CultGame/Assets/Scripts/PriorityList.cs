@@ -16,6 +16,9 @@ public class PriorityList : MonoBehaviour
     public List<int> People;
     //[SerializeField] List<int> peopleAlreadyWorkingOnIt;
     public List<string> jobNames;
+    public List<int> numberOfWorkStations;
+    public List<GameObject> workStations;
+    public List<int> workStationPeople;
     
 
     [SerializeField] float mouseScrollMultiplier;
@@ -28,12 +31,12 @@ public class PriorityList : MonoBehaviour
         {
             if (gameObject.transform.position.y < (maxYPosition - offset - 100) && -Input.mouseScrollDelta.y > 0)
             {
-                Debug.Log(Input.mouseScrollDelta.y);
+               // Debug.Log(Input.mouseScrollDelta.y);
                 gameObject.transform.position += new Vector3(0, -Input.mouseScrollDelta.y * mouseScrollMultiplier, 0);
             }
             else if (gameObject.transform.position.y > (minYPostion + 100) && -Input.mouseScrollDelta.y < 0)
             {
-                Debug.Log(Input.mouseScrollDelta.y);
+                //Debug.Log(Input.mouseScrollDelta.y);
                 gameObject.transform.position += new Vector3(0, -Input.mouseScrollDelta.y * mouseScrollMultiplier, 0);
             }
 
@@ -42,7 +45,7 @@ public class PriorityList : MonoBehaviour
         }
 
     }
-    public void AddJobToList(string jobName, int PeopleNeeded)
+    public void AddJobToList(string jobName, int PeopleNeeded, GameObject WorkStation)
     {
         GameObject g = Instantiate(jobPrefab, gameObject.transform);
         g.transform.position += new Vector3(0, offset, 0);
@@ -52,19 +55,25 @@ public class PriorityList : MonoBehaviour
         jobs.Add(g);
         People.Add(PeopleNeeded);
         jobNames.Add(jobName);
+        workStations.Add(WorkStation);
+        workStationPeople.Add(PeopleNeeded);
+        numberOfWorkStations.Add(1);
         ResetJobs();
     }
     public void RemoveJobFromList(string jobName)
     {
 
     }
-    public void UpdateJobFromList(string jobName, int numberOfPeople)
+    public void UpdateJobFromList(string jobName, int numberOfPeople, GameObject WorkStation)
     {
         for (int i = 0; i < jobs.Count; i++)
         {
             if (jobNames[i] == jobName)
             {
                 People[i] += numberOfPeople;
+                workStations.Add(WorkStation);
+                workStationPeople.Add(numberOfPeople);
+                numberOfWorkStations[i]++;
                 jobs[i].GetComponentInChildren<TextMeshProUGUI>().text = "0/" + People[i] + " " + jobName;
             }
         }
