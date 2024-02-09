@@ -14,11 +14,17 @@ public class WorkTimer : MonoBehaviour
     public int workSize;
     public string peopleWorkingText;
     
+    public FavorBar contentbar;
     [SerializeField] Slider workSlider;
     [SerializeField] GameObject canvas;
 
-    
-    
+    private void Start()
+    {
+        int contentLoss;
+        contentLoss = 0-(workSize / peopleWorking * 20);
+        contentbar.SetContent(contentLoss);
+    }
+
     void Update()
     {
         if(peopleWorking > 0)
@@ -46,6 +52,12 @@ public class WorkTimer : MonoBehaviour
 
     public virtual void CompletedTask()
     {
+
+    }
+
+    public void ContentLoss()
+    {
+
 
     }
 }
