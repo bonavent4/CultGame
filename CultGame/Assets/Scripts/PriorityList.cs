@@ -37,12 +37,12 @@ public class PriorityList : MonoBehaviour
         {
             if (gameObject.transform.position.y < (maxYPosition - offset - 100) && -Input.mouseScrollDelta.y > 0)
             {
-                Debug.Log(Input.mouseScrollDelta.y);
+               // Debug.Log(Input.mouseScrollDelta.y);
                 gameObject.transform.position += new Vector3(0, -Input.mouseScrollDelta.y * mouseScrollMultiplier, 0);
             }
             else if (gameObject.transform.position.y > (minYPostion + 100) && -Input.mouseScrollDelta.y < 0)
             {
-                Debug.Log(Input.mouseScrollDelta.y);
+               // Debug.Log(Input.mouseScrollDelta.y);
                 gameObject.transform.position += new Vector3(0, -Input.mouseScrollDelta.y * mouseScrollMultiplier, 0);
             }
 
@@ -73,10 +73,7 @@ public class PriorityList : MonoBehaviour
 
         ResetJobs();
     }
-    public void RemoveJobFromList(string jobName)
-    {
-
-    }
+   
     public void UpdateJobFromList(string jobName, int numberOfPeople, GameObject WorkStation)
     {
         int stations = 0;
@@ -89,12 +86,58 @@ public class PriorityList : MonoBehaviour
                 workStations.Insert(stations, WorkStation);
                 workStationPeople.Insert(stations, numberOfPeople);
                 numberOfWorkStations[i]++;
-                Debug.Log(stations);
+               // Debug.Log(stations);
 
                 UpdateAllNumbers();
               //  jobs[i].GetComponentInChildren<TextMeshProUGUI>().text = "/" + People[i] + " " + jobName;
             }
         }
+    }
+    public void RemoveJobFromList(GameObject TheStation)
+    {
+        int workIndex = workStations.IndexOf(TheStation);
+        //
+        int numberOfStations = 0;
+        int jobIndex = 0;
+
+        for (int i = 0; i < jobs.Count; i++)
+        {
+            numberOfStations += numberOfWorkStations[i];
+            if (workIndex <= numberOfStations)
+            {
+                jobIndex = i;
+                break;
+            }
+        }
+        
+        
+            People[jobIndex] -= workStationPeople[workIndex];
+            numberOfWorkStations[jobIndex] -= 1;
+            workStationPeople.Remove(workStationPeople[workIndex]);
+            workStations.Remove(TheStation);
+
+
+        if(numberOfWorkStations[jobIndex] == 0)
+        {
+            Destroy(jobs[jobIndex]);
+
+            jobs.Remove(jobs[jobIndex]);
+            People.Remove(People[jobIndex]);
+            peopleAlreadyWorkingOnIt.Remove(peopleAlreadyWorkingOnIt[jobIndex]);
+            jobNames.Remove(jobNames[jobIndex]);
+            numberOfWorkStations.Remove(numberOfWorkStations[jobIndex]);
+        }
+        Debug.Log(workIndex);
+        Debug.Log(jobIndex);
+        UpdateAllNumbers();
+        wchar.stopWorkersFromWorking();
+        wchar.MakeWorkersWork();
+
+        if(jobs.Count > 0 && jobIndex !> jobs.Count)
+        {
+
+        }
+
     }
     void UpdateAllNumbers()
     {

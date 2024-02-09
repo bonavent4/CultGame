@@ -51,10 +51,11 @@ public class WorkCharacters : MonoBehaviour
             pList.UpdateJobFromList(differnetJobs[jobIndex], extraPeopleNeeded, WhereToWork);
             
         }
+        stopWorkersFromWorking();
         MakeWorkersWork();
 
     }
-    void MakeWorkersWork()
+    public void MakeWorkersWork()
     {
         int totalNumberOfWorkStations = 0;
         foreach (int i in pList.numberOfWorkStations)
@@ -63,8 +64,6 @@ public class WorkCharacters : MonoBehaviour
         }
         int workingStation = 0;
         int workersUsed = 0;
-      //  for (int i = 0; i < pList.numberOfWorkStations.Count; i++)
-      //  {
             for (int j = 0; j < totalNumberOfWorkStations; j++)
             {
                 
@@ -79,44 +78,27 @@ public class WorkCharacters : MonoBehaviour
                     
                    
                    // Workers[workersUsed].GetComponent<NavMeshAgent>()
-                Workers[workersUsed].GetComponent<PeopleControll>().Work(pList.workStations[workingStation]);
+                   Workers[workersUsed].GetComponent<PeopleControll>().Work(pList.workStations[workingStation]);
                     
                     workersUsed++;
                 }
                 workingStation++;
             }
+    }
 
-
-       // }
-
-        /*bool noMoreWorkLeft = false;
-        List<int> PeopleWanted = new List<int>();
-        foreach (int i in pList.People)
-        {
-            PeopleWanted.Add(i);
-        }
-        
-        int number = 0;
-
-
+    public void stopWorkersFromWorking()
+    {
         for (int i = 0; i < Workers.Count; i++)
         {
-            if(number + 1 > PeopleWanted.Count)
+            if (Workers[i].GetComponent<PeopleControll>().isWorking)
             {
-                noMoreWorkLeft = true;
-            }
-            else if (PeopleWanted[number] == 0 )
-                number++;
-
-            if(number + 1 <= PeopleWanted.Count && !noMoreWorkLeft)
-            {
-                Debug.Log(pList.jobNames[number]);
-
-                PeopleWanted[number]--;
-
+                Workers[i].GetComponent<PeopleControll>().building.GetComponent<WorkTimer>().peopleWorking--;
+                Workers[i].GetComponent<PeopleControll>().isWorking = false;
             }
             
-        }*/
-
+            Workers[i].GetComponent<PeopleControll>().building = null;
+            
+            
+        }
     }
 }

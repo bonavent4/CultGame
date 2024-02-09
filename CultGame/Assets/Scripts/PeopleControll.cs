@@ -7,8 +7,8 @@ public class PeopleControll : MonoBehaviour
 {
     NavMeshAgent navMesh;
 
-    GameObject building;
-
+    public GameObject building;
+    public bool isWorking;
     private void Awake()
     {
         navMesh = gameObject.GetComponent<NavMeshAgent>();
@@ -21,9 +21,11 @@ public class PeopleControll : MonoBehaviour
     }
     private void Update()
     {
-        if (building != null && Vector3.Distance(transform.position, building.transform.position) < 8)
+        if (building != null && Vector3.Distance(transform.position, building.transform.position) < 8 && !isWorking)
         {
             Debug.Log("Working");
+            building.GetComponent<WorkTimer>().peopleWorking++;
+            isWorking = true;
         }
     }
 }

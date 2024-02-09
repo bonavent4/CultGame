@@ -10,48 +10,42 @@ public class WorkTimer : MonoBehaviour
 {
     public int timerMax;
     public float timerValue;
-    public int peopleWorking = 4;
+    public int peopleWorking;
     public int workSize;
     public string peopleWorkingText;
     
     [SerializeField] Slider workSlider;
-    [SerializeField] GameObject child;
+    [SerializeField] GameObject canvas;
 
     
-    // Start is called before the first frame update
-    private void Awake()
-    {
-        
-    }
-    void Start()
-    {
- 
-
-    }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if(peopleWorking > 0)
         {
-            if(!child.activeSelf)
-               child.SetActive(true);
+            if(!workSlider.gameObject.activeSelf)
+               workSlider.gameObject.SetActive(true);
 
             timerValue += ((Time.deltaTime / workSize * peopleWorking) * 20);
             //print(timerValue.ToString());
             if (timerValue >= 100)
             {
-                Destroy(gameObject);
+                CompletedTask();
             }
 
             workSlider.value = timerValue;
         }
-        else if(child.activeSelf)
+        else if(workSlider.gameObject.activeSelf)
         {
-            child.SetActive(false);
+            workSlider.gameObject.SetActive(false);
         }
 
 
-        gameObject.transform.LookAt(Camera.main.transform.position);
+        canvas.transform.LookAt(Camera.main.transform.position);
+    }
+
+    public virtual void CompletedTask()
+    {
+
     }
 }
