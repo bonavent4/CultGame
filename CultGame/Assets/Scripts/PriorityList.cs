@@ -14,16 +14,22 @@ public class PriorityList : MonoBehaviour
 
     public List<GameObject> jobs;
     public List<int> People;
-    //[SerializeField] List<int> peopleAlreadyWorkingOnIt;
+    [SerializeField] List<int> peopleAlreadyWorkingOnIt;
     public List<string> jobNames;
     public List<int> numberOfWorkStations;
     public List<GameObject> workStations;
     public List<int> workStationPeople;
+
     
 
     [SerializeField] float mouseScrollMultiplier;
 
-    
+    WorkCharacters wchar;
+
+    private void Awake()
+    {
+        wchar = FindObjectOfType<WorkCharacters>();
+    }
 
     private void Update()
     {
@@ -31,12 +37,12 @@ public class PriorityList : MonoBehaviour
         {
             if (gameObject.transform.position.y < (maxYPosition - offset - 100) && -Input.mouseScrollDelta.y > 0)
             {
-               // Debug.Log(Input.mouseScrollDelta.y);
+                Debug.Log(Input.mouseScrollDelta.y);
                 gameObject.transform.position += new Vector3(0, -Input.mouseScrollDelta.y * mouseScrollMultiplier, 0);
             }
             else if (gameObject.transform.position.y > (minYPostion + 100) && -Input.mouseScrollDelta.y < 0)
             {
-                //Debug.Log(Input.mouseScrollDelta.y);
+                Debug.Log(Input.mouseScrollDelta.y);
                 gameObject.transform.position += new Vector3(0, -Input.mouseScrollDelta.y * mouseScrollMultiplier, 0);
             }
 
@@ -48,8 +54,6 @@ public class PriorityList : MonoBehaviour
     public void AddJobToList(string jobName, int PeopleNeeded, GameObject WorkStation)
     {
         GameObject g = Instantiate(jobPrefab, gameObject.transform);
-        g.transform.position += new Vector3(0, offset, 0);
-        g.GetComponentInChildren<TextMeshProUGUI>().text = "0/" + PeopleNeeded + " " + jobName;
 
         offset -= plusToOffset;
         jobs.Add(g);
@@ -58,6 +62,15 @@ public class PriorityList : MonoBehaviour
         workStations.Add(WorkStation);
         workStationPeople.Add(PeopleNeeded);
         numberOfWorkStations.Add(1);
+
+
+
+        
+        g.transform.position += new Vector3(0, offset, 0);
+        // g.GetComponentInChildren<TextMeshProUGUI>().text =  "/" + PeopleNeeded + " " + jobName;
+        UpdateAllNumbers();
+
+
         ResetJobs();
     }
     public void RemoveJobFromList(string jobName)
@@ -66,18 +79,43 @@ public class PriorityList : MonoBehaviour
     }
     public void UpdateJobFromList(string jobName, int numberOfPeople, GameObject WorkStation)
     {
+        int stations = 0;
         for (int i = 0; i < jobs.Count; i++)
         {
+            stations += numberOfWorkStations[i];
             if (jobNames[i] == jobName)
             {
                 People[i] += numberOfPeople;
-                workStations.Add(WorkStation);
-                workStationPeople.Add(numberOfPeople);
+                workStations.Insert(stations, WorkStation);
+                workStationPeople.Insert(stations, numberOfPeople);
                 numberOfWorkStations[i]++;
-                jobs[i].GetComponentInChildren<TextMeshProUGUI>().text = "0/" + People[i] + " " + jobName;
+                Debug.Log(stations);
+
+                UpdateAllNumbers();
+              //  jobs[i].GetComponentInChildren<TextMeshProUGUI>().text = "/" + People[i] + " " + jobName;
             }
         }
     }
+    void UpdateAllNumbers()
+    {
+        peopleAlreadyWorkingOnIt = new List<int>();
+        int usableWorkers = wchar.Workers.Count;
+        for (int i = 0; i < People.Count; i++)
+        {
+            if(usableWorkers > People[i])
+            {
+                peopleAlreadyWorkingOnIt.Add(People[i]);
+                usableWorkers -= People[i];
+            }
+            else
+            {
+                peopleAlreadyWorkingOnIt.Add(usableWorkers);
+                usableWorkers = 0;
+            }
+            jobs[i].GetComponentInChildren<TextMeshProUGUI>().text = peopleAlreadyWorkingOnIt[i] + "/" + People[i] + " " + jobNames[i];
+        }
+    }
+    
     void ResetJobs()
     {
         foreach (GameObject g in jobs)

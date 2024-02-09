@@ -85,6 +85,8 @@ public class WorkCharacters : MonoBehaviour
                 }
                 workingStation++;
             }
+
+
        // }
 
         /*bool noMoreWorkLeft = false;
