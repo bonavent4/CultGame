@@ -28,6 +28,8 @@ public class PriorityList : MonoBehaviour
     WorkCharacters wchar;
 
     GameObject PaperToMoveUpAndDown;
+
+    [SerializeField]List<GameObject> previousStations;
     private void Awake()
     {
         wchar = FindObjectOfType<WorkCharacters>();
@@ -190,7 +192,7 @@ public class PriorityList : MonoBehaviour
         }
     }
 
-   /* public void MoveUp()
+    public void MoveUp()
     {
         if(PaperToMoveUpAndDown != null && jobs.IndexOf(PaperToMoveUpAndDown) != 0)
         {
@@ -209,8 +211,8 @@ public class PriorityList : MonoBehaviour
                     workStartIndex += numberOfWorkStations[i];
                 
                 }
-            Debug.Log(workStartIndex);
-            List<GameObject> previousStations = new List<GameObject>();
+            //Debug.Log(workStartIndex);
+           previousStations = new List<GameObject>();
             List<int> previousStationPeople = new List<int>();
 
             People.Remove(People[index]);
@@ -222,7 +224,13 @@ public class PriorityList : MonoBehaviour
             peopleAlreadyWorkingOnIt.Insert(index - 1, PreviousAlreadyWorkingOnit);
             jobNames.Insert(index - 1, previousJobName);
             numberOfWorkStations.Insert(index - 1, PreviousnumberOfWorkStations);
+            int previousWorkStartIndex = 0;
 
+            for (int i = 0; i < index - 1; i++)
+            {
+                previousWorkStartIndex += numberOfWorkStations[i];
+            }
+            int someIndex = 0;
             for (int i = workStartIndex ; i < workStartIndex  + numberOfWorkStations[index - 1]; i++)
             {
                 Debug.Log(i);
@@ -231,28 +239,18 @@ public class PriorityList : MonoBehaviour
 
                 workStations.Remove(workStations[i]);
                 workStationPeople.Remove(workStationPeople[i]);
-            }
-            int previousWorkStartIndex = 0;
-           // if()
-            for (int i = 0; i < index - 1; i++)
-            {
-                previousWorkStartIndex += numberOfWorkStations[i];
-            }
-            int someIndex = 0;
-            for (int i = previousWorkStartIndex ; i < previousWorkStartIndex + numberOfWorkStations[index - 1]; i++)
-            {
-                workStations.Insert(i, previousStations[someIndex]);
-                workStationPeople.Insert(i, previousStationPeople[someIndex]);
+
+                workStations.Insert(previousWorkStartIndex, previousStations[someIndex]);
+                workStationPeople.Insert(previousWorkStartIndex, previousStationPeople[someIndex]);
                 someIndex++;
+                previousWorkStartIndex++;
             }
-
-
-
-
-
+            UpdateAllNumbers();
+            wchar.stopWorkersFromWorking();
+            wchar.MakeWorkersWork();
 
         }
-    }*/
+    }
     public void MoveDown()
     {
         if (PaperToMoveUpAndDown != null)

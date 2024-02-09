@@ -18,12 +18,12 @@ public class WorkTimer : MonoBehaviour
     [SerializeField] Slider workSlider;
     [SerializeField] GameObject canvas;
 
-    private void Start()
+   /* private void Start()
     {
         int contentLoss;
         contentLoss = 0-(workSize / peopleWorking * 20);
         contentbar.SetContent(contentLoss);
-    }
+    }*/
 
     void Update()
     {
