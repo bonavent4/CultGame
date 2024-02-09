@@ -32,5 +32,8 @@ public class FavorBar : MonoBehaviour
     {
 
         currentFavor = favorSlider.value;
+
+        favorSlider.value = currentFavor - Mathf.Round(Time.deltaTime);
     }
+
 }
