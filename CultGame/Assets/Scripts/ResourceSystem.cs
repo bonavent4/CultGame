@@ -34,19 +34,19 @@ public class ResourceSystem : MonoBehaviour
     public int AddResource(float value)
       {
          resources.Add(value);
-         return resources.Count;
+         return resources.Count-1;
       }
     public float UpdateResource(int pos, float value)
     {
-        resources[pos-1] += value;
-        return resources[pos-1];
+        resources[pos] += value;
+        return resources[pos];
     }
     public void SetResource(int pos, float value)
     {
-        resources[pos-1] = value;
+        resources[pos] = value;
     }
     public float GetResource(int pos)
     {
-        return resources[pos-1];
+        return resources[pos];
     }
 }
