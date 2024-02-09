@@ -345,7 +345,9 @@ MonoBehaviour:
   peopleWorking: 4
   workSize: 5
   peopleWorkingText: 
+  contentbar: {fileID: 641672256}
   workSlider: {fileID: 1168798771339468011, guid: c37a37444e11d074bb0f9aab0e7ea5e1, type: 3}
+  canvas: {fileID: 0}
 --- !u!1 &641672254
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,7 +450,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1000
   m_WholeNumbers: 1
-  m_Value: 0
+  m_Value: 503
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

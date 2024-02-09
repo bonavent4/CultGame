@@ -17,11 +17,16 @@ public class FavorBar : MonoBehaviour
     // Start is called before the first frame update
     public void SetFavor(int favor)
     {
-        favorSlider.value = favor;
+        
+        
+            favorSlider.value = favorSlider.value + favor;
+        
     }
     public void SetContent(int content)
     {
-        contentSlider.value = content;
+
+            contentSlider.value = contentSlider.value + content;
+        
     }
     void Update()
     {
