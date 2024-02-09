@@ -48,4 +48,13 @@ public class WorkTimer : MonoBehaviour
     {
 
     }
+
+    public void ContentLoss()
+    {
+        int contentLoss;
+        contentLoss = workSize / peopleWorking*20;
+
+        return contentLoss;
+
+    }
 }
