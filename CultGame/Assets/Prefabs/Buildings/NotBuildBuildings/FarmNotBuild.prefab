@@ -3596,7 +3596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jobIndex: 1
-  peopleNeededForThis: 1
+  peopleNeededForThis: 2
 --- !u!114 &9092451984764048622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3612,7 +3612,7 @@ MonoBehaviour:
   timerMax: 100
   timerValue: 0
   peopleWorking: 0
-  workSize: 3
+  workSize: 2
   peopleWorkingText: 
   workSlider: {fileID: 4795911370352859401}
   canvas: {fileID: 5697565284640139661}

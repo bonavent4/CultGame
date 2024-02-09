@@ -440,8 +440,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97b58aaed5a9c324b9ad0d0f3f6d022a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jobIndex: 1
-  peopleNeededForThis: 1
+  jobIndex: 2
+  peopleNeededForThis: 2
 --- !u!114 &1855936724837576522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -457,7 +457,7 @@ MonoBehaviour:
   timerMax: 100
   timerValue: 0
   peopleWorking: 0
-  workSize: 3
+  workSize: 2
   peopleWorkingText: 
   workSlider: {fileID: 6214023333596894471}
   canvas: {fileID: 4689891265583848679}

@@ -26,6 +26,7 @@ public class PriorityList : MonoBehaviour
 
     WorkCharacters wchar;
 
+    GameObject PaperToMoveUpAndDown;
     private void Awake()
     {
         wchar = FindObjectOfType<WorkCharacters>();
@@ -119,6 +120,17 @@ public class PriorityList : MonoBehaviour
 
         if(numberOfWorkStations[jobIndex] == 0)
         {
+            int stringIndex = 0;
+            for (int i = 0; i < wchar.differnetJobs.Length; i++)
+            {
+                if(jobNames[jobIndex] == wchar.differnetJobs[i])
+                {
+                    stringIndex = i;
+                    break;
+                }
+            }
+            wchar.isOnList[stringIndex] = false;
+
             Destroy(jobs[jobIndex]);
 
             jobs.Remove(jobs[jobIndex]);
@@ -126,6 +138,8 @@ public class PriorityList : MonoBehaviour
             peopleAlreadyWorkingOnIt.Remove(peopleAlreadyWorkingOnIt[jobIndex]);
             jobNames.Remove(jobNames[jobIndex]);
             numberOfWorkStations.Remove(numberOfWorkStations[jobIndex]);
+
+
         }
         Debug.Log(workIndex);
         Debug.Log(jobIndex);
@@ -135,10 +149,11 @@ public class PriorityList : MonoBehaviour
 
         if(jobs.Count > 0 && jobIndex !> jobs.Count)
         {
-
+            //MakeEveryOneMoveUpOne
         }
 
     }
+
     void UpdateAllNumbers()
     {
         peopleAlreadyWorkingOnIt = new List<int>();
@@ -172,5 +187,14 @@ public class PriorityList : MonoBehaviour
                 g.SetActive(true);
             }
         }
+    }
+
+    public void MoveUp()
+    {
+
+    }
+    public void MoveDown()
+    {
+
     }
 }

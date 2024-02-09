@@ -13,8 +13,8 @@ public class WorkCharacters : MonoBehaviour
     
     RaycastHit hit;
 
-    [SerializeField] string[] differnetJobs;
-    [SerializeField] bool[] isOnList;
+    public string[] differnetJobs;
+    public bool[] isOnList;
 
     public List<GameObject> Workers;
 
