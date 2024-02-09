@@ -5,7 +5,8 @@ using TMPro;
 
 public class DayAndNight : MonoBehaviour
 {
-    [SerializeField] GameObject text; // The text
+    [SerializeField] GameObject clocktext; // The text to display current time
+    [SerializeField] GameObject daytext; // The text to display current day
     [SerializeField] GameObject light; // The object that light is adjusted to with day night cycle
     [SerializeField] float time = 0; // The current time tracked in seconds
     [SerializeField] string timeText; // The text which displays the time in hours and minutes.
@@ -14,7 +15,7 @@ public class DayAndNight : MonoBehaviour
     [SerializeField] float dayStartHour; // The hour at which the time of day starts and the time of night ends.
     [SerializeField] float nightStartHour; // The hour at which the time of night starts and the time of day ends.
     public float fastForwardMultiplier = 1; // This multiplier can be used to fast forward time
-    public float day = 0; // Tracking days
+    public float day = 1; // Tracking days
     public bool night = true; // Using a bool we track whether or not the current time of day is considered day or night. false = night, true = day
     void Update()
     {
@@ -84,6 +85,7 @@ public class DayAndNight : MonoBehaviour
         
 
         timeText = inbetweens[0] + Hours.ToString() + ":" + inbetweens[1] + Minutes.ToString();
-        text.GetComponent<TextMeshProUGUI>().text = timeText;
+        clocktext.GetComponent<TextMeshProUGUI>().text = timeText;
+        daytext.GetComponent<TextMeshProUGUI>().text = "Day " + day;
     }
 }
