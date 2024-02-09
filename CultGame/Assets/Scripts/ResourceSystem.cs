@@ -36,7 +36,12 @@ public class ResourceSystem : MonoBehaviour
          resources.Add(value);
          return resources.Count;
       }
-    public void UpdateResource(int pos, float value)
+    public float UpdateResource(int pos, float value)
+    {
+        resources[pos-1] += value;
+        return resources[pos-1];
+    }
+    public void SetResource(int pos, float value)
     {
         resources[pos-1] = value;
     }

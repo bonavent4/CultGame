@@ -10,7 +10,7 @@ public class TestScriptJul : MonoBehaviour
     void Start()
     {
         int Stone = resource.AddResource(20);
-        resource.UpdateResource(Stone,resource.GetResource(Stone)-5);
+        resource.UpdateResource(Stone,+5);
         Debug.Log(resource.GetResource(Stone));
     }
 
