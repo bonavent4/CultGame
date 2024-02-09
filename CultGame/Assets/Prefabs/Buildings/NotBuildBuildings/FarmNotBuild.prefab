@@ -3609,7 +3609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ada0e3a39136564cbbbf2a8ba7babf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerMax: 100
+  timerMax: 1000
   timerValue: 0
   peopleWorking: 0
   workSize: 2

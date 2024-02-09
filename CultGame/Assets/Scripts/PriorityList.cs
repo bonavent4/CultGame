@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class PriorityList : MonoBehaviour
 {
@@ -141,8 +142,8 @@ public class PriorityList : MonoBehaviour
 
 
         }
-        Debug.Log(workIndex);
-        Debug.Log(jobIndex);
+       /* Debug.Log(workIndex);
+        Debug.Log(jobIndex);*/
         UpdateAllNumbers();
         wchar.stopWorkersFromWorking();
         wchar.MakeWorkersWork();
@@ -189,12 +190,83 @@ public class PriorityList : MonoBehaviour
         }
     }
 
-    public void MoveUp()
+   /* public void MoveUp()
     {
+        if(PaperToMoveUpAndDown != null && jobs.IndexOf(PaperToMoveUpAndDown) != 0)
+        {
+            int index = jobs.IndexOf(PaperToMoveUpAndDown);
+           // Debug.Log(index);
 
-    }
+            //GameObject PreviousJob = jobs[index];
+            int previousPeople = People[index];
+            int PreviousAlreadyWorkingOnit = peopleAlreadyWorkingOnIt[index];
+            string previousJobName = jobNames[index];
+            int PreviousnumberOfWorkStations = numberOfWorkStations[index];
+
+            int workStartIndex = 0;
+                for (int i = 0; i < index; i++)
+                {
+                    workStartIndex += numberOfWorkStations[i];
+                
+                }
+            Debug.Log(workStartIndex);
+            List<GameObject> previousStations = new List<GameObject>();
+            List<int> previousStationPeople = new List<int>();
+
+            People.Remove(People[index]);
+            peopleAlreadyWorkingOnIt.Remove(peopleAlreadyWorkingOnIt[index]);
+            jobNames.Remove(jobNames[index]);
+            numberOfWorkStations.Remove(numberOfWorkStations[index]);
+
+            People.Insert(index - 1, previousPeople);
+            peopleAlreadyWorkingOnIt.Insert(index - 1, PreviousAlreadyWorkingOnit);
+            jobNames.Insert(index - 1, previousJobName);
+            numberOfWorkStations.Insert(index - 1, PreviousnumberOfWorkStations);
+
+            for (int i = workStartIndex ; i < workStartIndex  + numberOfWorkStations[index - 1]; i++)
+            {
+                Debug.Log(i);
+                previousStations.Add(workStations[i]);
+                previousStationPeople.Add(workStationPeople[i]);
+
+                workStations.Remove(workStations[i]);
+                workStationPeople.Remove(workStationPeople[i]);
+            }
+            int previousWorkStartIndex = 0;
+           // if()
+            for (int i = 0; i < index - 1; i++)
+            {
+                previousWorkStartIndex += numberOfWorkStations[i];
+            }
+            int someIndex = 0;
+            for (int i = previousWorkStartIndex ; i < previousWorkStartIndex + numberOfWorkStations[index - 1]; i++)
+            {
+                workStations.Insert(i, previousStations[someIndex]);
+                workStationPeople.Insert(i, previousStationPeople[someIndex]);
+                someIndex++;
+            }
+
+
+
+
+
+
+        }
+    }*/
     public void MoveDown()
     {
+        if (PaperToMoveUpAndDown != null)
+        {
 
+        }
+    }
+    public void OnButton(GameObject Paper)
+    {
+        for (int i = 0; i < jobs.Count; i++)
+        {
+            jobs[i].GetComponentInChildren<JobUI>().BackGround.enabled = false;
+        }
+        Paper.GetComponent<JobUI>().BackGround.enabled = true;
+        PaperToMoveUpAndDown = Paper.transform.parent.gameObject;
     }
 }

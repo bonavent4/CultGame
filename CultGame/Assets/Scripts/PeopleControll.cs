@@ -23,7 +23,6 @@ public class PeopleControll : MonoBehaviour
     {
         if (building != null && Vector3.Distance(transform.position, building.transform.position) < 8 && !isWorking)
         {
-            Debug.Log("Working");
             building.GetComponent<WorkTimer>().peopleWorking++;
             isWorking = true;
         }
