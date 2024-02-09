@@ -14,5 +14,13 @@ public class NotBuildBuildings : MonoBehaviour
         workC.UpdateList(jobIndex, peopleNeededForThis, gameObject);
     }
 
+    public void PeopleConstructing()
+    {
+
+    }
+    public void stopConstructing()
+    {
+
+    }
     
 }

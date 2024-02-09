@@ -14,11 +14,14 @@ public class WorkTimer : MonoBehaviour
     public int workSize;
     public string peopleWorkingText;
     
-    public Slider workSlider;
+    [SerializeField] Slider workSlider;
+    [SerializeField] GameObject child;
+
+    
     // Start is called before the first frame update
     private void Awake()
     {
-        workSlider = gameObject.GetComponent<Slider>();
+        
     }
     void Start()
     {
@@ -29,15 +32,26 @@ public class WorkTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timerValue += ((Time.deltaTime/ workSize * peopleWorking)*20);
-        print(timerValue.ToString());
-        if (timerValue >= 100) 
+        if(peopleWorking > 0)
         {
-            Destroy(gameObject);
+            if(!child.activeSelf)
+               child.SetActive(true);
+
+            timerValue += ((Time.deltaTime / workSize * peopleWorking) * 20);
+            //print(timerValue.ToString());
+            if (timerValue >= 100)
+            {
+                Destroy(gameObject);
+            }
+
+            workSlider.value = timerValue;
+        }
+        else if(child.activeSelf)
+        {
+            child.SetActive(false);
         }
 
-        workSlider.value = timerValue;
 
-            
+        gameObject.transform.LookAt(Camera.main.transform.position);
     }
 }

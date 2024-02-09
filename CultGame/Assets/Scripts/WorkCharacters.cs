@@ -70,7 +70,6 @@ public class WorkCharacters : MonoBehaviour
                 
                 for (int k = 0; k < pList.workStationPeople[j]; k++)
                 {
-                    Debug.Log(k);
                     if (workersUsed == Workers.Count)
                     {
                        // Debug.Log("used up");
@@ -79,7 +78,8 @@ public class WorkCharacters : MonoBehaviour
                     }
                     
                    
-                    Workers[workersUsed].GetComponent<NavMeshAgent>().SetDestination(pList.workStations[workingStation].transform.position);
+                   // Workers[workersUsed].GetComponent<NavMeshAgent>()
+                Workers[workersUsed].GetComponent<PeopleControll>().Work(pList.workStations[workingStation]);
                     
                     workersUsed++;
                 }
