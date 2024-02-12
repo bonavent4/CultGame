@@ -862,15 +862,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ada0e3a39136564cbbbf2a8ba7babf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerMax: 1000
+  Multiplier: 20
   timerValue: 0
   peopleWorking: 0
   workSize: 4
   peopleWorkingText: 
+  contentbar: {fileID: 0}
   workSlider: {fileID: 28779363782984451}
   canvas: {fileID: 3938391142966788386}
   NotBuildBuilding: {fileID: 2323986192978930061}
   buildBuilding: {fileID: 7468245607252546738}
+  oldWorkTimer: {fileID: 0}
+  newWorkerTimer: {fileID: 0}
+  JobIndex: 0
+  newPeopleNeeded: 0
 --- !u!1 &3006950377114597641
 GameObject:
   m_ObjectHideFlags: 0

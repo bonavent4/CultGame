@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class WorkTimer : MonoBehaviour
 {
-    public int timerMax;
+    public int Multiplier;
     public float timerValue;
     public int peopleWorking;
     public int workSize;
@@ -18,25 +18,48 @@ public class WorkTimer : MonoBehaviour
     [SerializeField] Slider workSlider;
     [SerializeField] GameObject canvas;
 
-   /* private void Start()
+    PriorityList list;
+    WorkCharacters wChar;
+
+    [SerializeField] GameObject NotBuildBuilding;
+    [SerializeField] GameObject buildBuilding;
+
+    [SerializeField] int JobIndex;
+    [SerializeField] int newPeopleNeeded;
+
+    [SerializeField] bool doneConstructing;
+    public virtual void Awake()
     {
-        int contentLoss;
-        contentLoss = 0-(workSize / peopleWorking * 20);
-        contentbar.SetContent(contentLoss);
-    }*/
+        list = FindObjectOfType<PriorityList>();
+        wChar = FindObjectOfType<WorkCharacters>();
+    }
+    /* private void Start()
+     {
+         int contentLoss;
+         contentLoss = 0-(workSize / peopleWorking * 20);
+         contentbar.SetContent(contentLoss);
+     }*/
 
     void Update()
     {
-        if(peopleWorking > 0)
+        Debug.Log(peopleWorking);
+        if (peopleWorking > 0)
         {
+            
             if(!workSlider.gameObject.activeSelf)
                workSlider.gameObject.SetActive(true);
 
-            timerValue += ((Time.deltaTime / workSize * peopleWorking) * 20);
+            timerValue += ((Time.deltaTime / workSize * peopleWorking) * Multiplier);
             //print(timerValue.ToString());
             if (timerValue >= 100)
             {
-                CompletedTask();
+                if (doneConstructing)
+                    CompletedTask();
+
+                else
+                    DoneWithConstruction();
+
+                timerValue = 0;
             }
 
             workSlider.value = timerValue;
@@ -49,7 +72,20 @@ public class WorkTimer : MonoBehaviour
 
         canvas.transform.LookAt(Camera.main.transform.position);
     }
+    void DoneWithConstruction()
+    {
+        NotBuildBuilding.SetActive(false);
+        buildBuilding.SetActive(true);
+        list.RemoveJobFromList(gameObject);
 
+        if(JobIndex != 0)
+        {
+            wChar.UpdateList(JobIndex, newPeopleNeeded, gameObject);
+        }
+            
+
+        doneConstructing = true;
+    }
     public virtual void CompletedTask()
     {
 

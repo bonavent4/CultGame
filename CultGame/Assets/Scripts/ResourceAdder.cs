@@ -5,21 +5,23 @@ using UnityEngine;
 public class ResourceAdder : WorkTimer
 {
     [SerializeField] ResourceSystem resource;
-    public int stone;
-    // Start is called before the first frame update
-    void Start()
-    {
-        stone = resource.AddResource(0);
-    }
+    [SerializeField] int ResourcePosition;
+    [SerializeField] int plusToResource;
 
-    // Update is called once per frame
-    void Update()
+    // Start is called before the first frame update
+    public override void Awake()
     {
+        base.Awake();
+        resource = FindObjectOfType<ResourceSystem>();
         
     }
 
+    
+
     public override void CompletedTask()
     {
-        resource.UpdateResource(stone,+5);
+        resource.UpdateResource(ResourcePosition, plusToResource);
+        timerValue = 0;
+        Debug.Log("Done");
     }
 }

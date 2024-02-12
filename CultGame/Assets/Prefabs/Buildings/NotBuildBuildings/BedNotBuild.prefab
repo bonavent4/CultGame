@@ -440,7 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97b58aaed5a9c324b9ad0d0f3f6d022a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jobIndex: 2
+  jobIndex: 0
   peopleNeededForThis: 2
 --- !u!114 &1855936724837576522
 MonoBehaviour:
@@ -454,15 +454,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ada0e3a39136564cbbbf2a8ba7babf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerMax: 1000
+  Multiplier: 20
   timerValue: 0
   peopleWorking: 0
   workSize: 2
   peopleWorkingText: 
+  contentbar: {fileID: 0}
   workSlider: {fileID: 6214023333596894471}
   canvas: {fileID: 4689891265583848679}
   NotBuildBuilding: {fileID: 258098786463359565}
   buildBuilding: {fileID: 3675224688482725200}
+  oldWorkTimer: {fileID: 0}
+  newWorkerTimer: {fileID: 0}
+  JobIndex: 0
+  newPeopleNeeded: 0
 --- !u!1 &2919104713249346402
 GameObject:
   m_ObjectHideFlags: 0
