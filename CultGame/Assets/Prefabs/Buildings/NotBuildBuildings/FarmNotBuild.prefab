@@ -3596,7 +3596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jobIndex: 0
-  peopleNeededForThis: 2
+  peopleNeededForThis: 1
 --- !u!114 &4945144501741361285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3609,10 +3609,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70497d50d3d5bc3449ed06e208a84933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Multiplier: 10
+  Multiplier: 4
   timerValue: 0
   peopleWorking: 0
-  workSize: 2
+  workSize: 1
   peopleWorkingText: 
   contentbar: {fileID: 0}
   workSlider: {fileID: 4795911370352859401}
@@ -3620,10 +3620,13 @@ MonoBehaviour:
   NotBuildBuilding: {fileID: 2323142745541757182}
   buildBuilding: {fileID: 139959625022029735}
   JobIndex: 1
-  newPeopleNeeded: 2
+  newPeopleNeeded: 1
+  doneConstructing: 0
+  ContentConstructionRetraction: 3
   resource: {fileID: 0}
   ResourcePosition: 0
   plusToResource: 10
+  ContentBarRetraction: 3
 --- !u!1 &5074501706397029335
 GameObject:
   m_ObjectHideFlags: 0

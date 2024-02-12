@@ -18,7 +18,7 @@ public class WorkTimer : MonoBehaviour
     [SerializeField] Slider workSlider;
     [SerializeField] GameObject canvas;
 
-    PriorityList list;
+    protected PriorityList list;
     WorkCharacters wChar;
 
     [SerializeField] GameObject NotBuildBuilding;
@@ -28,8 +28,13 @@ public class WorkTimer : MonoBehaviour
     [SerializeField] int newPeopleNeeded;
 
     [SerializeField] bool doneConstructing;
+
+    protected TimerTest tTest;
+
+    [SerializeField] int ContentConstructionRetraction;
     public virtual void Awake()
     {
+        tTest = FindObjectOfType<TimerTest>();
         list = FindObjectOfType<PriorityList>();
         wChar = FindObjectOfType<WorkCharacters>();
     }
@@ -74,6 +79,7 @@ public class WorkTimer : MonoBehaviour
     }
     void DoneWithConstruction()
     {
+        tTest.content.SetBar(ContentConstructionRetraction);
         NotBuildBuilding.SetActive(false);
         buildBuilding.SetActive(true);
         list.RemoveJobFromList(gameObject);

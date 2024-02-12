@@ -6,14 +6,18 @@ using TMPro;
 
 public class TimerTest : MonoBehaviour
 {
-    float time = 0;
-    float Minutes = 0;
+    /*float time = 0;
+    float Minutes = 0;*/
     public FavorBar favor;
     public FavorBar content;
     public WorkTimer timertest;
     public TextMeshProUGUI testText;
-    [SerializeField] float multiplier;
-    
+    [SerializeField] float FavorMultiplier;
+    public float contentMultiplier;
+
+
+    public int TotalNumberOfPeople;
+    public int peopleWorking;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +34,20 @@ public class TimerTest : MonoBehaviour
 
        // print(time);
             
-        favor.SetBar(multiplier * Time.deltaTime);
+        favor.SetBar(FavorMultiplier * Time.deltaTime);
+        if(content.currentFavor > 100)
+        {
+            content.currentFavor = 100;
+        }
+        if (favor.currentFavor > 100)
+        {
+            favor.currentFavor = 100;
+        }
+
+        /*  if(peopleWorking > 0)
+          {
+              content.SetBar(contentMultiplier * Time.deltaTime / TotalNumberOfPeople * peopleWorking);
+          }*/
 
 
     } 

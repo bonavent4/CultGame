@@ -104,7 +104,7 @@ public class ControllCharacters : MonoBehaviour
                 isTouchingBuilding = false;
             }
         }
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             placeBuilding = false;
             Destroy(Building);

@@ -862,20 +862,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ada0e3a39136564cbbbf2a8ba7babf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Multiplier: 20
+  Multiplier: 4
   timerValue: 0
   peopleWorking: 0
-  workSize: 4
+  workSize: 3
   peopleWorkingText: 
   contentbar: {fileID: 0}
   workSlider: {fileID: 28779363782984451}
   canvas: {fileID: 3938391142966788386}
   NotBuildBuilding: {fileID: 2323986192978930061}
   buildBuilding: {fileID: 7468245607252546738}
-  oldWorkTimer: {fileID: 0}
-  newWorkerTimer: {fileID: 0}
   JobIndex: 0
   newPeopleNeeded: 0
+  doneConstructing: 0
+  ContentConstructionRetraction: 7
 --- !u!1 &3006950377114597641
 GameObject:
   m_ObjectHideFlags: 0
@@ -1167,7 +1167,7 @@ RectTransform:
   m_GameObject: {fileID: 3938391142966788386}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.000544, y: 0.001088, z: 0.00036266667}
+  m_LocalScale: {x: 0.0004700051, y: 0.00072211307, z: 0.00027611628}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4877975448793197633}

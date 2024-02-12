@@ -9,6 +9,7 @@ public class FavorBar : MonoBehaviour
     public Slider favorSlider;
     public Slider contentSlider;
     public float currentFavor = 100;
+
     void Start()
     {
         favorSlider.value = 100;

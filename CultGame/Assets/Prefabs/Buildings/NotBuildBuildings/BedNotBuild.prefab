@@ -323,7 +323,7 @@ GameObject:
   - component: {fileID: 3630780031560020352}
   - component: {fileID: 8647488559123166725}
   - component: {fileID: 1874682033472839679}
-  - component: {fileID: 1855936724837576522}
+  - component: {fileID: 6111334303904185947}
   m_Layer: 0
   m_Name: BedNotBuild
   m_TagString: Building
@@ -441,8 +441,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jobIndex: 0
-  peopleNeededForThis: 2
---- !u!114 &1855936724837576522
+  peopleNeededForThis: 1
+--- !u!114 &6111334303904185947
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -451,23 +451,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 2825073212240302472}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ada0e3a39136564cbbbf2a8ba7babf9, type: 3}
+  m_Script: {fileID: 11500000, guid: 637a2e3598b449d4c93340ff172caaed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Multiplier: 20
+  Multiplier: 4
   timerValue: 0
   peopleWorking: 0
-  workSize: 2
+  workSize: 1
   peopleWorkingText: 
   contentbar: {fileID: 0}
   workSlider: {fileID: 6214023333596894471}
   canvas: {fileID: 4689891265583848679}
   NotBuildBuilding: {fileID: 258098786463359565}
   buildBuilding: {fileID: 3675224688482725200}
-  oldWorkTimer: {fileID: 0}
-  newWorkerTimer: {fileID: 0}
-  JobIndex: 0
-  newPeopleNeeded: 0
+  JobIndex: 2
+  newPeopleNeeded: 1
+  doneConstructing: 0
+  ContentConstructionRetraction: 3
+  ContentBarRetraction: -3
 --- !u!1 &2919104713249346402
 GameObject:
   m_ObjectHideFlags: 0
