@@ -1477,7 +1477,7 @@ MonoBehaviour:
   contentbar: {fileID: 0}
   workSlider: {fileID: 0}
   canvas: {fileID: 0}
-  resource: {fileID: 0}
+  resource: {fileID: 1571778779}
   stone: 0
 --- !u!1 &1629319056
 GameObject:
