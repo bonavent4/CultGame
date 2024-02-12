@@ -9,6 +9,7 @@ public class PeopleControll : MonoBehaviour
 
     public GameObject building;
     public bool isWorking;
+
     private void Awake()
     {
         navMesh = gameObject.GetComponent<NavMeshAgent>();

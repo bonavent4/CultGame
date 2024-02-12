@@ -43,12 +43,12 @@ public class FreeCameraController : MonoBehaviour
 
     void HandleMouseInput()
     {
-        if (Input.GetMouseButtonDown(0)) // Left mouse button
+        if (Input.GetMouseButtonDown(1)) // Left mouse button
         {
             isDragging = true;
             dragOrigin = Input.mousePosition;
         }
-        else if (Input.GetMouseButtonUp(0)) // Left mouse button released
+        else if (Input.GetMouseButtonUp(1)) // Left mouse button released
         {
             isDragging = false;
         }

@@ -12,6 +12,7 @@ public class TimerTest : MonoBehaviour
     public FavorBar content;
     public WorkTimer timertest;
     public TextMeshProUGUI testText;
+    [SerializeField] float multiplier;
     
     // Start is called before the first frame update
     void Start()
@@ -22,16 +23,15 @@ public class TimerTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Minutes = Mathf.Round(Mathf.Round(time) / 60);
-        time += Time.deltaTime;
+       // Minutes = Mathf.Round(Mathf.Round(time) / 60);
+       // time -= Time.deltaTime * multiplier;
 
 
 
-        print(time);
+       // print(time);
             
-        favor.SetFavor((int) Mathf.Round(time));
+        favor.SetBar(multiplier * Time.deltaTime);
 
-        content.SetContent((int)Mathf.Round(time)*5);
 
     } 
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ResourceSystem : MonoBehaviour
 {
@@ -14,10 +15,19 @@ public class ResourceSystem : MonoBehaviour
     };// your custom enumeration
     
     public List<float> resources;
+    [SerializeField] List<TextMeshProUGUI> resourceText;
+    [SerializeField] List<string> resourceNames;
 
     // var dropDown = myEnum.Item1;  // this public var should appear as a drop down
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        for (int i = 0; i < resourceText.Count; i++)
+        {
+            resourceText[i].text = resourceNames[i] + ": " + resources[i];
+        }
+    }
     void Start()
     {
 
@@ -36,10 +46,13 @@ public class ResourceSystem : MonoBehaviour
          resources.Add(value);
          return resources.Count-1;
       }
-    public float UpdateResource(int pos, float value)
+    public void UpdateResource(int pos, float value)
     {
         resources[pos] += value;
-        return resources[pos];
+
+        resourceText[pos].text = resourceNames[pos] + ": " + resources[pos];
+
+       // return resources[pos];
     }
     public void SetResource(int pos, float value)
     {
