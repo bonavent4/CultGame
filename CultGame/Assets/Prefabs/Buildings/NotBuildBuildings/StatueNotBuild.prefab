@@ -6634,12 +6634,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d58a7d135eb5124b99dfa30ec00282c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Multiplier: 4
   timerValue: 0
   peopleWorking: 0
+  Multiplier: 4
   workSize: 2
-  peopleWorkingText: 
-  contentbar: {fileID: 0}
   workSlider: {fileID: 1203852579420627106}
   canvas: {fileID: 548739335102458178}
   NotBuildBuilding: {fileID: 4980039714051348456}

@@ -8,21 +8,20 @@ using UnityEngine.UI;
 
 public class WorkTimer : MonoBehaviour
 {
-    public int Multiplier;
+    
     public float timerValue;
     public int peopleWorking;
+    public int Multiplier;
     public int workSize;
-    public string peopleWorkingText;
     
-    public FavorBar contentbar;
     [SerializeField] Slider workSlider;
     [SerializeField] GameObject canvas;
 
     protected PriorityList list;
-    WorkCharacters wChar;
+    protected WorkCharacters wChar;
 
     [SerializeField] GameObject NotBuildBuilding;
-    [SerializeField] GameObject buildBuilding;
+    [SerializeField] protected GameObject buildBuilding;
 
     [SerializeField] int JobIndex;
     [SerializeField] int newPeopleNeeded;
@@ -47,7 +46,7 @@ public class WorkTimer : MonoBehaviour
          contentbar.SetContent(contentLoss);
      }*/
 
-    void Update()
+    public virtual void Update()
     {
         if (peopleWorking > 0)
         {
