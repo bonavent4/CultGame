@@ -6,7 +6,6 @@ public class Construction : WorkTimer
 {
     [SerializeField] GameObject Worker;
     [SerializeField] Transform whereToPlaceWorker;
-    WorkCharacters wChar;
     public override void Awake()
     {
         wChar = FindObjectOfType<WorkCharacters>();

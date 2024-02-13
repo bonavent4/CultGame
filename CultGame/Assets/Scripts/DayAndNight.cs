@@ -14,6 +14,7 @@ public class DayAndNight : MonoBehaviour
     [SerializeField] float dayIntervalInSeconds; // How many seconds the game interval by each second. This controls the in-game speed time relative to real time.
     [SerializeField] float dayStartHour; // The hour at which the time of day starts and the time of night ends.
     [SerializeField] float nightStartHour; // The hour at which the time of night starts and the time of day ends.
+    [SerializeField] NotificationScript notif;
     public float fastForwardMultiplier = 1; // This multiplier can be used to fast forward time
     public float day = 1; // Tracking days
     public bool night = true; // Using a bool we track whether or not the current time of day is considered day or night. false = night, true = day
@@ -44,7 +45,7 @@ public class DayAndNight : MonoBehaviour
         {
             time = 0;
             day +=1;
-            NewDay();
+            notif.NewDay();
         }
         //float Seconds = Mathf.Round(time) - 60 * Minutes;
 
