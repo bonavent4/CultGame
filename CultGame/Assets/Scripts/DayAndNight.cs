@@ -8,6 +8,7 @@ public class DayAndNight : MonoBehaviour
     [SerializeField] GameObject clocktext; // The text to display current time
     [SerializeField] GameObject daytext; // The text to display current day
     [SerializeField] GameObject light; // The object that light is adjusted to with day night cycle
+    public GameObject favorBar;
     [SerializeField] float time = 0; // The current time tracked in seconds
     [SerializeField] string timeText; // The text which displays the time in hours and minutes.
     [SerializeField] float nightIntervalInSeconds; // How many seconds the game intervals by each real second. This controls the in-game speed time relative to real time.
@@ -44,7 +45,7 @@ public class DayAndNight : MonoBehaviour
         {
             time = 0;
             day +=1;
-            NewDay();
+            NewDay((int) day);
         }
         //float Seconds = Mathf.Round(time) - 60 * Minutes;
 
@@ -90,8 +91,7 @@ public class DayAndNight : MonoBehaviour
         daytext.GetComponent<TextMeshProUGUI>().text = "Day " + day;
     }
 
-    void NewDay()
+    public void NewDay(int daynumber)
     {
-
+        setFavorlossReference.testreference.setLossMultiplier(daynumber);
     }
-}
