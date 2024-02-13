@@ -32,6 +32,8 @@ public class WorkTimer : MonoBehaviour
     protected TimerTest tTest;
 
     [SerializeField] int ContentConstructionRetraction;
+
+    [SerializeField] AudioSource ConstructionSound;
     public virtual void Awake()
     {
         tTest = FindObjectOfType<TimerTest>();
@@ -49,6 +51,8 @@ public class WorkTimer : MonoBehaviour
     {
         if (peopleWorking > 0)
         {
+            if (!doneConstructing && !ConstructionSound.isPlaying)
+                ConstructionSound.Play();
             
             if(!workSlider.gameObject.activeSelf)
                workSlider.gameObject.SetActive(true);
@@ -71,13 +75,18 @@ public class WorkTimer : MonoBehaviour
         else if(workSlider.gameObject.activeSelf)
         {
             workSlider.gameObject.SetActive(false);
+
+            if (ConstructionSound.isPlaying)
+                ConstructionSound.Stop();
         }
 
 
         canvas.transform.LookAt(Camera.main.transform.position);
     }
-    void DoneWithConstruction()
+    public virtual void DoneWithConstruction()
     {
+        
+
         tTest.content.SetBar(ContentConstructionRetraction);
         NotBuildBuilding.SetActive(false);
         buildBuilding.SetActive(true);

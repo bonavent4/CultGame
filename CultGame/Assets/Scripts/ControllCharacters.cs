@@ -32,13 +32,19 @@ public class ControllCharacters : MonoBehaviour
     //[SerializeField] List<Vector2> PlacedBuildings;
 
     public bool isTouchingBuilding;
+
+    int resourceI;
+    int resourceN;
+
+    ResourceSystem rSystem;
     private void Awake()
     {
         cam = Camera.main;
+        rSystem = FindObjectOfType<ResourceSystem>();
     }
     private void Update()
     {
-        if (placeBuilding)
+        if (placeBuilding )
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, ignoreGreenLayer))
@@ -81,10 +87,12 @@ public class ControllCharacters : MonoBehaviour
     
     void placeBuildings()
     {
+        rSystem.resources[resourceI] -= resourceN;
+        // husk at opdatere resource texten;
+
 
         Instantiate(notBuildBuildings[buildingToPlace], new Vector3(gridPosition.x, hit.point.y, gridPosition.y), Quaternion.identity);
-       /* UnityEditor.AI.NavMeshBuilder.ClearAllNavMeshes();
-        UnityEditor.AI.NavMeshBuilder.BuildNavMesh();*/
+       
     }
     void activateBuildMenu()
     {
@@ -104,7 +112,7 @@ public class ControllCharacters : MonoBehaviour
                 isTouchingBuilding = false;
             }
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || rSystem.resources[resourceI] < resourceN)
         {
             placeBuilding = false;
             Destroy(Building);
@@ -113,10 +121,23 @@ public class ControllCharacters : MonoBehaviour
     }
     public void ChooseBuilding(int index)
     {
-        buildingToPlace = index;
-        placeBuilding = true;
-        buildingMenu.SetActive(false);
-        Building = Instantiate(buildingsGreen[index]);
-        Building.GetComponent<GreenBuilding>().cc = gameObject.GetComponent<ControllCharacters>();
+        if(rSystem.resources[resourceI] >= resourceN)
+        {
+            buildingToPlace = index;
+            placeBuilding = true;
+            buildingMenu.SetActive(false);
+            Building = Instantiate(buildingsGreen[index]);
+            Building.GetComponent<GreenBuilding>().cc = gameObject.GetComponent<ControllCharacters>();
+
+            
+        }
+    }
+    public void IndexResource(int resourceIndex)
+    {
+        resourceI = resourceIndex;
+    }
+    public void NeededResources(int resourcesNeeded)
+    {
+        resourceN = resourcesNeeded;
     }
 }

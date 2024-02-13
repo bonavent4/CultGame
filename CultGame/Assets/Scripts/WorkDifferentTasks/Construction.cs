@@ -4,9 +4,20 @@ using UnityEngine;
 
 public class Construction : WorkTimer
 {
-   
-    public override void CompletedTask()
+    [SerializeField] GameObject Worker;
+    [SerializeField] Transform whereToPlaceWorker;
+    WorkCharacters wChar;
+    public override void Awake()
     {
-        
+        wChar = FindObjectOfType<WorkCharacters>();
+
+        base.Awake();
+    }
+    public override void DoneWithConstruction()
+    {
+        GameObject g = Instantiate(Worker, whereToPlaceWorker.transform.position, Quaternion.identity);
+        wChar.Workers.Add(g);
+
+        base.DoneWithConstruction();
     }
 }
