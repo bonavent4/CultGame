@@ -44,6 +44,7 @@ public class DayAndNight : MonoBehaviour
         {
             time = 0;
             day +=1;
+            NewDay();
         }
         //float Seconds = Mathf.Round(time) - 60 * Minutes;
 
@@ -87,5 +88,10 @@ public class DayAndNight : MonoBehaviour
         timeText = inbetweens[0] + Hours.ToString() + ":" + inbetweens[1] + Minutes.ToString();
         clocktext.GetComponent<TextMeshProUGUI>().text = timeText;
         daytext.GetComponent<TextMeshProUGUI>().text = "Day " + day;
+    }
+
+    void NewDay()
+    {
+
     }
 }
