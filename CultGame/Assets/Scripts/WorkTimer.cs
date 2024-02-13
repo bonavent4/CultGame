@@ -47,7 +47,6 @@ public class WorkTimer : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(peopleWorking);
         if (peopleWorking > 0)
         {
             

@@ -57,32 +57,34 @@ public class WorkCharacters : MonoBehaviour
     }
     public void MakeWorkersWork()
     {
-        int totalNumberOfWorkStations = 0;
+        /*int totalNumberOfWorkStations = 0;
         foreach (int i in pList.numberOfWorkStations)
         {
             totalNumberOfWorkStations += i;
-        }
-        int workingStation = 0;
+        }*/
+        //int workingStation = 0;
         int workersUsed = 0;
-            for (int j = 0; j < totalNumberOfWorkStations; j++)
+            for (int i = 0; i < pList.jobs.Count; i++)
             {
-                
-                for (int k = 0; k < pList.workStationPeople[j]; k++)
+                for (int j = 0; j < pList.jobs[i].GetComponent<JobPaper>().workStations.Count; j++)
                 {
-                    if (workersUsed == Workers.Count)
-                    {
-                       // Debug.Log("used up");
-                        return;
-                        
-                    }
-                    
-                   
-                   // Workers[workersUsed].GetComponent<NavMeshAgent>()
-                   Workers[workersUsed].GetComponent<PeopleControll>().Work(pList.workStations[workingStation]);
-                    
-                    workersUsed++;
+                     for (int k = 0; k < pList.jobs[i].GetComponent<JobPaper>().workStationPeople[j]; k++)
+                     {
+                         if (workersUsed == Workers.Count)
+                         {
+                             // Debug.Log("used up");
+                             return;
+
+                         }
+
+
+                         // Workers[workersUsed].GetComponent<NavMeshAgent>()
+                         Workers[workersUsed].GetComponent<PeopleControll>().Work(pList.jobs[i].GetComponent<JobPaper>().workStations[j]);
+
+                         workersUsed++;
+                     }
                 }
-                workingStation++;
+               
             }
     }
 

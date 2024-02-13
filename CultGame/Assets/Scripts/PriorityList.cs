@@ -7,8 +7,10 @@ using UnityEngine.UI;
 public class PriorityList : MonoBehaviour
 {
     [SerializeField] GameObject jobPrefab;
-    [SerializeField] float maxYPosition;
-    [SerializeField] float minYPostion;
+   /* [SerializeField] float maxYPosition;
+    [SerializeField] float minYPostion;*/
+    [SerializeField] Transform maxUp;
+    [SerializeField] Transform maxDown;
 
     Vector2 ListStartPosition;
 
@@ -16,12 +18,12 @@ public class PriorityList : MonoBehaviour
     [SerializeField] float plusToOffset;
 
     public List<GameObject> jobs;
-    public List<int> People;
+   /* public List<int> People;
     [SerializeField] List<int> peopleAlreadyWorkingOnIt;
     public List<string> jobNames;
     public List<int> numberOfWorkStations;
     public List<GameObject> workStations;
-    public List<int> workStationPeople;
+    public List<int> workStationPeople;*/
 
     
 
@@ -42,12 +44,12 @@ public class PriorityList : MonoBehaviour
     {
         if (Input.mouseScrollDelta.y != 0)
         {
-            if (gameObject.transform.position.y < (maxYPosition - offset - 100) && -Input.mouseScrollDelta.y > 0)
+            if (gameObject.transform.position.y < (maxUp.position.y - offset - 100) && -Input.mouseScrollDelta.y > 0)
             {
                // Debug.Log(Input.mouseScrollDelta.y);
                 gameObject.transform.position += new Vector3(0, -Input.mouseScrollDelta.y * mouseScrollMultiplier, 0);
             }
-            else if (gameObject.transform.position.y > (minYPostion + 100) && -Input.mouseScrollDelta.y < 0)
+            else if (gameObject.transform.position.y > (maxDown.position.y + 100) && -Input.mouseScrollDelta.y < 0)
             {
                // Debug.Log(Input.mouseScrollDelta.y);
                 gameObject.transform.position += new Vector3(0, -Input.mouseScrollDelta.y * mouseScrollMultiplier, 0);
@@ -61,76 +63,73 @@ public class PriorityList : MonoBehaviour
     public void AddJobToList(string jobName, int PeopleNeeded, GameObject WorkStation)
     {
         GameObject g = Instantiate(jobPrefab, gameObject.transform);
+        JobPaper jPaper = g.GetComponent<JobPaper>();
 
-        
         jobs.Add(g);
-        People.Add(PeopleNeeded);
-        jobNames.Add(jobName);
-        workStations.Add(WorkStation);
-        workStationPeople.Add(PeopleNeeded);
-        numberOfWorkStations.Add(1);
 
+        jPaper.People += PeopleNeeded;
+        jPaper.jobNames = jobName;
 
-
+        jPaper.workStations.Add(WorkStation);
+        jPaper.workStationPeople.Add(PeopleNeeded);
         
+
         g.transform.position += new Vector3(0, offset, 0);
         offset -= plusToOffset;
-        // g.GetComponentInChildren<TextMeshProUGUI>().text =  "/" + PeopleNeeded + " " + jobName;
+
         UpdateAllNumbers();
-
-
         ResetJobs();
     }
    
     public void UpdateJobFromList(string jobName, int numberOfPeople, GameObject WorkStation)
     {
-        int stations = 0;
+       // int stations = 0;
         for (int i = 0; i < jobs.Count; i++)
         {
-            stations += numberOfWorkStations[i];
-            if (jobNames[i] == jobName)
+           // stations += numberOfWorkStations[i];
+            if (jobs[i].GetComponent<JobPaper>().jobNames == jobName)
             {
-                People[i] += numberOfPeople;
-                workStations.Insert(stations, WorkStation);
-                workStationPeople.Insert(stations, numberOfPeople);
-                numberOfWorkStations[i]++;
-               // Debug.Log(stations);
+                JobPaper jPaper = jobs[i].GetComponent<JobPaper>();
 
-                UpdateAllNumbers();
-              //  jobs[i].GetComponentInChildren<TextMeshProUGUI>().text = "/" + People[i] + " " + jobName;
+                jPaper.People += numberOfPeople;
+                jPaper.workStations.Add(WorkStation);
+                jPaper.workStationPeople.Add(numberOfPeople);
+
+                
             }
         }
+        UpdateAllNumbers();
     }
     public void RemoveJobFromList(GameObject TheStation)
     {
-        int workIndex = workStations.IndexOf(TheStation);
-        //
-        int numberOfStations = 0;
+        int workIndex = 0;
         int jobIndex = 0;
 
         for (int i = 0; i < jobs.Count; i++)
         {
-            numberOfStations += numberOfWorkStations[i];
-            if (workIndex <= numberOfStations)
+            for (int k = 0; k < jobs[i].GetComponent<JobPaper>().workStations.Count; k++)
             {
-                jobIndex = i;
-                break;
+                if(jobs[i].GetComponent<JobPaper>().workStations[k] == TheStation)
+                {
+
+                    workIndex = k;
+                    jobIndex = i;
+                }
             }
         }
-        
-        
-            People[jobIndex] -= workStationPeople[workIndex];
-            numberOfWorkStations[jobIndex] -= 1;
-            workStationPeople.Remove(workStationPeople[workIndex]);
-            workStations.Remove(TheStation);
+        JobPaper jPaper = jobs[jobIndex].GetComponent<JobPaper>();
+
+           jPaper.People -= jPaper.workStationPeople[workIndex];
+           jPaper.workStationPeople.Remove(jPaper.workStationPeople[workIndex]);
+           jPaper.workStations.Remove(TheStation);
 
 
-        if(numberOfWorkStations[jobIndex] == 0)
+        if(jPaper.workStations.Count == 0)
         {
             int stringIndex = 0;
             for (int i = 0; i < wchar.differnetJobs.Length; i++)
             {
-                if(jobNames[jobIndex] == wchar.differnetJobs[i])
+                if(jPaper.jobNames == wchar.differnetJobs[i])
                 {
                     stringIndex = i;
                     break;
@@ -141,43 +140,36 @@ public class PriorityList : MonoBehaviour
             Destroy(jobs[jobIndex]);
 
             jobs.Remove(jobs[jobIndex]);
-            People.Remove(People[jobIndex]);
-            peopleAlreadyWorkingOnIt.Remove(peopleAlreadyWorkingOnIt[jobIndex]);
-            jobNames.Remove(jobNames[jobIndex]);
-            numberOfWorkStations.Remove(numberOfWorkStations[jobIndex]);
 
             ResetPositions();
         }
-       /* Debug.Log(workIndex);
-        Debug.Log(jobIndex);*/
         UpdateAllNumbers();
         wchar.stopWorkersFromWorking();
         wchar.MakeWorkersWork();
-
-        if(jobs.Count > 0 && jobIndex !> jobs.Count)
-        {
-            //MakeEveryOneMoveUpOne
-        }
-
     }
 
     void UpdateAllNumbers()
     {
-        peopleAlreadyWorkingOnIt = new List<int>();
-        int usableWorkers = wchar.Workers.Count;
-        for (int i = 0; i < People.Count; i++)
+        for (int i = 0; i < jobs.Count; i++)
         {
-            if(usableWorkers > People[i])
+            jobs[i].GetComponent<JobPaper>().peopleAlreadyWorkingOnIt = 0;
+        }
+
+        int usableWorkers = wchar.Workers.Count;
+        for (int i = 0; i < jobs.Count; i++)
+        {
+            JobPaper jPaper = jobs[i].GetComponent<JobPaper>();
+            if (usableWorkers > jPaper.People)
             {
-                peopleAlreadyWorkingOnIt.Add(People[i]);
-                usableWorkers -= People[i];
+                jPaper.peopleAlreadyWorkingOnIt = jPaper.People;
+                usableWorkers -= jPaper.People;
             }
             else
             {
-                peopleAlreadyWorkingOnIt.Add(usableWorkers);
+                jPaper.peopleAlreadyWorkingOnIt = usableWorkers;
                 usableWorkers = 0;
             }
-            jobs[i].GetComponentInChildren<TextMeshProUGUI>().text = peopleAlreadyWorkingOnIt[i] + "/" + People[i] + " " + jobNames[i];
+            jobs[i].GetComponentInChildren<TextMeshProUGUI>().text = jPaper.peopleAlreadyWorkingOnIt + "/" + jPaper.People + " " + jPaper.jobNames;
         }
     }
     
@@ -185,11 +177,11 @@ public class PriorityList : MonoBehaviour
     {
         foreach (GameObject g in jobs)
         {
-            if ((g.transform.position.y < minYPostion || g.transform.position.y > maxYPosition) && g.activeSelf)
+            if ((g.transform.position.y < maxDown.position.y || g.transform.position.y > maxUp.position.y) && g.activeSelf)
             {
                 g.SetActive(false);
             }
-            else if (!g.activeSelf && g.transform.position.y > minYPostion && g.transform.position.y < maxYPosition)
+            else if (!g.activeSelf && g.transform.position.y > maxDown.position.y && g.transform.position.y < maxUp.position.y)
             {
                 g.SetActive(true);
             }
@@ -211,130 +203,37 @@ public class PriorityList : MonoBehaviour
         if(PaperToMoveUpAndDown != null && jobs.IndexOf(PaperToMoveUpAndDown) != 0)
         {
             int index = jobs.IndexOf(PaperToMoveUpAndDown);
-           // Debug.Log(index);
+            GameObject g = jobs[index];
 
-            //GameObject PreviousJob = jobs[index];
-            int previousPeople = People[index];
-            int PreviousAlreadyWorkingOnit = peopleAlreadyWorkingOnIt[index];
-            string previousJobName = jobNames[index];
-            int PreviousnumberOfWorkStations = numberOfWorkStations[index];
+            jobs.Remove(jobs[index]);
+            jobs.Insert(index - 1, g);
 
-            int workStartIndex = 0;
-                for (int i = 0; i < index; i++)
-                {
-                    workStartIndex += numberOfWorkStations[i];
-                
-                }
-            //Debug.Log(workStartIndex);
-           previousStations = new List<GameObject>();
-            List<int> previousStationPeople = new List<int>();
-
-            
-
-            People.Remove(People[index]);
-            peopleAlreadyWorkingOnIt.Remove(peopleAlreadyWorkingOnIt[index]);
-            jobNames.Remove(jobNames[index]);
-            numberOfWorkStations.Remove(numberOfWorkStations[index]);
-
-            People.Insert(index - 1, previousPeople);
-            peopleAlreadyWorkingOnIt.Insert(index - 1, PreviousAlreadyWorkingOnit);
-            jobNames.Insert(index - 1, previousJobName);
-            numberOfWorkStations.Insert(index - 1, PreviousnumberOfWorkStations);
-            
-            int someIndex = 0;
-
-            int previousWorkStartIndex = 0;
-
-            for (int i = 0; i < index - 1; i++)
-            {
-                previousWorkStartIndex += numberOfWorkStations[i];
-            }
-            /*if(previousWorkStartIndex > 0)
-            {
-                previousWorkStartIndex -= 1;
-            }*/
-            Debug.Log(previousWorkStartIndex + ", " + workStartIndex);
-
-            for (int i = workStartIndex ; i < workStartIndex  + numberOfWorkStations[index - 1]; i++)
-            {
-                //Debug.Log(i);
-                previousStations.Add(workStations[i]);
-                previousStationPeople.Add(workStationPeople[i]);
-
-                workStations.Remove(workStations[i]);
-                workStationPeople.Remove(workStationPeople[i]);
-
-                workStations.Insert(previousWorkStartIndex, previousStations[someIndex]);
-                workStationPeople.Insert(previousWorkStartIndex, previousStationPeople[someIndex]);
-                someIndex++;
-                previousWorkStartIndex++;
-            }
+          
             UpdateAllNumbers();
             wchar.stopWorkersFromWorking();
             wchar.MakeWorkersWork();
+            ResetPositions();
 
         }
     }
-    /*public void MoveDown()
+    public void MoveDown()
     {
         if (PaperToMoveUpAndDown != null && jobs.IndexOf(PaperToMoveUpAndDown) != jobs.Count-1)
         {
             int index = jobs.IndexOf(PaperToMoveUpAndDown);
-            // Debug.Log(index);
+            GameObject g = jobs[index];
 
-            //GameObject PreviousJob = jobs[index];
-            int previousPeople = People[index];
-            int PreviousAlreadyWorkingOnit = peopleAlreadyWorkingOnIt[index];
-            string previousJobName = jobNames[index];
-            int PreviousnumberOfWorkStations = numberOfWorkStations[index];
+            jobs.Remove(jobs[index]);
+            jobs.Insert(index + 1, g);
 
-            int workStartIndex = 0;
-            for (int i = 0; i < index; i++)
-            {
-                workStartIndex += numberOfWorkStations[i];
-            }
 
-            previousStations = new List<GameObject>();
-            List<int> previousStationPeople = new List<int>();
-            int previousWorkStartIndex = 0;
-
-            for (int i = 0; i < index + 1; i++)
-            {
-                previousWorkStartIndex += numberOfWorkStations[i];
-            }
-
-            People.Remove(People[index]);
-            peopleAlreadyWorkingOnIt.Remove(peopleAlreadyWorkingOnIt[index]);
-            jobNames.Remove(jobNames[index]);
-            numberOfWorkStations.Remove(numberOfWorkStations[index]);
-
-            People.Insert(index + 1, previousPeople);
-            peopleAlreadyWorkingOnIt.Insert(index + 1, PreviousAlreadyWorkingOnit);
-            jobNames.Insert(index + 1, previousJobName);
-            numberOfWorkStations.Insert(index + 1, PreviousnumberOfWorkStations);
-            
-            Debug.Log(previousWorkStartIndex);
-            int someIndex = 0;
-            for (int i = workStartIndex; i < workStartIndex + numberOfWorkStations[index + 1]; i++)
-            {
-               // Debug.Log(i);
-                previousStations.Add(workStations[i]);
-                previousStationPeople.Add(workStationPeople[i]);
-
-                workStations.Remove(workStations[i]);
-                workStationPeople.Remove(workStationPeople[i]);
-
-                workStations.Insert(previousWorkStartIndex, previousStations[someIndex]);
-                workStationPeople.Insert(previousWorkStartIndex, previousStationPeople[someIndex]);
-                someIndex++;
-                previousWorkStartIndex++;
-            }
             UpdateAllNumbers();
             wchar.stopWorkersFromWorking();
             wchar.MakeWorkersWork();
+            ResetPositions();
 
         }
-    }*/
+    }
     public void OnButton(GameObject Paper)
     {
         for (int i = 0; i < jobs.Count; i++)
