@@ -87,9 +87,9 @@ public class ControllCharacters : MonoBehaviour
     
     void placeBuildings()
     {
-        rSystem.resources[resourceI] -= resourceN;
+       // rSystem.resources[resourceI] -= resourceN;
         // husk at opdatere resource texten;
-
+        rSystem.UpdateResource(resourceI ,-resourceN);
 
         Instantiate(notBuildBuildings[buildingToPlace], new Vector3(gridPosition.x, hit.point.y, gridPosition.y), Quaternion.identity);
        
