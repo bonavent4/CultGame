@@ -76,6 +76,20 @@ public class ControllCharacters : MonoBehaviour
             }
 
         }
+        else
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+                {
+                    if (hit.collider.gameObject.GetComponent<WorkTimer>())
+                    {
+                        hit.collider.gameObject.GetComponent<WorkTimer>().StartTask();
+                    }
+                }
+            }
+        }
        
 
         activateBuildMenu();
