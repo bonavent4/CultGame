@@ -11,15 +11,16 @@ public class ResourceAdder : WorkTimer
     [SerializeField] int ContentBarRetraction;
 
     [SerializeField] GameObject plant;
-    [SerializeField] int GrownJobIndex;
-    [SerializeField] int GrownPeopleNeeded;
+   // [SerializeField] int GrownJobIndex;
+   // [SerializeField] int GrownPeopleNeeded;
 
     Vector3 OriginalScale;
 
     bool growing;
     [SerializeField] float GrowingRate;
 
-    // Start is called before the first frame update
+    [SerializeField] GameObject GrowingIcon;
+
     public override void Awake()
     {
         base.Awake();
@@ -42,7 +43,9 @@ public class ResourceAdder : WorkTimer
             {
                 plant.transform.localScale = OriginalScale;
                 growing = false;
-                wChar.UpdateList(GrownJobIndex, GrownPeopleNeeded, gameObject);
+                ReaddyForTask = true;
+                GrowingIcon.SetActive(false);
+                //wChar.UpdateList(GrownJobIndex, GrownPeopleNeeded, gameObject);
             }
         }
     }
@@ -50,6 +53,7 @@ public class ResourceAdder : WorkTimer
     {
         plant.transform.localScale = new Vector3(0, 0, 0);
         growing = true;
+        GrowingIcon.SetActive(true);
     }
     public override void DoneWithConstruction()
     {
@@ -66,5 +70,6 @@ public class ResourceAdder : WorkTimer
         Debug.Log("Done");
         list.RemoveJobFromList(gameObject);
         startGrowing();
+        
     }
 }

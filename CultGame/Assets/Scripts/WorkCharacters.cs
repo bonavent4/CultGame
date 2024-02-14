@@ -18,6 +18,7 @@ public class WorkCharacters : MonoBehaviour
 
     public List<GameObject> Workers;
 
+
     private void Awake()
     {
         cc = gameObject.GetComponent<ControllCharacters>();
@@ -25,6 +26,8 @@ public class WorkCharacters : MonoBehaviour
     }
     private void Update()
     {
+        
+
       /* if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
        {
            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

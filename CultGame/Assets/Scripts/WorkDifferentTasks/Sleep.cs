@@ -9,6 +9,6 @@ public class Sleep : WorkTimer
     public override void CompletedTask()
     {
         tTest.content.SetBar(ContentBarRetraction );
-        timerValue = 0;
+        base.CompletedTask();
     }
 }

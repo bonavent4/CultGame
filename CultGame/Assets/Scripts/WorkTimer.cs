@@ -15,7 +15,8 @@ public class WorkTimer : MonoBehaviour
     public int workSize;
     
     [SerializeField] Slider workSlider;
-    [SerializeField] GameObject canvas;
+   // [SerializeField] GameObject canvas;
+    [SerializeField] GameObject ReadyIcon;
 
     protected PriorityList list;
     protected WorkCharacters wChar;
@@ -23,10 +24,11 @@ public class WorkTimer : MonoBehaviour
     [SerializeField] GameObject NotBuildBuilding;
     [SerializeField] protected GameObject buildBuilding;
 
-    [SerializeField] int JobIndex;
+    [SerializeField] int newJobIndex;
     [SerializeField] int newPeopleNeeded;
 
     [SerializeField] bool doneConstructing;
+    [SerializeField] protected bool ReaddyForTask;
 
     protected TimerTest tTest;
 
@@ -39,15 +41,21 @@ public class WorkTimer : MonoBehaviour
         list = FindObjectOfType<PriorityList>();
         wChar = FindObjectOfType<WorkCharacters>();
     }
-    /* private void Start()
-     {
-         int contentLoss;
-         contentLoss = 0-(workSize / peopleWorking * 20);
-         contentbar.SetContent(contentLoss);
-     }*/
 
     public virtual void Update()
     {
+        if(ReaddyForTask && doneConstructing && newJobIndex != 0)
+        {
+            if (!ReadyIcon.activeSelf)
+            {
+                ReadyIcon.SetActive(true);
+            }
+        }
+        else if (ReadyIcon.activeSelf)
+        {
+            ReadyIcon.SetActive(false);
+        }
+
         if (peopleWorking > 0)
         {
             if (!doneConstructing && !ConstructionSound.isPlaying)
@@ -80,7 +88,7 @@ public class WorkTimer : MonoBehaviour
         }
 
 
-        canvas.transform.LookAt(Camera.main.transform.position);
+      //  canvas.transform.LookAt(Camera.main.transform.position);
     }
     public virtual void DoneWithConstruction()
     {
@@ -91,24 +99,29 @@ public class WorkTimer : MonoBehaviour
         buildBuilding.SetActive(true);
         list.RemoveJobFromList(gameObject);
 
-        if(JobIndex != 0)
-        {
-            wChar.UpdateList(JobIndex, newPeopleNeeded, gameObject);
-        }
+     
             
 
         doneConstructing = true;
     }
     public virtual void CompletedTask()
     {
-
+        timerValue = 0;
+        list.RemoveJobFromList(gameObject);
+        ReaddyForTask = true;
+    }
+    public virtual void StartTask()
+    {
+          if(newJobIndex != 0 && doneConstructing && ReaddyForTask)
+          {
+               wChar.UpdateList(newJobIndex, newPeopleNeeded, gameObject);
+            ReaddyForTask = false;
+          }
     }
 
-    public void ContentLoss()
+    /*public void ContentLoss()
     {
 
 
-    }
-
-
+    }*/
 }

@@ -17,6 +17,6 @@ public class Pray : WorkTimer
     {
         tTest.content.SetBar(ContentBarRetraction);
         tTest.favor.SetBar(prayAmount);
-        timerValue = 0;
+        base.CompletedTask();
     }
 }
