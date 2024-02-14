@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
-using UnityEditor.AI;
+//using UnityEditor.AI;
 
 
 public class ControllCharacters : MonoBehaviour
