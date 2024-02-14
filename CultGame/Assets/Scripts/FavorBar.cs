@@ -9,7 +9,6 @@ public class FavorBar : MonoBehaviour
     public Slider favorSlider;
     public Slider contentSlider;
     public float currentFavor = 100;
-    float favorLossMultiplier = 1;
 
     void Start()
     {
@@ -21,15 +20,11 @@ public class FavorBar : MonoBehaviour
     {
         currentFavor -= favor; 
         
-            favorSlider.value = Mathf.Round(currentFavor*favorLossMultiplier);
+            favorSlider.value = Mathf.Round(currentFavor);
         
     }
 
-    public void setLossMultiplier(int dayNumber)
-    {
-        favorLossMultiplier = 1+(dayNumber/20);
 
-    }
    /* void Update()
     {
 
@@ -39,3 +34,5 @@ public class FavorBar : MonoBehaviour
     }*/
 
 }
+
+

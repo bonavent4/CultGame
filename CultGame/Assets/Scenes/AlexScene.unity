@@ -8360,6 +8360,7 @@ MonoBehaviour:
   clocktext: {fileID: 1931761067}
   daytext: {fileID: 1985767807}
   light: {fileID: 1074646313}
+  favorBar: {fileID: 230190164}
   time: 0
   timeText: 
   nightIntervalInSeconds: 288
