@@ -8,14 +8,14 @@ using UnityEngine.UI;
 
 public class WorkTimer : MonoBehaviour
 {
-    
+
     public float timerValue;
     public int peopleWorking;
     public int Multiplier;
     public int workSize;
-    
+
     [SerializeField] Slider workSlider;
-   // [SerializeField] GameObject canvas;
+    // [SerializeField] GameObject canvas;
     [SerializeField] GameObject ReadyIcon;
 
     protected PriorityList list;
@@ -44,7 +44,7 @@ public class WorkTimer : MonoBehaviour
 
     public virtual void Update()
     {
-        if(ReaddyForTask && doneConstructing && newJobIndex != 0)
+        if (ReaddyForTask && doneConstructing && newJobIndex != 0)
         {
             if (!ReadyIcon.activeSelf)
             {
@@ -60,9 +60,9 @@ public class WorkTimer : MonoBehaviour
         {
             if (!doneConstructing && !ConstructionSound.isPlaying)
                 ConstructionSound.Play();
-            
-            if(!workSlider.gameObject.activeSelf)
-               workSlider.gameObject.SetActive(true);
+
+            if (!workSlider.gameObject.activeSelf)
+                workSlider.gameObject.SetActive(true);
 
             timerValue += ((Time.deltaTime / workSize * peopleWorking) * Multiplier);
             //print(timerValue.ToString());
@@ -79,7 +79,7 @@ public class WorkTimer : MonoBehaviour
 
             workSlider.value = timerValue;
         }
-        else if(workSlider.gameObject.activeSelf)
+        else if (workSlider.gameObject.activeSelf)
         {
             workSlider.gameObject.SetActive(false);
 
@@ -88,19 +88,19 @@ public class WorkTimer : MonoBehaviour
         }
 
 
-      //  canvas.transform.LookAt(Camera.main.transform.position);
+        //  canvas.transform.LookAt(Camera.main.transform.position);
     }
     public virtual void DoneWithConstruction()
     {
-        
+
 
         tTest.content.SetBar(ContentConstructionRetraction);
         NotBuildBuilding.SetActive(false);
         buildBuilding.SetActive(true);
         list.RemoveJobFromList(gameObject);
 
-     
-            
+
+
 
         doneConstructing = true;
     }
@@ -112,16 +112,12 @@ public class WorkTimer : MonoBehaviour
     }
     public virtual void StartTask()
     {
-          if(newJobIndex != 0 && doneConstructing && ReaddyForTask)
-          {
-               wChar.UpdateList(newJobIndex, newPeopleNeeded, gameObject);
+        if (newJobIndex != 0 && doneConstructing && ReaddyForTask)
+        {
+            wChar.UpdateList(newJobIndex, newPeopleNeeded, gameObject);
             ReaddyForTask = false;
-          }
+        }
     }
 
-    /*public void ContentLoss()
-    {
-
-
-    }*/
+    
 }
