@@ -208,6 +208,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 37045799}
+  - component: {fileID: 37045800}
   m_Layer: 5
   m_Name: ScrollFrame
   m_TagString: Untagged
@@ -245,6 +246,20 @@ RectTransform:
   m_AnchoredPosition: {x: -592.8, y: 320.9}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &37045800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37045798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b87380d610ee14fa0d92124d0f5fb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UpArrow: {fileID: 1016377822}
+  DownArrow: {fileID: 1202318259}
 --- !u!1 &87967170
 GameObject:
   m_ObjectHideFlags: 0
@@ -5349,17 +5364,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1016377822}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.43, y: 0.57, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1505496949}
-  m_RootOrder: 2
+  m_Father: {fileID: 1138776883}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 635.9}
+  m_AnchoredPosition: {x: 847.9199, y: 217.443}
   m_SizeDelta: {x: 60.5, y: 79.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1016377824
@@ -5374,6 +5389,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b87380d610ee14fa0d92124d0f5fb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UpArrow: {fileID: 0}
+  DownArrow: {fileID: 0}
 --- !u!114 &1016377825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5456,9 +5473,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1016377824}
+      - m_Target: {fileID: 37045800}
         m_TargetAssemblyTypeName: ScrollFrameScript, Assembly-CSharp
-        m_MethodName: button_pressed
+        m_MethodName: uppressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5858,6 +5875,8 @@ RectTransform:
   - {fileID: 1589059706}
   - {fileID: 500765931}
   - {fileID: 1505496949}
+  - {fileID: 1202318260}
+  - {fileID: 1016377823}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5877,7 +5896,7 @@ GameObject:
   - component: {fileID: 1202318260}
   - component: {fileID: 1202318263}
   - component: {fileID: 1202318262}
-  - component: {fileID: 1202318261}
+  - component: {fileID: 1202318264}
   m_Layer: 5
   m_Name: DownArrow
   m_TagString: Untagged
@@ -5892,31 +5911,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1202318259}
-  m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.43, y: 0.57, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1505496949}
-  m_RootOrder: 1
+  m_Father: {fileID: 1138776883}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -637.7}
+  m_AnchoredPosition: {x: 847.9199, y: -508.50897}
   m_SizeDelta: {x: 60.5, y: 79.5}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1202318261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1202318259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b87380d610ee14fa0d92124d0f5fb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1202318262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5955,6 +5962,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1202318259}
   m_CullTransparentMesh: 1
+--- !u!114 &1202318264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202318259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1202318262}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 37045800}
+        m_TargetAssemblyTypeName: ScrollFrameScript, Assembly-CSharp
+        m_MethodName: downpressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1298532815
 GameObject:
   m_ObjectHideFlags: 0
@@ -7078,8 +7141,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 37045799}
-  - {fileID: 1202318260}
-  - {fileID: 1016377823}
   m_Father: {fileID: 1138776883}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7432,6 +7493,7 @@ MonoBehaviour:
   clocktext: {fileID: 0}
   daytext: {fileID: 0}
   light: {fileID: 2103847060}
+  favorBar: {fileID: 0}
   time: 0
   timeText: 
   nightIntervalInSeconds: 288

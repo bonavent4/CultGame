@@ -8873,7 +8873,7 @@ MonoBehaviour:
   plusToResource: 10
   ContentBarRetraction: 6
   plant: {fileID: 4396784071704162817}
-  GrowingRate: 0.1
+  GrowingRate: 0.01
   GrowingIcon: {fileID: 8406357616640201776}
 --- !u!82 &5185784080501354038
 AudioSource:
