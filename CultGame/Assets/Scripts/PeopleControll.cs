@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEditor.AI;
+//using UnityEditor.AI;
 public class PeopleControll : MonoBehaviour
 {
     NavMeshAgent navMesh;
