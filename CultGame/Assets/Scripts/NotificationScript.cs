@@ -7,7 +7,7 @@ public class NotificationScript : MonoBehaviour
 {
 
     [SerializeField] GameObject text;
-    [SerializeField] DayAndNight Dayscript;
+    [SerializeField] ResourceSystem resource;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +20,10 @@ public class NotificationScript : MonoBehaviour
         
     }
 
-    void NewDay()
+    public void NewDay()
     {
-      text.GetComponent<TextMeshProUGUI>().text = "pizza";
+      
+      //text.GetComponent<TextMeshProUGUI>().text = resource.Resources[0];
+      
     }
 }

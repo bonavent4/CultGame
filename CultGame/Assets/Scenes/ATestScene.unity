@@ -1453,6 +1453,7 @@ GameObject:
   - component: {fileID: 1571778778}
   - component: {fileID: 1571778779}
   - component: {fileID: 1571778780}
+  - component: {fileID: 1571778781}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -1548,12 +1549,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70497d50d3d5bc3449ed06e208a84933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Multiplier: 0
   timerValue: 0
   peopleWorking: 0
+  Multiplier: 0
   workSize: 0
-  peopleWorkingText: 
-  contentbar: {fileID: 0}
   workSlider: {fileID: 0}
   canvas: {fileID: 0}
   NotBuildBuilding: {fileID: 0}
@@ -1562,10 +1561,28 @@ MonoBehaviour:
   newPeopleNeeded: 0
   doneConstructing: 0
   ContentConstructionRetraction: 0
-  resource: {fileID: 1571778779}
+  ConstructionSound: {fileID: 0}
   ResourcePosition: 0
   plusToResource: 0
   ContentBarRetraction: 0
+  plant: {fileID: 0}
+  GrownJobIndex: 0
+  GrownPeopleNeeded: 0
+  GrowingRate: 0
+--- !u!114 &1571778781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571778775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f020c644b447d4042ac2e14e48d8ac7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 1618650700}
+  Dayscript: {fileID: 1571778776}
 --- !u!1 &1618650700
 GameObject:
   m_ObjectHideFlags: 0
@@ -1578,7 +1595,7 @@ GameObject:
   - component: {fileID: 1618650703}
   - component: {fileID: 1618650702}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: NotificationText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2117,7 +2134,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1985123030}
-  - component: {fileID: 1985123031}
   m_Layer: 5
   m_Name: Notification
   m_TagString: Untagged
@@ -2146,19 +2162,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 129.8}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1985123031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1985123029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f020c644b447d4042ac2e14e48d8ac7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 1618650700}
 --- !u!1 &1991755688
 GameObject:
   m_ObjectHideFlags: 0
