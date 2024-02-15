@@ -10,6 +10,7 @@ public class TutorialScript : MonoBehaviour
     string[] tutorialQuestions = { "Hello, Priest\r\n\r\nPress [Tab] to open the building menu. Here, you will choose a building to place in the world.", "Place buildings in the world, and watch your underlings construct them. Buildings require stone and wood.\r\n\rPress [Space] to skip tutorials.", "This bar illustrates my appeasement with your cult. Keep it high, and i shall reward you. Let it become low, and i shall smite you.", "This bar illustrates the overall happiness of your underlings. If it falls to low, your underlings might leave you or even revolt.", "These are your resources. You will need stone and wood to make new buildings, and food to keep your underlings happy.", "This is your task bar. Tasks at the top will be prioritised, meaning more underlings will do the job. If the job is filled, excess underlings will then do other assignments." };
     [SerializeField] TextMeshProUGUI currentTutorial;
     public GameObject tutorialBackground;
+    public GameObject[] tutorialArrows = new GameObject[5];
     // Start is called before the first frame update
     void Start()
     {
@@ -69,7 +70,8 @@ public class TutorialScript : MonoBehaviour
 
             if (tutorialStage < 6) 
             {
-                currentTutorial.text = tutorialQuestions[tutorialStage];  
+                currentTutorial.text = tutorialQuestions[tutorialStage];
+                
             }
 
         }
