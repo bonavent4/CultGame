@@ -24,8 +24,8 @@ public class WorkTimer : MonoBehaviour
     [SerializeField] GameObject NotBuildBuilding;
     [SerializeField] protected GameObject buildBuilding;
 
-    [SerializeField] int newJobIndex;
-    [SerializeField] int newPeopleNeeded;
+    [SerializeField] protected int newJobIndex;
+    [SerializeField] protected int newPeopleNeeded;
 
     [SerializeField] bool doneConstructing;
     [SerializeField] protected bool ReaddyForTask;

@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using UnityEngine.EventSystems;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ScrollFrameScript : MonoBehaviour//, IPointerEnterHandler//, IPointerExitHandler//, EventTrigger
+public class ScrollFrameScript : MonoBehaviour //, IPointerDownHandler, IPointerUpHandler//, EventTrigger
 {
 
     [SerializeField] GameObject UpArrow;
     [SerializeField] GameObject DownArrow;
-    bool clicked = false;
+    bool down = false;
+    bool up = false;
+    int multiplier = 1;
+    bool scrolling = false;
     //public Button m_YourFirstButton;
     // Start is called before the first frame update
     void Start()
@@ -20,28 +23,54 @@ public class ScrollFrameScript : MonoBehaviour//, IPointerEnterHandler//, IPoint
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(clicked);
-       if (Input.GetMouseButtonDown(0) == true && clicked == true)
+        //Debug.Log(clicked);
+        if (Input.mouseScrollDelta.y != 0 && scrolling)
+        {
+            multiplier = 5;
+        }else{
+            multiplier = 1;
+            //scrolling = false;
+        }
+
+       if (up || (Input.mouseScrollDelta.y == 1 && scrolling))
        {
-            Debug.Log("Here");
-            gameObject.GetComponent<Transform>().position += Vector3.up * 1;
-       }else if (clicked == false && Input.GetMouseButtonDown(0) == false)
+            gameObject.GetComponent<Transform>().position += Vector3.up * 4 * multiplier;
+       }else if (down || (Input.mouseScrollDelta.y == -1 && scrolling))
        {
-              //clicked = false;
+       gameObject.GetComponent<Transform>().position -= Vector3.up * 4 * multiplier;
        }
-       Debug.Log(clicked);
-       Debug.Log(Input.GetMouseButtonDown(0));
+       //Debug.Log(Input.mouseScrollDelta.y);
     }
 
     public void uppressed()
     {
-        clicked = true;
+        up = true;
+        down = false;
+    }
+
+    public void upunpressed()
+    {
+        up = false;
     }
 
     public void downpressed()
     {
-        clicked = true;
-        //ScrollObject.GetComponent<Transform>().position += Vector3.up * 80;
-        Debug.Log(clicked);
+        down = true;
+        up = false;
+    }
+
+    public void downunpressed()
+    {
+        down = false;
+    }
+
+    public void pointerenter()
+    {
+        scrolling = true;
+    }
+
+    public void pointerexit()
+    {
+        scrolling = false;
     }
 }

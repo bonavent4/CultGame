@@ -12,14 +12,30 @@ public class FoodMenu : MonoBehaviour
 
     ResourceSystem rSystem;
 
+    public GameObject child;
+
     private void Awake()
     {
         rSystem = FindObjectOfType<ResourceSystem>();
     }
+    private void Update()
+    {
+        if((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Tab)) && child.activeSelf)
+        {
+            child.SetActive(false);
+        }
+    }
     public void MakeFood(int index)
     {
-        rSystem.UpdateResource(materialIndex[index], materialAmount[index]);
-        // rSystem.UpdateResource(0, FoodAmount[index]);
-        Oven.GetComponent<Oven>().startMakingFood(FoodAmount[index]);
+        
+        if(rSystem.resources[materialIndex[index]] >= (-materialAmount[index]))
+        {
+            Debug.Log(rSystem.resources[materialIndex[index]] + " , " + (-materialAmount[index]));
+            rSystem.UpdateResource(materialIndex[index], materialAmount[index]);
+            // rSystem.UpdateResource(0, FoodAmount[index]);
+            Oven.GetComponent<Oven>().startMakingFood(FoodAmount[index]);
+        }
+       
+        
     }
 }

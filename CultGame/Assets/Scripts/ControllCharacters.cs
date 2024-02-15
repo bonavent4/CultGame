@@ -16,7 +16,7 @@ public class ControllCharacters : MonoBehaviour
 
     [SerializeField] LayerMask ignoreGreenLayer;
 
-    [SerializeField] GameObject[] buildings;
+    //[SerializeField] GameObject[] buildings;
     [SerializeField] GameObject[] buildingsGreen;
     [SerializeField] GameObject[] notBuildBuildings;
     [SerializeField] Vector2[] gridXandZ;

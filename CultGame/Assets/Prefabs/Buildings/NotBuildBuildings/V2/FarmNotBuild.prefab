@@ -1336,7 +1336,7 @@ MonoBehaviour:
   ReaddyForTask: 0
   ContentConstructionRetraction: 6
   ConstructionSound: {fileID: 458733075311377207}
-  ResourcePosition: 0
+  ResourcePosition: 3
   plusToResource: 10
   ContentBarRetraction: 6
   plant: {fileID: 8184757439911201291}
