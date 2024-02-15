@@ -29,16 +29,21 @@ public class Oven : WorkTimer
     }
     public override void StartTask()
     {
-        base.StartTask();
-        ReaddyForTask = true;
-
-        chooseFoodMenu.gameObject.SetActive(true);
-        chooseFoodMenu.Oven = gameObject;
+        //base.StartTask();
+        //ReaddyForTask = true;
+        if (ReaddyForTask)
+        {
+            chooseFoodMenu.child.SetActive(true);
+            chooseFoodMenu.Oven = gameObject;
+        }
+        
     }
     public void startMakingFood(int f)
     {
         foodAmount = f;
 
-
+        wChar.UpdateList(newJobIndex, newPeopleNeeded, gameObject);
+        ReaddyForTask = false;
+        chooseFoodMenu.child.SetActive(false);
     }
 }
