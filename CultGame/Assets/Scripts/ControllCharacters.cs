@@ -33,8 +33,9 @@ public class ControllCharacters : MonoBehaviour
 
     public bool isTouchingBuilding;
 
-    int resourceI;
-    int resourceN;
+    int[] resourceI;
+    int[] resourceN;
+    GameObject BuildButton;
 
     ResourceSystem rSystem;
     private void Awake()
@@ -101,41 +102,70 @@ public class ControllCharacters : MonoBehaviour
     
     void placeBuildings()
     {
-       // rSystem.resources[resourceI] -= resourceN;
+        BuildButton.GetComponent<BuildButton>().buildBuildings++;
+        BuildButton.GetComponent<BuildButton>().UpdateNumberText();
+        // rSystem.resources[resourceI] -= resourceN;
         // husk at opdatere resource texten;
-        rSystem.UpdateResource(resourceI ,-resourceN);
-
+        for (int i = 0; i < resourceI.Length; i++)
+        {
+            rSystem.UpdateResource(resourceI[i], -resourceN[i]);
+        }
+        bool toFewResources = false;
+        for (int i = 0; i < resourceI.Length; i++)
+        {
+            if (rSystem.resources[resourceI[i]] < resourceN[i])
+                toFewResources = true;
+        }
+        if (toFewResources || BuildButton.GetComponent<BuildButton>().maxAllowedBuildings == BuildButton.GetComponent<BuildButton>().buildBuildings)
+        {
+            placeBuilding = false;
+            Destroy(Building);
+            isTouchingBuilding = false;
+        }
         Instantiate(notBuildBuildings[buildingToPlace], new Vector3(gridPosition.x, hit.point.y, gridPosition.y), Quaternion.identity);
        
     }
     void activateBuildMenu()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            if (buildingMenu.activeSelf)
-            {
-                buildingMenu.SetActive(false);
-                Destroy(Building);
-                isTouchingBuilding = false;
-            }
-            else
-            {
-                buildingMenu.SetActive(true);
-                placeBuilding = false;
-                Destroy(Building);
-                isTouchingBuilding = false;
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.Escape) || rSystem.resources[resourceI] < resourceN)
+        /* if (Input.GetKeyDown(KeyCode.Tab))
+         {
+             if (buildingMenu.activeSelf)
+             {
+                 buildingMenu.SetActive(false);
+                 Destroy(Building);
+                 isTouchingBuilding = false;
+             }
+             else
+             {
+                 buildingMenu.SetActive(true);
+                 placeBuilding = false;
+                 Destroy(Building);
+                 isTouchingBuilding = false;
+             }
+         }*/
+        
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             placeBuilding = false;
             Destroy(Building);
             isTouchingBuilding = false;
         }
     }
-    public void ChooseBuilding(int index)
+    public void ChooseBuilding(int index, int[] resourceIndex, int[] resourcesNeeded, GameObject g)
     {
-        if(rSystem.resources[resourceI] >= resourceN)
+        BuildButton = g;
+        resourceI = resourceIndex;
+        resourceN = resourcesNeeded;
+        placeBuilding = false;
+        Destroy(Building);
+        isTouchingBuilding = false;
+        bool toFewResources = false;
+        for (int i = 0; i < resourceI.Length; i++)
+        {
+            if (rSystem.resources[resourceI[i]] < resourceN[i])
+                toFewResources = true;
+        }
+        if (!toFewResources)
         {
             buildingToPlace = index;
             placeBuilding = true;
@@ -146,12 +176,12 @@ public class ControllCharacters : MonoBehaviour
             
         }
     }
-    public void IndexResource(int resourceIndex)
+    /*public void IndexResource(int resourceIndex)
     {
         resourceI = resourceIndex;
     }
     public void NeededResources(int resourcesNeeded)
     {
         resourceN = resourcesNeeded;
-    }
+    }*/
 }

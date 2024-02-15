@@ -20,7 +20,7 @@ public class FoodMenu : MonoBehaviour
     }
     private void Update()
     {
-        if((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Tab)) && child.activeSelf)
+        if((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Tab) ||Input.GetMouseButton(1)) && child.activeSelf)
         {
             child.SetActive(false);
         }

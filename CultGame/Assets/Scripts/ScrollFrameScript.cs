@@ -13,6 +13,8 @@ public class ScrollFrameScript : MonoBehaviour //, IPointerDownHandler, IPointer
     bool up = false;
     int multiplier = 1;
     bool scrolling = false;
+
+    public GameObject[] BuildButtons;
     //public Button m_YourFirstButton;
     // Start is called before the first frame update
     void Start()
