@@ -41,7 +41,7 @@ public class ScrollFrameScript : MonoBehaviour //, IPointerDownHandler, IPointer
        {
        gameObject.GetComponent<Transform>().position -= Vector3.up * 4 * multiplier;
        }
-       Debug.Log(Input.mouseScrollDelta.y);
+       //Debug.Log(Input.mouseScrollDelta.y);
     }
 
     public void uppressed()
