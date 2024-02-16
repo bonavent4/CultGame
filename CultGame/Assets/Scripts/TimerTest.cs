@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using JetBrains.Annotations;
+using UnityEngine.SceneManagement;
 
 public class TimerTest : MonoBehaviour
 {
@@ -59,6 +60,14 @@ public class TimerTest : MonoBehaviour
             content.SetBar(0);
 
             wChar.MakeWorkersWork();
+            if(wChar.Workers.Count == 0)
+            {
+                SceneManager.LoadScene(2);
+            }
+        }
+        if(favor.currentFavor <= 0)
+        {
+            SceneManager.LoadScene(1);
         }
 
 
