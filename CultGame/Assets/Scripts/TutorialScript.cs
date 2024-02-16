@@ -14,6 +14,7 @@ public class TutorialScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 0;
         currentTutorial.text = tutorialQuestions[tutorialStage];
        for (int i = 0; i < tutorialArrows.Length; i++)
         {
@@ -114,6 +115,7 @@ public class TutorialScript : MonoBehaviour
         }
         if (tutorialStage >= 7)
         {
+            Time.timeScale = 1;
             Destroy(tutorialBackground);
             Destroy(currentTutorial);
         }
