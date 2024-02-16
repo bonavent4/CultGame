@@ -21,6 +21,8 @@ public class ResourceAdder : WorkTimer
 
     [SerializeField] GameObject GrowingIcon;
 
+    [SerializeField] AudioSource BushSlashTreeSound;
+
     public override void Awake()
     {
         base.Awake();
@@ -30,6 +32,14 @@ public class ResourceAdder : WorkTimer
     }
     public override void Update()
     {
+        if(peopleWorking > 0 && !BushSlashTreeSound.isPlaying && doneConstructing)
+        {
+            BushSlashTreeSound.Play();
+        }
+        else if (peopleWorking == 0 && BushSlashTreeSound.isPlaying && doneConstructing)
+        {
+            BushSlashTreeSound.Stop();
+        }
         Grow();
 
         base.Update();

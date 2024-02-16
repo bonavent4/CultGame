@@ -1035,7 +1035,6 @@ MonoBehaviour:
   Multiplier: 4
   workSize: 3
   workSlider: {fileID: 7291088609515551622}
-  canvas: {fileID: 6036109372898269566}
   ReadyIcon: {fileID: 1467019659318815288}
   NotBuildBuilding: {fileID: 2323986192978930061}
   buildBuilding: {fileID: 7468245607252546738}
@@ -1047,6 +1046,7 @@ MonoBehaviour:
   ConstructionSound: {fileID: 4763398358046476445}
   Worker: {fileID: 1865202127780715268, guid: 4c24891d44c940d4aa4e1bd7689c7948, type: 3}
   whereToPlaceWorker: {fileID: 6854189418205105488}
+  levelOneUnlocks: 
 --- !u!82 &4763398358046476445
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1059,7 +1059,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8d8c1d3ac6d6af648b474b7a7d9405c3, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.21
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 1
   Mute: 0

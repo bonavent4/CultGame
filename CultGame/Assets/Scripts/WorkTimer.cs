@@ -27,7 +27,7 @@ public class WorkTimer : MonoBehaviour
     [SerializeField] protected int newJobIndex;
     [SerializeField] protected int newPeopleNeeded;
 
-    [SerializeField] bool doneConstructing;
+    [SerializeField] protected bool doneConstructing;
     [SerializeField] protected bool ReaddyForTask;
 
     protected TimerTest tTest;

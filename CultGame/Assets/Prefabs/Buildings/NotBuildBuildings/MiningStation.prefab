@@ -709,7 +709,6 @@ MonoBehaviour:
   Multiplier: 2
   workSize: 4
   workSlider: {fileID: 6702046032423323031}
-  canvas: {fileID: 7775962079910651759}
   ReadyIcon: {fileID: 3203945778830431273}
   NotBuildBuilding: {fileID: 1760098279335483292}
   buildBuilding: {fileID: 5744323557867315079}
@@ -737,7 +736,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8d8c1d3ac6d6af648b474b7a7d9405c3, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.21
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 1
   Mute: 0
