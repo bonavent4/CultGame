@@ -30,10 +30,10 @@ public class ScrollFrameScript : MonoBehaviour
             multiplier = 1;
         }
 
-        if (up || (Input.mouseScrollDelta.y == 1 && scrolling))
+        if (up || (Input.mouseScrollDelta.y == -1 && scrolling))
         {
            gameObject.GetComponent<Transform>().position += Vector3.up * 4 * multiplier;
-        }else if (down || (Input.mouseScrollDelta.y == -1 && scrolling))
+        }else if (down || (Input.mouseScrollDelta.y == 1 && scrolling))
         {
            gameObject.GetComponent<Transform>().position -= Vector3.up * 4 * multiplier;
         }
