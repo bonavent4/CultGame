@@ -1347,6 +1347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   building: {fileID: 0}
   isWorking: 0
+  anim: {fileID: 7384293750441767194}
 --- !u!1 &1865202127783669687
 GameObject:
   m_ObjectHideFlags: 0
@@ -1551,20 +1552,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc1ae266988ef584fae6ee68cc0ef410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Multiplier: 0
   timerValue: 0
   peopleWorking: 0
+  Multiplier: 0
   workSize: 5
-  peopleWorkingText: 
-  contentbar: {fileID: 0}
   workSlider: {fileID: 1865202127783669706}
-  canvas: {fileID: 0}
+  ReadyIcon: {fileID: 0}
   NotBuildBuilding: {fileID: 0}
   buildBuilding: {fileID: 0}
-  JobIndex: 0
+  newJobIndex: 0
   newPeopleNeeded: 0
   doneConstructing: 0
+  ReaddyForTask: 0
   ContentConstructionRetraction: 0
+  ConstructionSound: {fileID: 0}
 --- !u!1 &1974788744842335198
 GameObject:
   m_ObjectHideFlags: 0

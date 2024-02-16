@@ -81,7 +81,8 @@ public class WorkCharacters : MonoBehaviour
                          }
 
 
-                         // Workers[workersUsed].GetComponent<NavMeshAgent>()
+                    // Workers[workersUsed].GetComponent<NavMeshAgent>()
+                         
                          Workers[workersUsed].GetComponent<PeopleControll>().Work(pList.jobs[i].GetComponent<JobPaper>().workStations[j]);
 
                          workersUsed++;
@@ -97,6 +98,7 @@ public class WorkCharacters : MonoBehaviour
         {
             if (Workers[i].GetComponent<PeopleControll>().isWorking)
             {
+                Workers[i].GetComponent<PeopleControll>().StandStill();
                 Workers[i].GetComponent<PeopleControll>().building.GetComponent<WorkTimer>().peopleWorking--;
                 Workers[i].GetComponent<PeopleControll>().isWorking = false;
             }

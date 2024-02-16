@@ -20,10 +20,12 @@ public class TimerTest : MonoBehaviour
 
     public int TotalNumberOfPeople;
     public int peopleWorking;
+
+    WorkCharacters wChar;
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-       
+        wChar = FindObjectOfType<WorkCharacters>();
     }
 
     // Update is called once per frame
@@ -46,6 +48,18 @@ public class TimerTest : MonoBehaviour
             favor.currentFavor = 100;
         }
 
+
+        if(content.currentFavor <= 0)
+        {
+            wChar.stopWorkersFromWorking();
+            wChar.Workers[0].GetComponent<PeopleControll>().Die();
+            wChar.Workers.Remove(wChar.Workers[0]);
+
+            content.currentFavor = 20;
+            content.SetBar(0);
+
+            wChar.MakeWorkersWork();
+        }
 
 
 

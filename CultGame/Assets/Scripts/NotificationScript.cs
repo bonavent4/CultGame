@@ -11,6 +11,7 @@ public class NotificationScript : MonoBehaviour
     WorkCharacters wChar;
     TimerTest tTest;
     [SerializeField] GameObject ContentText;
+    [SerializeField] float maxCultHLoss;
     
     // Start is called before the first frame update
     void Start()
@@ -28,19 +29,21 @@ public class NotificationScript : MonoBehaviour
 
     public void NewDay()
     {
-        text.transform.parent.gameObject.SetActive(true);
-        float previous = resource.resources[0];
-        resource.UpdateResource(0, -10 * wChar.Workers.Count);
         float foodRequired = wChar.Workers.Count * 10;
-        if(resource.resources[0] < foodRequired)
+        if (resource.resources[0] < foodRequired)
         {
             foodRequired = resource.resources[0];
         }
-        tTest.content.SetBar(-30 * (foodRequired / (wChar.Workers.Count * 10)));
+        text.transform.parent.gameObject.SetActive(true);
+        float previous = resource.resources[0];
+        resource.UpdateResource(0, -foodRequired);
+        
+        tTest.content.SetBar(-((maxCultHLoss/ (wChar.Workers.Count * 10) * foodRequired) - maxCultHLoss));
+        
         
         Time.timeScale = 0;
         text.GetComponent<TextMeshProUGUI>().text = "Food Loss: " + previous + " - " + (10 * wChar.Workers.Count).ToString();
-        ContentText.GetComponent<TextMeshProUGUI>().text = "Content Gain: + " + (30 * (foodRequired / (wChar.Workers.Count * 10))).ToString();
+        ContentText.GetComponent<TextMeshProUGUI>().text = "Content loss: " + ((maxCultHLoss / (wChar.Workers.Count * 10) * foodRequired) - maxCultHLoss).ToString();
     }
     public void startTimeAgain()
     {

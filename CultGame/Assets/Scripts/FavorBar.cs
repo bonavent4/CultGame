@@ -20,7 +20,7 @@ public class FavorBar : MonoBehaviour
     {
         currentFavor -= favor; 
         
-            favorSlider.value = Mathf.Round(currentFavor);
+            favorSlider.value = currentFavor;
         
     }
 
