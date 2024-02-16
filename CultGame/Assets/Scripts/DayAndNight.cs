@@ -47,6 +47,7 @@ public class DayAndNight : MonoBehaviour
             time = 0;
             day += 1;
             notif.NewDay();
+            NewDay((int) day);
         }
         //float Seconds = Mathf.Round(time) - 60 * Minutes;
 
