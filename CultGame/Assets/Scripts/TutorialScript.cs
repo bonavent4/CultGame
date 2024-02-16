@@ -8,9 +8,13 @@ public class TutorialScript : MonoBehaviour
     int tutorialStage = 0;
     public float tutorialTimer = 0;
     string[] tutorialQuestions = { "Hello, Priest\r\n\r\nThis is the building menu. Here, you will choose a building to place in the world. Press [Space] to skip tutorials.", "Place buildings in the world, and watch your underlings construct them. Buildings require stone and wood.", "This bar illustrates my appeasement with your cult. Keep it high, and i shall reward you. Let it become low, and i shall smite you.", "This bar illustrates the overall happiness of your underlings. If it falls to low, your underlings might leave you or even revolt.", "These are your resources. You will need stone and wood to make new buildings, and food to keep your underlings happy.", "This is your task bar. Tasks at the top will be prioritised, meaning more underlings will do the job. If the job is filled, excess underlings will then do other assignments.", "Some buildings allow interaction after construction. These buildings have a resource icon above them. Click on these buildings when the icon is green, and a job will be placed in the task bar" };
+    string[] taskQuestions = { "Click on a tree to harvest wood, then use the wood to build a town hall", "Build a mine, then use the stone to build a prayer stand. You will also need wood" };
+
     [SerializeField] TextMeshProUGUI currentTutorial;
+    [SerializeField] TextMeshProUGUI taskScroll;
     public GameObject tutorialBackground;
     [SerializeField] GameObject[] tutorialArrows = new GameObject[5];
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +34,11 @@ public class TutorialScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (tutorialStage < 1)
+        {
+            taskScroll.text = taskQuestions[tutorialStage];
+
+        }
         print(tutorialStage);
         if (Input.GetKeyDown(KeyCode.Space) && tutorialStage < 1) 
         {
