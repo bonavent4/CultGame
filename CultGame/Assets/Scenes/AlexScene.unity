@@ -11070,13 +11070,13 @@ MonoBehaviour:
   UpArrow: {fileID: 1515780293}
   DownArrow: {fileID: 1746627329}
   BuildButtons:
-  - {fileID: 2130973571}
+  - {fileID: 1375636677}
   - {fileID: 216700765}
-  - {fileID: 195906295}
-  - {fileID: 513737830}
-  - {fileID: 800372677}
-  - {fileID: 1177550736}
-  - {fileID: 892184741}
+  - {fileID: 1674347190}
+  - {fileID: 795407501}
+  - {fileID: 2122917867}
+  - {fileID: 1192292150}
+  - {fileID: 449237929}
 --- !u!224 &1300954659
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13561,6 +13561,7 @@ MonoBehaviour:
   - Wood
   - Stone
   - Berries
+  buildButtonController: {fileID: 0}
 --- !u!114 &1577224407
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -510,7 +510,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerValue: 0
   peopleWorking: 0
-  Multiplier: 4
+  Multiplier: 6
   workSize: 3
   workSlider: {fileID: 3614253581083943447}
   ReadyIcon: {fileID: 8896273083660099451}
@@ -525,6 +525,8 @@ MonoBehaviour:
   Worker: {fileID: 1865202127780715268, guid: 4c24891d44c940d4aa4e1bd7689c7948, type: 3}
   whereToPlaceWorker: {fileID: 7064241757372657039}
   levelOneUnlocks: 00000000020000000100000003000000010000000300000001000000
+  sFScript: {fileID: 0}
+  numberOfPeopleToSpawn: 1
 --- !u!82 &9155042985866225730
 AudioSource:
   m_ObjectHideFlags: 0

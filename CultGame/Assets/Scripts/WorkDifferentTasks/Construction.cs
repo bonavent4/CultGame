@@ -9,7 +9,8 @@ public class Construction : WorkTimer
 
     [SerializeField] int[] levelOneUnlocks;
 
-    ScrollFrameScript sFScript;
+    [SerializeField] ScrollFrameScript sFScript;
+    [SerializeField] int numberOfPeopleToSpawn;
     public override void Awake()
     {
         wChar = FindObjectOfType<WorkCharacters>();
@@ -19,15 +20,20 @@ public class Construction : WorkTimer
     }
     public override void DoneWithConstruction()
     {
-        GameObject g = Instantiate(Worker, whereToPlaceWorker.transform.position, Quaternion.identity);
-        wChar.Workers.Add(g);
+        for (int i = 0; i < numberOfPeopleToSpawn; i++)
+        {
+            GameObject g = Instantiate(Worker, whereToPlaceWorker.transform.position, Quaternion.identity);
+            wChar.Workers.Add(g);
+        }
+        
 
-        for (int i = 0; i < sFScript.BuildButtons.Length; i++)
+        for (int i = 0; i < levelOneUnlocks.Length; i++)
         {
             sFScript.BuildButtons[i].GetComponent<BuildButton>().maxAllowedBuildings += levelOneUnlocks[i];
             sFScript.BuildButtons[i].transform.parent.gameObject.SetActive(true);
             sFScript.BuildButtons[i].GetComponent<BuildButton>().check();
         }
+        timerValue = 0;
 
         base.DoneWithConstruction();
     }
