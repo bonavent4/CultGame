@@ -73,7 +73,7 @@ public class Cow : WorkTimer
     }
     void startFeeding()
     {
-        resource.UpdateResource(- berryIndex, berryAmount);
+        resource.UpdateResource(berryIndex, -berryAmount);
     }
     public override void StartTask()
     {
@@ -82,10 +82,16 @@ public class Cow : WorkTimer
             if(Coww.transform.localScale != OriginalScale && resource.resources[berryIndex] >= berryAmount)
             {
                 startFeeding();
+                wChar.UpdateList(newJobIndex, newPeopleNeeded, gameObject);
+                ReaddyForTask = false;
+            }
+            else if(Coww.transform.localScale == OriginalScale)
+            {
+                wChar.UpdateList(newJobIndex, newPeopleNeeded, gameObject);
+                ReaddyForTask = false;
             }
             
-            wChar.UpdateList(newJobIndex, newPeopleNeeded, gameObject);
-            ReaddyForTask = false;
+           
         }
     }
     public override void CompletedTask()
@@ -99,10 +105,19 @@ public class Cow : WorkTimer
         {
             resource.UpdateResource(ResourcePosition, plusToResource);
             Coww.transform.localScale = SmallCowScale;
+            ReaddyForTask = true;
         }
         else
         {
             startGrowing();
         }
+        
+    }
+    public override void DoneWithConstruction()
+    {
+        base.DoneWithConstruction();
+
+        ReaddyForTask = true;
+        Coww.transform.localScale = SmallCowScale;
     }
 }
