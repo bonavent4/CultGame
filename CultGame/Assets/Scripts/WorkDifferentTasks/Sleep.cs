@@ -14,10 +14,10 @@ public class Sleep : WorkTimer
 
     public override void CompletedTask()
     {
-        tTest.content.SetBar(ContentBarRetraction );
+        tTest.content.SetBar(ContentBarRetraction);
         base.CompletedTask();
 
-        if (tutReference.tutorialStage == 0)
+        if (tutReference.tutorialStage == 5)
         {
             tutReference.IncreaseTutorialStage();
         }

@@ -98,7 +98,7 @@ public class WorkTimer : MonoBehaviour
     {
 
 
-        tTest.content.SetBar(ContentConstructionRetraction);
+      //  tTest.content.SetBar(ContentConstructionRetraction);
         NotBuildBuilding.SetActive(false);
         buildBuilding.SetActive(true);
         list.RemoveJobFromList(gameObject);
