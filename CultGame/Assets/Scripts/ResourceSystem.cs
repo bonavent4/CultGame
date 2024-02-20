@@ -43,10 +43,10 @@ public class ResourceSystem : MonoBehaviour
     }
 
     public int AddResource(float value)
-      {
-         resources.Add(value);
-         return resources.Count-1;
-      }
+    {
+        resources.Add(value);
+        return resources.Count-1;
+    }
     public void UpdateResource(int pos, float value)
     {
         resources[pos] += value;
@@ -54,7 +54,7 @@ public class ResourceSystem : MonoBehaviour
         resourceText[pos].text = resourceNames[pos] + ": " + resources[pos];
 
         //buildButtonController.GreyOut();
-       // return resources[pos];
+        // return resources[pos];
     }
     public void SetResource(int pos, float value)
     {
