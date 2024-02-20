@@ -214,6 +214,12 @@ public class PriorityList : MonoBehaviour
             wchar.MakeWorkersWork();
             ResetPositions();
 
+
+            if (tutorialProgressReference.tutorialscriptReference.tutorialStage == 6)
+            {
+                tutorialProgressReference.tutorialscriptReference.IncreaseTutorialStage();
+            }
+
         }
     }
     public void MoveDown()

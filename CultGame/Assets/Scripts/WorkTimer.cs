@@ -116,6 +116,13 @@ public class WorkTimer : MonoBehaviour
         {
             wChar.UpdateList(newJobIndex, newPeopleNeeded, gameObject);
             ReaddyForTask = false;
+
+            if (tutorialProgressReference.tutorialscriptReference.tutorialStage == 0)
+            {
+                tutorialProgressReference.tutorialscriptReference.IncreaseTutorialStage();
+            }
+
+
         }
     }
 

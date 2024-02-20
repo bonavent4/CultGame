@@ -10,5 +10,10 @@ public class Sleep : WorkTimer
     {
         tTest.content.SetBar(ContentBarRetraction );
         base.CompletedTask();
+
+        if (tutorialProgressReference.tutorialscriptReference.tutorialStage == 5)
+        {
+            tutorialProgressReference.tutorialscriptReference.IncreaseTutorialStage();
+        }
     }
 }

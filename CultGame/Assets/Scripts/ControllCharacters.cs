@@ -136,7 +136,12 @@ public class ControllCharacters : MonoBehaviour
         }
         Instantiate(notBuildBuildings[buildingToPlace], new Vector3(gridPosition.x, hit.point.y, gridPosition.y), Quaternion.identity);
        
+        if (tutorialProgressReference.tutorialscriptReference.tutorialStage == 1)
+        {
+            tutorialProgressReference.tutorialscriptReference.IncreaseTutorialStage();
+        }
     }
+
     void activateBuildMenu()
     {
         /* if (Input.GetKeyDown(KeyCode.Tab))
