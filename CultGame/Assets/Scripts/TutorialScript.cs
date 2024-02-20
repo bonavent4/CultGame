@@ -21,11 +21,12 @@ public class TutorialScript : MonoBehaviour
     [SerializeField] TextMeshProUGUI taskScroll;
     public GameObject tutorialBackground;
     [SerializeField] GameObject[] tutorialArrows = new GameObject[5];
+   
+
 
     // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 0;
         currentTutorial.text = tutorialQuestions[tutorialStage];
        for (int i = 0; i < tutorialArrows.Length; i++)
         {
@@ -41,102 +42,15 @@ public class TutorialScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         currentTutorial.text = tutorialQuestions[tutorialStage];
-        //if (tutorialStage < 1)
-        {
-            taskScroll.text = taskQuestions[tutorialStage];
-
-        }
-        print(tutorialStage);
-        //if (Input.GetKeyDown(KeyCode.Space) && tutorialStage < 1) 
-        {
-            tutorialStage++;
-            currentTutorial.text = tutorialQuestions[tutorialStage];
-            tutorialTimer = 0;
-            
-        }
-        //else if (Input.GetKeyDown(KeyCode.Space) && tutorialStage == 1)
-        {
-            tutorialArrows[tutorialStage - 1].SetActive(false);
-            tutorialStage++;
-            tutorialArrows[tutorialStage - 1].SetActive(true);
-
-            currentTutorial.text = tutorialQuestions[tutorialStage];
-            tutorialTimer = 0;
-
-        }
-        //else if (Input.GetKeyDown(KeyCode.Space) && tutorialStage == 2)
-        {
-            tutorialArrows[tutorialStage-1].SetActive(false);
-            tutorialStage++;
-            tutorialArrows[tutorialStage-1].SetActive(true);
-            currentTutorial.text = tutorialQuestions[tutorialStage];
-            tutorialTimer = 0;
-        }
-        //else if (Input.GetKeyDown(KeyCode.Space) && tutorialStage == 3)
-        {
-            tutorialArrows[tutorialStage-1].SetActive(false);
-            tutorialStage++;
-            tutorialArrows[tutorialStage-1].SetActive(true);
-            currentTutorial.text = tutorialQuestions[tutorialStage];
-            tutorialTimer = 0;
-        }
         if (Input.GetKeyDown(KeyCode.Space) && tutorialStage == 4)
         {
  
             tutorialStage++;
           
         }
-        //if (Input.GetKeyDown(KeyCode.Space) && tutorialStage == 5)
-        {
-            
-            tutorialStage++;
-            
-            
-
-        }
-        //else if (Input.GetKeyDown(KeyCode.Space) && tutorialStage == 6)
-        {
-            tutorialStage++;
-            currentTutorial.text = tutorialQuestions[tutorialStage];
-            tutorialTimer = 0;
-
-        }
-
-        //if (tutorialTimer < 25 && tutorialStage >= 1)
-        {
-            tutorialTimer += Time.deltaTime;
-        }
-        //else if (tutorialTimer > 25 && tutorialStage >= 1)
-        {
-            tutorialTimer = 0;
-
-            tutorialStage++;
-
-            if (tutorialStage < 7) 
-            {
-
-
-                
-               tutorialArrows[tutorialStage-1].SetActive(false);
-               tutorialArrows[tutorialStage].SetActive(true);
-                
-
-                currentTutorial.text = tutorialQuestions[tutorialStage];
-                
-            }
-
-
-        }
-        //if (tutorialStage >= 7)
-        {
-            Time.timeScale = 1;
-            Destroy(tutorialBackground);
-            Destroy(currentTutorial);
-        }
-
-
-
+       
 
     }
 
@@ -149,8 +63,4 @@ public class TutorialScript : MonoBehaviour
     }
 }
 
-public class tutorialProgressReference : MonoBehaviour
-{
-    public static TutorialScript tutorialscriptReference;
 
-}

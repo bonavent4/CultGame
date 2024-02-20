@@ -23,12 +23,16 @@ public class ResourceAdder : WorkTimer
 
     [SerializeField] AudioSource BushSlashTreeSound;
 
+    TutorialScript tutReference;
+
     public override void Awake()
     {
         base.Awake();
         resource = FindObjectOfType<ResourceSystem>();
 
         OriginalScale = plant.transform.localScale;
+        tutReference = FindObjectOfType<TutorialScript>();
+
     }
     public override void Update()
     {
@@ -74,17 +78,20 @@ public class ResourceAdder : WorkTimer
 
     public override void CompletedTask()
     {
+        
         tTest.content.SetBar(ContentBarRetraction);
         resource.UpdateResource(ResourcePosition, plusToResource);
+        
         timerValue = 0;
         Debug.Log("Done");
         list.RemoveJobFromList(gameObject);
         startGrowing();
 
-
-        if (tutorialProgressReference.tutorialscriptReference.tutorialStage == 2&& ResourcePosition == 2)
+        if (tutReference.tutorialStage == 2 && ResourcePosition == 2)
         {
-            tutorialProgressReference.tutorialscriptReference.IncreaseTutorialStage();
+            tutReference.IncreaseTutorialStage();
         }
+
+
     }
 }

@@ -6,11 +6,12 @@ public class Pray : WorkTimer
 {
     [SerializeField] int prayAmount;
     [SerializeField] int ContentBarRetraction;
+    TutorialScript tutReference;
 
     public override void Awake()
     {
         base.Awake();
-
+        tutReference = FindObjectOfType<TutorialScript>();
        
     }
     public override void CompletedTask()
@@ -26,9 +27,9 @@ public class Pray : WorkTimer
             wChar.UpdateList(newJobIndex, newPeopleNeeded, gameObject);
             ReaddyForTask = false;
 
-            if (tutorialProgressReference.tutorialscriptReference.tutorialStage == 3)
+            if (tutReference.tutorialStage == 3)
             {
-                tutorialProgressReference.tutorialscriptReference.IncreaseTutorialStage();
+                tutReference.IncreaseTutorialStage();
             }
 
 

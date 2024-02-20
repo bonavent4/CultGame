@@ -20,6 +20,7 @@ public class ControllCharacters : MonoBehaviour
     [SerializeField] GameObject[] buildingsGreen;
     [SerializeField] GameObject[] notBuildBuildings;
     [SerializeField] Vector2[] gridXandZ;
+    TutorialScript tutReference;
 
     bool placeBuilding;
     //[SerializeField] GameObject buildingMenu;
@@ -45,6 +46,7 @@ public class ControllCharacters : MonoBehaviour
     {
         cam = Camera.main;
         rSystem = FindObjectOfType<ResourceSystem>();
+        tutReference = FindObjectOfType<TutorialScript>();
     }
     private void Update()
     {
@@ -103,6 +105,7 @@ public class ControllCharacters : MonoBehaviour
 
         activateBuildMenu();
     }
+
     public void UpgradeButton()
     {
         buildingToUpgrade.GetComponent<UpgradeBuilding>().ReplaceBuilding();
@@ -135,11 +138,8 @@ public class ControllCharacters : MonoBehaviour
             isTouchingBuilding = false;
         }
         Instantiate(notBuildBuildings[buildingToPlace], new Vector3(gridPosition.x, hit.point.y, gridPosition.y), Quaternion.identity);
-       
-        if (tutorialProgressReference.tutorialscriptReference.tutorialStage == 1)
-        {
-            tutorialProgressReference.tutorialscriptReference.IncreaseTutorialStage();
-        }
+
+
     }
 
     void activateBuildMenu()
