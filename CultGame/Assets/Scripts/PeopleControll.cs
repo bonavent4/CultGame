@@ -54,7 +54,7 @@ public class PeopleControll : MonoBehaviour
                 {
                     if (!anim.GetBool("Work"))
                     {
-                        navMesh.SetDestination(gameObject.transform.position);
+                       // navMesh.SetDestination(gameObject.transform.position);
                         Work();
                     }
 

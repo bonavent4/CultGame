@@ -8874,7 +8874,7 @@ MonoBehaviour:
   plusToResource: 10
   ContentBarRetraction: 6
   plant: {fileID: 4396784071704162817}
-  GrowingRate: 0.01
+  GrowingRate: 0.03
   GrowingIcon: {fileID: 8406357616640201776}
   BushSlashTreeSound: {fileID: 8618410633298999416}
 --- !u!82 &5185784080501354038

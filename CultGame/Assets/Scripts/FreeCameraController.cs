@@ -15,9 +15,13 @@ public class FreeCameraController : MonoBehaviour
     public KeyCode strafeRightKey = KeyCode.D;
     //public KeyCode rotateLeftKey = KeyCode.Q;
     //public KeyCode rotateRightKey = KeyCode.E;
-
+    [SerializeField] AudioSource clickSound;
     void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            clickSound.Play();
+        }
         HandleMouseInput();
 
         // Camera movement controls
