@@ -260,6 +260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpArrow: {fileID: 1016377822}
   DownArrow: {fileID: 1202318259}
+  BuildButtons: []
 --- !u!1 &87967170
 GameObject:
   m_ObjectHideFlags: 0
@@ -5637,15 +5638,15 @@ RectTransform:
   m_GameObject: {fileID: 1016377822}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.43, y: 0.57, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1138776883}
-  m_RootOrder: 12
+  m_Father: {fileID: 1505496949}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 847.9199, y: 217.443}
+  m_AnchoredPosition: {x: 0.000061035156, y: 635.9}
   m_SizeDelta: {x: 60.5, y: 79.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1016377825
@@ -6121,8 +6122,6 @@ RectTransform:
   - {fileID: 1589059706}
   - {fileID: 500765931}
   - {fileID: 1505496949}
-  - {fileID: 1202318260}
-  - {fileID: 1016377823}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6159,15 +6158,15 @@ RectTransform:
   m_GameObject: {fileID: 1202318259}
   m_LocalRotation: {x: -0, y: -0, z: -1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.43, y: 0.57, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1138776883}
-  m_RootOrder: 11
+  m_Father: {fileID: 1505496949}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 847.9199, y: -508.50897}
+  m_AnchoredPosition: {x: 0.000061035156, y: -637.69995}
   m_SizeDelta: {x: 60.5, y: 79.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1202318262
@@ -7378,6 +7377,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 37045799}
+  - {fileID: 1202318260}
+  - {fileID: 1016377823}
   m_Father: {fileID: 1138776883}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7837,6 +7838,7 @@ MonoBehaviour:
   resources: []
   resourceText: []
   resourceNames: []
+  buildButtonController: {fileID: 0}
 --- !u!114 &1571778781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7850,6 +7852,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 0}
+  ContentText: {fileID: 0}
+  maxCultHLoss: 0
 --- !u!1 &1576859445
 GameObject:
   m_ObjectHideFlags: 0
