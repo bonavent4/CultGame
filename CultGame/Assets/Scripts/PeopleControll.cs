@@ -14,6 +14,8 @@ public class PeopleControll : MonoBehaviour
 
     [SerializeField] bool isntWorking;
     float timeSinceLast;
+
+
     private void Awake()
     {
         navMesh = gameObject.GetComponent<NavMeshAgent>();

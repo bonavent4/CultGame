@@ -902,7 +902,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerValue: 0
   peopleWorking: 0
-  Multiplier: 2
+  Multiplier: 4
   workSize: 4
   workSlider: {fileID: 6203623456077349696}
   ReadyIcon: {fileID: 2254671660464045612}
@@ -918,8 +918,9 @@ MonoBehaviour:
   plusToResource: 15
   ContentBarRetraction: 12
   plant: {fileID: 8757676917222436458}
-  GrowingRate: 0.001
+  GrowingRate: 0.002
   GrowingIcon: {fileID: 4898664201384778544}
+  BushSlashTreeSound: {fileID: 3371210978983392883}
 --- !u!82 &3371210978983392883
 AudioSource:
   m_ObjectHideFlags: 0

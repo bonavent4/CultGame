@@ -43,7 +43,7 @@ public class NotificationScript : MonoBehaviour
         
         Time.timeScale = 0;
         text.GetComponent<TextMeshProUGUI>().text = "Food Loss: " + previous + " - " + (10 * wChar.Workers.Count).ToString();
-        ContentText.GetComponent<TextMeshProUGUI>().text = "Content loss: " + ((maxCultHLoss / (wChar.Workers.Count * 10) * foodRequired) - maxCultHLoss).ToString();
+        ContentText.GetComponent<TextMeshProUGUI>().text = "Cult Happiness Loss: " + ((maxCultHLoss / (wChar.Workers.Count * 10) * foodRequired) - maxCultHLoss).ToString();
     }
     public void startTimeAgain()
     {

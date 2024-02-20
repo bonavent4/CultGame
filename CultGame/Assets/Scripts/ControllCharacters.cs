@@ -22,7 +22,7 @@ public class ControllCharacters : MonoBehaviour
     [SerializeField] Vector2[] gridXandZ;
 
     bool placeBuilding;
-    [SerializeField] GameObject buildingMenu;
+    //[SerializeField] GameObject buildingMenu;
     int buildingToPlace;
 
     GameObject Building;
@@ -38,6 +38,9 @@ public class ControllCharacters : MonoBehaviour
     GameObject BuildButton;
 
     ResourceSystem rSystem;
+
+    [SerializeField] GameObject upgradeMenu;
+    GameObject buildingToUpgrade;
     private void Awake()
     {
         cam = Camera.main;
@@ -88,12 +91,21 @@ public class ControllCharacters : MonoBehaviour
                     {
                         hit.collider.gameObject.GetComponent<WorkTimer>().StartTask();
                     }
+                    if (hit.collider.gameObject.GetComponent<UpgradeBuilding>())
+                    {
+                        hit.collider.gameObject.GetComponent<UpgradeBuilding>().OpenUpgradeMenu(upgradeMenu);
+                        buildingToUpgrade = hit.collider.gameObject;
+                    }
                 }
             }
         }
        
 
         activateBuildMenu();
+    }
+    public void UpgradeButton()
+    {
+        buildingToUpgrade.GetComponent<UpgradeBuilding>().ReplaceBuilding();
     }
     public void setBuildingInActive()
     {
@@ -169,7 +181,7 @@ public class ControllCharacters : MonoBehaviour
         {
             buildingToPlace = index;
             placeBuilding = true;
-            buildingMenu.SetActive(false);
+           // buildingMenu.SetActive(false);
             Building = Instantiate(buildingsGreen[index]);
             Building.GetComponent<GreenBuilding>().cc = gameObject.GetComponent<ControllCharacters>();
 
