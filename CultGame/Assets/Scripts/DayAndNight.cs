@@ -9,7 +9,7 @@ public class DayAndNight : MonoBehaviour
     [SerializeField] GameObject daytext; // The text to display current day
     [SerializeField] GameObject light; // The object that light is adjusted to with day night cycle
     public GameObject favorBar;
-    [SerializeField] float time = 0; // The current time tracked in seconds
+    public float time = 0; // The current time tracked in seconds
     [SerializeField] string timeText; // The text which displays the time in hours and minutes.
     [SerializeField] float nightIntervalInSeconds; // How many seconds the game intervals by each real second. This controls the in-game speed time relative to real time.
     [SerializeField] float dayIntervalInSeconds; // How many seconds the game interval by each second. This controls the in-game speed time relative to real time.

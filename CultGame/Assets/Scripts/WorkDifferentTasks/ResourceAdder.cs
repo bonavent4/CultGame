@@ -80,6 +80,11 @@ public class ResourceAdder : WorkTimer
         Debug.Log("Done");
         list.RemoveJobFromList(gameObject);
         startGrowing();
-        
+
+
+        if (tutorialProgressReference.tutorialscriptReference.tutorialStage == 2&& ResourcePosition == 2)
+        {
+            tutorialProgressReference.tutorialscriptReference.IncreaseTutorialStage();
+        }
     }
 }

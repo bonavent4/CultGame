@@ -19,4 +19,19 @@ public class Pray : WorkTimer
         tTest.favor.SetBar(prayAmount);
         base.CompletedTask();
     }
+    public override void StartTask()
+    {
+        if (newJobIndex != 0 && doneConstructing && ReaddyForTask)
+        {
+            wChar.UpdateList(newJobIndex, newPeopleNeeded, gameObject);
+            ReaddyForTask = false;
+
+            if (tutorialProgressReference.tutorialscriptReference.tutorialStage == 3)
+            {
+                tutorialProgressReference.tutorialscriptReference.IncreaseTutorialStage();
+            }
+
+
+        }
+    }
 }

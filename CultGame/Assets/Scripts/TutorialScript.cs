@@ -5,9 +5,16 @@ using TMPro;
 
 public class TutorialScript : MonoBehaviour
 {
-    int tutorialStage = 0;
+    public int tutorialStage = 0;
     public float tutorialTimer = 0;
-    string[] tutorialQuestions = { "Hello, Priest\r\n\r\nThis is the building menu. Here, you will choose a building to place in the world. Press [Space] to skip tutorials.", "Place buildings in the world, and watch your underlings construct them. Buildings require stone and wood.", "This bar illustrates my appeasement with your cult. Keep it high, and i shall reward you. Let it become low, and i shall smite you.", "This bar illustrates the overall happiness of your underlings. If it falls to low, your underlings might leave you or even revolt.", "These are your resources. You will need stone and wood to make new buildings, and food to keep your underlings happy.", "This is your task bar. Tasks at the top will be prioritised, meaning more underlings will do the job. If the job is filled, excess underlings will then do other assignments.", "Some buildings allow interaction after construction. These buildings have a resource icon above them. Click on these buildings when the icon is green, and a job will be placed in the task bar" };
+    string[] tutorialQuestions = { "Hello, Priest\r\n\r\nI see you have decided to worship me. I appreciate that. You should start by clicking on a tree stump, which will send your cultists to harvest.", 
+        "Now you have enough wood to build a town hall. Do this by clicking on the appropriate icon in the building menu, and then placing the blueprint in the world.", 
+        "Good. You should now build a mine to aquire stone. When the mine is built, it will eventually be ready to harvest. The small icon above the mine will switch from orange to green when this happens.", 
+        "Now that you have stone, you should build a praying stand. When you cilck on the stand, your cultists will begin a prayer session",
+        "You should notice that this bar is increased when the prayer was complete. This bar represents my appeasement with your cult, and you should always try to keep it as high as possible. It must never be reduced to zero. Press [Space] to advance", 
+        "This bar represents the happiness of your cultists. It will be reduced when your cultists do hard labor. To increase it, you must allow your cultists to relax. Build a bed and click on it to order a cultist to rest.", 
+        "By now, you should have noticed the Task List. Everytime you order your cultists to do something, the task will appear here. If you want to prioritize a certain task, move it to the top of the list. Tasks will be prioritized based in vertical order, from highes to lowest." };
+    
     string[] taskQuestions = { "Click on a tree to harvest wood, then use the wood to build a town hall", "Build a mine, then use the stone to build a prayer stand. You will also need wood" };
 
     [SerializeField] TextMeshProUGUI currentTutorial;
@@ -34,20 +41,20 @@ public class TutorialScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (tutorialStage < 1)
+        //if (tutorialStage < 1)
         {
             taskScroll.text = taskQuestions[tutorialStage];
 
         }
         print(tutorialStage);
-        if (Input.GetKeyDown(KeyCode.Space) && tutorialStage < 1) 
+        //if (Input.GetKeyDown(KeyCode.Space) && tutorialStage < 1) 
         {
             tutorialStage++;
             currentTutorial.text = tutorialQuestions[tutorialStage];
             tutorialTimer = 0;
             
         }
-        else if (Input.GetKeyDown(KeyCode.Space) && tutorialStage == 1)
+        //else if (Input.GetKeyDown(KeyCode.Space) && tutorialStage == 1)
         {
             tutorialArrows[tutorialStage - 1].SetActive(false);
             tutorialStage++;
@@ -57,7 +64,7 @@ public class TutorialScript : MonoBehaviour
             tutorialTimer = 0;
 
         }
-        else if (Input.GetKeyDown(KeyCode.Space) && tutorialStage == 2)
+        //else if (Input.GetKeyDown(KeyCode.Space) && tutorialStage == 2)
         {
             tutorialArrows[tutorialStage-1].SetActive(false);
             tutorialStage++;
@@ -65,7 +72,7 @@ public class TutorialScript : MonoBehaviour
             currentTutorial.text = tutorialQuestions[tutorialStage];
             tutorialTimer = 0;
         }
-        else if (Input.GetKeyDown(KeyCode.Space) && tutorialStage == 3)
+        //else if (Input.GetKeyDown(KeyCode.Space) && tutorialStage == 3)
         {
             tutorialArrows[tutorialStage-1].SetActive(false);
             tutorialStage++;
@@ -73,23 +80,21 @@ public class TutorialScript : MonoBehaviour
             currentTutorial.text = tutorialQuestions[tutorialStage];
             tutorialTimer = 0;
         }
-        else if (Input.GetKeyDown(KeyCode.Space) && tutorialStage == 4)
+        if (Input.GetKeyDown(KeyCode.Space) && tutorialStage == 4)
         {
-            tutorialArrows[tutorialStage-1].SetActive(false);
+ 
             tutorialStage++;
-            tutorialArrows[tutorialStage-1].SetActive(true);
-            currentTutorial.text = tutorialQuestions[tutorialStage];
-            tutorialTimer = 0;
+          
         }
-        else if (Input.GetKeyDown(KeyCode.Space) && tutorialStage == 5)
+        if (Input.GetKeyDown(KeyCode.Space) && tutorialStage == 5)
         {
-            tutorialArrows[tutorialStage-1].SetActive(false);
+            
             tutorialStage++;
-            currentTutorial.text = tutorialQuestions[tutorialStage];
-            tutorialTimer = 0;
+            
+            
 
         }
-        else if (Input.GetKeyDown(KeyCode.Space) && tutorialStage == 6)
+        //else if (Input.GetKeyDown(KeyCode.Space) && tutorialStage == 6)
         {
             tutorialStage++;
             currentTutorial.text = tutorialQuestions[tutorialStage];
@@ -97,11 +102,11 @@ public class TutorialScript : MonoBehaviour
 
         }
 
-        if (tutorialTimer < 25 && tutorialStage >= 1)
+        //if (tutorialTimer < 25 && tutorialStage >= 1)
         {
             tutorialTimer += Time.deltaTime;
         }
-        else if (tutorialTimer > 25 && tutorialStage >= 1)
+        //else if (tutorialTimer > 25 && tutorialStage >= 1)
         {
             tutorialTimer = 0;
 
@@ -122,12 +127,27 @@ public class TutorialScript : MonoBehaviour
 
 
         }
-        if (tutorialStage >= 7)
+        //if (tutorialStage >= 7)
         {
             Time.timeScale = 1;
             Destroy(tutorialBackground);
             Destroy(currentTutorial);
         }
 
+
+
+
     }
+
+    public void IncreaseTutorialStage()
+    {
+        tutorialStage++;
+
+    }
+}
+
+public class tutorialProgressReference : MonoBehaviour
+{
+    public static TutorialScript tutorialscriptReference;
+
 }
