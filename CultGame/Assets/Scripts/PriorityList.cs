@@ -11,6 +11,7 @@ public class PriorityList : MonoBehaviour
     [SerializeField] float minYPostion;*/
     [SerializeField] Transform maxUp;
     [SerializeField] Transform maxDown;
+    TutorialScript tutReference;
 
     Vector2 ListStartPosition;
 
@@ -38,6 +39,7 @@ public class PriorityList : MonoBehaviour
     {
         wchar = FindObjectOfType<WorkCharacters>();
         ListStartPosition = gameObject.transform.position;
+        tutReference = FindObjectOfType<TutorialScript>();
     }
 
     private void Update()
@@ -215,9 +217,9 @@ public class PriorityList : MonoBehaviour
             ResetPositions();
 
 
-            if (tutorialProgressReference.tutorialscriptReference.tutorialStage == 6)
+            if (tutReference.tutorialStage == 6)
             {
-                tutorialProgressReference.tutorialscriptReference.IncreaseTutorialStage();
+                tutReference.IncreaseTutorialStage();
             }
 
         }

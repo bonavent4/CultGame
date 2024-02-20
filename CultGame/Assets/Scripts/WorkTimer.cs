@@ -13,6 +13,7 @@ public class WorkTimer : MonoBehaviour
     public int peopleWorking;
     public int Multiplier;
     public int workSize;
+    TutorialScript tutReference;
 
     [SerializeField] Slider workSlider;
     // [SerializeField] GameObject canvas;
@@ -40,7 +41,9 @@ public class WorkTimer : MonoBehaviour
         tTest = FindObjectOfType<TimerTest>();
         list = FindObjectOfType<PriorityList>();
         wChar = FindObjectOfType<WorkCharacters>();
+        tutReference = FindObjectOfType<TutorialScript>();
     }
+
 
     public virtual void Update()
     {
@@ -90,6 +93,7 @@ public class WorkTimer : MonoBehaviour
 
         //  canvas.transform.LookAt(Camera.main.transform.position);
     }
+
     public virtual void DoneWithConstruction()
     {
 
@@ -103,6 +107,11 @@ public class WorkTimer : MonoBehaviour
 
 
         doneConstructing = true;
+
+        if (tutReference.tutorialStage == 1)
+        {
+            tutReference.IncreaseTutorialStage();
+        }
     }
     public virtual void CompletedTask()
     {
@@ -117,11 +126,10 @@ public class WorkTimer : MonoBehaviour
             wChar.UpdateList(newJobIndex, newPeopleNeeded, gameObject);
             ReaddyForTask = false;
 
-            if (tutorialProgressReference.tutorialscriptReference.tutorialStage == 0)
+            if (tutReference.tutorialStage == 0)
             {
-                tutorialProgressReference.tutorialscriptReference.IncreaseTutorialStage();
+                tutReference.IncreaseTutorialStage();
             }
-
 
         }
     }

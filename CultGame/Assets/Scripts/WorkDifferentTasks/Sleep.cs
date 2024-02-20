@@ -5,15 +5,23 @@ using UnityEngine;
 public class Sleep : WorkTimer
 {
     [SerializeField] int ContentBarRetraction;
+    TutorialScript tutReference;
+
+    private void Awake()
+    {
+        tutReference = FindObjectOfType<TutorialScript>();
+    }
 
     public override void CompletedTask()
     {
         tTest.content.SetBar(ContentBarRetraction );
         base.CompletedTask();
 
-        if (tutorialProgressReference.tutorialscriptReference.tutorialStage == 5)
+        if (tutReference.tutorialStage == 0)
         {
-            tutorialProgressReference.tutorialscriptReference.IncreaseTutorialStage();
+            tutReference.IncreaseTutorialStage();
         }
     }
+
+
 }
