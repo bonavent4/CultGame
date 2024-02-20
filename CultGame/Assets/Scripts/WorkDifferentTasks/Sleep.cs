@@ -7,8 +7,9 @@ public class Sleep : WorkTimer
     [SerializeField] int ContentBarRetraction;
     TutorialScript tutReference;
 
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         tutReference = FindObjectOfType<TutorialScript>();
     }
 
