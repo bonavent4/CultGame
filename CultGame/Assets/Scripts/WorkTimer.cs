@@ -19,7 +19,7 @@ public class WorkTimer : MonoBehaviour
     // [SerializeField] GameObject canvas;
     [SerializeField] GameObject ReadyIcon;
 
-    protected PriorityList list;
+    [SerializeField]protected PriorityList list;
     protected WorkCharacters wChar;
 
     [SerializeField] GameObject NotBuildBuilding;
@@ -98,10 +98,12 @@ public class WorkTimer : MonoBehaviour
     {
 
 
-      //  tTest.content.SetBar(ContentConstructionRetraction);
+        tTest.content.SetBar(ContentConstructionRetraction);
         NotBuildBuilding.SetActive(false);
         buildBuilding.SetActive(true);
+        list = FindObjectOfType<PriorityList>();
         list.RemoveJobFromList(gameObject);
+        timerValue = 0;
 
 
 
