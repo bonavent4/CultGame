@@ -18,6 +18,7 @@ public class ResourceSystem : MonoBehaviour
     [SerializeField] List<TextMeshProUGUI> resourceText;
     [SerializeField] List<string> resourceNames;
 
+    [SerializeField] BuildButton buildButtonController;
     // var dropDown = myEnum.Item1;  // this public var should appear as a drop down
 
     // Start is called before the first frame update
@@ -52,6 +53,7 @@ public class ResourceSystem : MonoBehaviour
 
         resourceText[pos].text = resourceNames[pos] + ": " + resources[pos];
 
+        //buildButtonController.GreyOut();
        // return resources[pos];
     }
     public void SetResource(int pos, float value)

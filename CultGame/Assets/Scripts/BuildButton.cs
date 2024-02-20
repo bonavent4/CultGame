@@ -14,8 +14,6 @@ public class BuildButton : MonoBehaviour
     [SerializeField] int[] resourcesNeeded;
 
     [SerializeField] TextMeshProUGUI NumberOfBuildingsText;
-
-   
     
     private void Awake()
     {
@@ -42,5 +40,10 @@ public class BuildButton : MonoBehaviour
     public void UpdateNumberText()
     {
         NumberOfBuildingsText.text = buildBuildings.ToString() + "/" + maxAllowedBuildings.ToString();
+    }
+
+    public void GreyOut()
+    {
+        
     }
 }
