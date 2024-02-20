@@ -41,6 +41,7 @@ public class TutorialScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        currentTutorial.text = tutorialQuestions[tutorialStage];
         //if (tutorialStage < 1)
         {
             taskScroll.text = taskQuestions[tutorialStage];
@@ -86,7 +87,7 @@ public class TutorialScript : MonoBehaviour
             tutorialStage++;
           
         }
-        if (Input.GetKeyDown(KeyCode.Space) && tutorialStage == 5)
+        //if (Input.GetKeyDown(KeyCode.Space) && tutorialStage == 5)
         {
             
             tutorialStage++;
@@ -141,7 +142,9 @@ public class TutorialScript : MonoBehaviour
 
     public void IncreaseTutorialStage()
     {
+        
         tutorialStage++;
+        print(tutorialStage);
 
     }
 }
