@@ -19,6 +19,12 @@ public class DayAndNight : MonoBehaviour
     public float fastForwardMultiplier = 1; // This multiplier can be used to fast forward time
     public float day = 1; // Tracking days
     public bool night = true; // Using a bool we track whether or not the current time of day is considered day or night. false = night, true = day
+    TimerTest tTest;
+
+    private void Awake()
+    {
+        tTest = FindObjectOfType<TimerTest>();
+    }
     void Update()
     {
         if (time >= nightStartHour * 60 * 60 || time < dayStartHour * 60 * 60)
@@ -95,6 +101,6 @@ public class DayAndNight : MonoBehaviour
 
     public void NewDay(int daynumber)
     {
-        setFavorlossReference.testreference.setLossMultiplier(daynumber);
+        tTest.setLossMultiplier(daynumber);
     }
 }

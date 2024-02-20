@@ -85,9 +85,13 @@ public class TimerTest : MonoBehaviour
     }
     public void setLossMultiplier(int dayNumber)
     {
-
+        Debug.Log(dayNumber);
         favorLossMultiplier = 1 + (dayNumber / 20);
-
+        if(dayNumber == 2)
+        {
+            
+            FavorMultiplier = 0.3f;
+        }
     }
 }
 
