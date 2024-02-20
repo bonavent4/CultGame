@@ -31,7 +31,7 @@ public class Oven : WorkTimer
     {
         //base.StartTask();
         //ReaddyForTask = true;
-        if (ReaddyForTask)
+        if (ReaddyForTask && doneConstructing)
         {
             chooseFoodMenu.child.SetActive(true);
             chooseFoodMenu.Oven = gameObject;
