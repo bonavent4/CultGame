@@ -3211,6 +3211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97b1ba16d2c708d44add8a0bb3b43f12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutorialStage: 0
   tutorialTimer: 0
   currentTutorial: {fileID: 933413569}
   taskScroll: {fileID: 1817014976}
