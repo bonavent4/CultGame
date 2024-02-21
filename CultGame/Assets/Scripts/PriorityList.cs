@@ -7,8 +7,6 @@ using UnityEngine.UI;
 public class PriorityList : MonoBehaviour
 {
     [SerializeField] GameObject jobPrefab;
-   /* [SerializeField] float maxYPosition;
-    [SerializeField] float minYPostion;*/
     [SerializeField] Transform maxUp;
     [SerializeField] Transform maxDown;
     TutorialScript tutReference;
@@ -19,14 +17,6 @@ public class PriorityList : MonoBehaviour
     [SerializeField] float plusToOffset;
 
     public List<GameObject> jobs;
-   /* public List<int> People;
-    [SerializeField] List<int> peopleAlreadyWorkingOnIt;
-    public List<string> jobNames;
-    public List<int> numberOfWorkStations;
-    public List<GameObject> workStations;
-    public List<int> workStationPeople;*/
-
-    
 
     [SerializeField] float mouseScrollMultiplier;
 
@@ -48,19 +38,15 @@ public class PriorityList : MonoBehaviour
         {
             if (gameObject.transform.position.y < (maxUp.position.y - offset - 100) && -Input.mouseScrollDelta.y > 0)
             {
-               // Debug.Log(Input.mouseScrollDelta.y);
                 gameObject.transform.position += new Vector3(0, -Input.mouseScrollDelta.y * mouseScrollMultiplier, 0);
             }
             else if (gameObject.transform.position.y > (maxDown.position.y + 100) && -Input.mouseScrollDelta.y < 0)
             {
-               // Debug.Log(Input.mouseScrollDelta.y);
                 gameObject.transform.position += new Vector3(0, -Input.mouseScrollDelta.y * mouseScrollMultiplier, 0);
             }
 
             ResetJobs();
-
         }
-
     }
     public void AddJobToList(string jobName, int PeopleNeeded, GameObject WorkStation)
     {
@@ -85,10 +71,8 @@ public class PriorityList : MonoBehaviour
    
     public void UpdateJobFromList(string jobName, int numberOfPeople, GameObject WorkStation)
     {
-       // int stations = 0;
         for (int i = 0; i < jobs.Count; i++)
         {
-           // stations += numberOfWorkStations[i];
             if (jobs[i].GetComponent<JobPaper>().jobNames == jobName)
             {
                 JobPaper jPaper = jobs[i].GetComponent<JobPaper>();
@@ -96,8 +80,6 @@ public class PriorityList : MonoBehaviour
                 jPaper.People += numberOfPeople;
                 jPaper.workStations.Add(WorkStation);
                 jPaper.workStationPeople.Add(numberOfPeople);
-
-                
             }
         }
         UpdateAllNumbers();
@@ -124,7 +106,6 @@ public class PriorityList : MonoBehaviour
            jPaper.People -= jPaper.workStationPeople[workIndex];
            jPaper.workStationPeople.Remove(jPaper.workStationPeople[workIndex]);
            jPaper.workStations.Remove(TheStation);
-
 
         if(jPaper.workStations.Count == 0)
         {
@@ -156,7 +137,6 @@ public class PriorityList : MonoBehaviour
         {
             jobs[i].GetComponent<JobPaper>().peopleAlreadyWorkingOnIt = 0;
         }
-
         int usableWorkers = wchar.Workers.Count;
         for (int i = 0; i < jobs.Count; i++)
         {
@@ -174,7 +154,6 @@ public class PriorityList : MonoBehaviour
             jobs[i].GetComponentInChildren<TextMeshProUGUI>().text = jPaper.peopleAlreadyWorkingOnIt + "/" + jPaper.People + " " + jPaper.jobNames;
         }
     }
-    
     void ResetJobs()
     {
         foreach (GameObject g in jobs)
@@ -189,7 +168,6 @@ public class PriorityList : MonoBehaviour
             }
         }
     }
-
     void ResetPositions()
     {
         offset = 0;
@@ -199,7 +177,6 @@ public class PriorityList : MonoBehaviour
             offset -= plusToOffset;
         }
     }
-
     public void MoveUp()
     {
         if(PaperToMoveUpAndDown != null && jobs.IndexOf(PaperToMoveUpAndDown) != 0)
@@ -210,18 +187,14 @@ public class PriorityList : MonoBehaviour
             jobs.Remove(jobs[index]);
             jobs.Insert(index - 1, g);
 
-          
             UpdateAllNumbers();
             wchar.stopWorkersFromWorking();
             wchar.MakeWorkersWork();
             ResetPositions();
-
-
             if (tutReference.tutorialStage == 6)
             {
                 tutReference.IncreaseTutorialStage();
             }
-
         }
     }
     public void MoveDown()
@@ -234,12 +207,10 @@ public class PriorityList : MonoBehaviour
             jobs.Remove(jobs[index]);
             jobs.Insert(index + 1, g);
 
-
             UpdateAllNumbers();
             wchar.stopWorkersFromWorking();
             wchar.MakeWorkersWork();
             ResetPositions();
-
         }
     }
     public void OnButton(GameObject Paper)
