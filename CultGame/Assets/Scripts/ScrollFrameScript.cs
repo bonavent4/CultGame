@@ -10,7 +10,7 @@ public class ScrollFrameScript : MonoBehaviour
     [SerializeField] GameObject DownArrow;
     bool down = false;
     bool up = false;
-    int multiplier = 1;
+    int multiplier = 2;
     bool scrolling = false;
 
     public GameObject[] BuildButtons;
