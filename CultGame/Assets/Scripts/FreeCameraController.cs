@@ -16,6 +16,7 @@ public class FreeCameraController : MonoBehaviour
     //public KeyCode rotateLeftKey = KeyCode.Q;
     //public KeyCode rotateRightKey = KeyCode.E;
     [SerializeField] AudioSource clickSound;
+    [SerializeField] float[] MaxPosition;
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -26,13 +27,13 @@ public class FreeCameraController : MonoBehaviour
 
         // Camera movement controls
         Vector3 movement = Vector3.zero;
-        if (Input.GetKey(moveForwardKey))
+        if (Input.GetKey(moveForwardKey) && transform.position.z < MaxPosition[0])
             movement += transform.parent.forward;
-        if (Input.GetKey(moveBackwardKey))
+        if (Input.GetKey(moveBackwardKey) && transform.position.z > MaxPosition[1])
             movement -= transform.parent.forward;
-        if (Input.GetKey(strafeLeftKey))
+        if (Input.GetKey(strafeLeftKey) && transform.position.x > MaxPosition[2])
             movement -= transform.parent.right;
-        if (Input.GetKey(strafeRightKey))
+        if (Input.GetKey(strafeRightKey) && transform.position.z < MaxPosition[3])
             movement += transform.parent.right;
         movement.Normalize();
         movement *= movementSpeed * Time.deltaTime;
