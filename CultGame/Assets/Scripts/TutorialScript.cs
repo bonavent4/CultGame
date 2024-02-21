@@ -65,7 +65,7 @@ public class TutorialScript : MonoBehaviour
         if (tutorialIsShown == true)
         {
             tutorialArrows[tutorialStage].SetActive(true);
-            for (int i = 0; i <= tutorialArrows.Length; i++)
+            for (int i = 0; i <= tutorialArrows.Length - 1; i++)
             {
                 if (i != tutorialStage)
                 {
