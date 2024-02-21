@@ -27,7 +27,7 @@ public class Pray : WorkTimer
             wChar.UpdateList(newJobIndex, newPeopleNeeded, gameObject);
             ReaddyForTask = false;
 
-            if (tutReference.tutorialStage == 3)
+            if (tutReference.tutorialStage == 4)
             {
                 tutReference.IncreaseTutorialStage();
             }
