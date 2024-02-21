@@ -15,8 +15,8 @@ public class AnimateCube : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("hi");
-        if (gameObject.transform.localScale.x < 27)
+
+        if (gameObject.transform.localScale.x < 28)
         {
             direction = true;            
         }else if (gameObject.transform.localScale.x > 30)
@@ -26,11 +26,11 @@ public class AnimateCube : MonoBehaviour
 
         if (direction)
         {
-            gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x*(1 + Time.deltaTime), gameObject.transform.localScale.y*(1+Time.deltaTime), 1);
+            gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x*(1 + Time.deltaTime/10), gameObject.transform.localScale.y*(1+Time.deltaTime/10), 1);
         }
         else
         {
-            gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x * (1 - Time.deltaTime), gameObject.transform.localScale.y * (1 - Time.deltaTime), 1);
+            gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x * (1 - Time.deltaTime/10), gameObject.transform.localScale.y * (1 - Time.deltaTime/10), 1);
         }
     }
 }
