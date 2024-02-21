@@ -9979,6 +9979,7 @@ MonoBehaviour:
   - {fileID: 1967665748}
   - {fileID: 2047813938}
   - {fileID: 1628330182}
+  tutorialButton: {fileID: 0}
 --- !u!1 &994473533
 GameObject:
   m_ObjectHideFlags: 0
@@ -30824,6 +30825,50 @@ Transform:
   m_Father: {fileID: 8623459907809009899}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &7390821308516746597
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7390821308516746603}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.4501429, y: 2.5511298, z: 0.66436386}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7390821308516746603
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7390821308516746597}
+  - component: {fileID: 7390821308516746604}
+  m_Layer: 0
+  m_Name: Cursor mananger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &7390821308516746604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7390821308516746603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a6a271d09cd51b4dab8ffaa9124583e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7456288122727690968
 Transform:
   m_ObjectHideFlags: 0

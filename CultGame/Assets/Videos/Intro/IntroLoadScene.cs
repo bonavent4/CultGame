@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class IntroLoadScene : MonoBehaviour
 {
+    private void Awake()
+    {
+        Cursor.visible = false;
+    }
     private void Start()
     {
         Invoke("LoadScene", 7);

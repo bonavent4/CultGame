@@ -5,7 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MenuButton : MonoBehaviour
 {
-   
+    private void Awake()
+    {
+        Cursor.visible = true;
+    }
     public void LoadScene()
     {
         SceneManager.LoadScene(2);
