@@ -29,7 +29,7 @@ public class TutorialScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentTutorial.text = tutorialQuestions[tutorialStage];
+       currentTutorial.text = tutorialQuestions[tutorialStage];
        for (int i = 0; i < tutorialArrows.Length; i++)
         {
             if (i != 0)
@@ -44,8 +44,11 @@ public class TutorialScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         currentTutorial.text = tutorialQuestions[tutorialStage];
+
+        tutorialArrows[tutorialStage].SetActive(true);
+        
+
         if (Input.GetKeyDown(KeyCode.Space) && tutorialStage == 5)
         {
  
@@ -67,6 +70,14 @@ public class TutorialScript : MonoBehaviour
     {
         
         tutorialStage++;
+        for (int i = 0; i <= tutorialArrows.Length; i++)
+        {
+            if (i != tutorialStage)
+            {
+                tutorialArrows[i].SetActive(false);
+            }
+
+        }
         print(tutorialStage);
 
     }
@@ -87,6 +98,7 @@ public class TutorialScript : MonoBehaviour
             currentTutorial.color = new Color(currentTutorial.color.r, currentTutorial.color.g, currentTutorial.color.b, 255);
    
             tutorialStage = tutorialStageCashe;
+            tutorialArrows[tutorialStage].SetActive(true);
             tutorialIsShown = true;
 
         }
