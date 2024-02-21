@@ -12,13 +12,16 @@ public class PeopleControll : MonoBehaviour
 
     [SerializeField] Animator anim;
 
-    [SerializeField] bool isntWorking;
+    [SerializeField] bool isntWorking = true;
     float timeSinceLast;
+    GregDiedMenu gDied;
 
 
     private void Awake()
     {
+        isntWorking = true;
         navMesh = gameObject.GetComponent<NavMeshAgent>();
+        gDied = FindObjectOfType<GregDiedMenu>();
     }
 
     public void Work(GameObject workStation)
@@ -118,5 +121,6 @@ public class PeopleControll : MonoBehaviour
         anim.SetBool("Work", false);
         anim.SetBool("Walk", false);
         anim.SetBool("Dead", true);
+        gDied.PersonDied();
     }
 }

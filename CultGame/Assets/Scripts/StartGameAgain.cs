@@ -10,7 +10,7 @@ public class StartGameAgain : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Space) ||Input.GetKeyDown(KeyCode.Return))
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
     }
 }
