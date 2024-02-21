@@ -13,12 +13,17 @@ public class UpgradeBuilding : MonoBehaviour
     [SerializeField] GameObject NewBuilding;
 
     GameObject upgradeM;
+    [SerializeField] GameObject readyToUpgradeIcon;
     private void Awake()
     {
         rSystem = FindObjectOfType<ResourceSystem>();
     }
     private void Update()
     {
+        if (!readyToUpgradeIcon.activeSelf && gameObject.GetComponent<WorkTimer>().doneConstructing == true)
+        {
+            readyToUpgradeIcon.SetActive(true);
+        }
         if(upgradeM != null && (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Tab) || (Input.GetMouseButtonDown(1) && !EventSystem.current.IsPointerOverGameObject())))
         {
             upgradeM.SetActive(false);   
