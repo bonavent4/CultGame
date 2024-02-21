@@ -62,9 +62,22 @@ public class FreeCameraController : MonoBehaviour
         {
             Vector3 pos = Camera.main.ScreenToViewportPoint(Input.mousePosition - dragOrigin);
             Vector3 move = new Vector3(-pos.x * dragSpeed, 0, -pos.y * dragSpeed);
+         
+
+
+
 
             transform.Translate(move, Space.World);
             dragOrigin = Input.mousePosition;
+
+            if (transform.position.z > MaxPosition[0])
+                transform.position = new Vector3(transform.position.x, transform.position.y, MaxPosition[0]);
+            if (transform.position.z < MaxPosition[1])
+                transform.position = new Vector3(transform.position.x, transform.position.y, MaxPosition[1]);
+            if (transform.position.x < MaxPosition[2])
+                transform.position = new Vector3(MaxPosition[2], transform.position.y, transform.position.z);
+            if (transform.position.x > MaxPosition[3])
+                transform.position = new Vector3(MaxPosition[3], transform.position.y, transform.position.z);
         }
     }
 }
