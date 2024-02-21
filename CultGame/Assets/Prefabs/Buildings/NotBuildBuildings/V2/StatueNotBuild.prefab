@@ -5764,6 +5764,7 @@ MonoBehaviour:
   workSize: 2
   workSlider: {fileID: 8221876320118260636}
   ReadyIcon: {fileID: 4270672160840007408}
+  list: {fileID: 0}
   NotBuildBuilding: {fileID: 1369912829091333591}
   buildBuilding: {fileID: 1553396070958975784}
   newJobIndex: 4
@@ -5772,7 +5773,7 @@ MonoBehaviour:
   ReaddyForTask: 1
   ContentConstructionRetraction: 10
   ConstructionSound: {fileID: 2936842133212700187}
-  prayAmount: -5
+  prayAmount: -18
   ContentBarRetraction: 4
 --- !u!82 &2936842133212700187
 AudioSource:

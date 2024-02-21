@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class AnimateCube : MonoBehaviour
 {
-
+    [SerializeField] float maxSize;
+    [SerializeField] float minSize;
     bool direction = false;
     // Start is called before the first frame update
     void Start()
@@ -16,10 +17,10 @@ public class AnimateCube : MonoBehaviour
     void Update()
     {
 
-        if (gameObject.transform.localScale.x < 28)
+        if (gameObject.transform.localScale.x < minSize)
         {
             direction = true;            
-        }else if (gameObject.transform.localScale.x > 30)
+        }else if (gameObject.transform.localScale.x > maxSize)
         {
             direction = false;
         }

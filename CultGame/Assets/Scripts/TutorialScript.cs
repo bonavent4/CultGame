@@ -21,7 +21,7 @@ public class TutorialScript : MonoBehaviour
     [SerializeField] TextMeshProUGUI currentTutorial;
     [SerializeField] TextMeshProUGUI taskScroll;
     public GameObject tutorialBackground;
-    [SerializeField] GameObject[] tutorialArrows = new GameObject[5];
+    [SerializeField] GameObject[] tutorialArrows = new GameObject[7];
     [SerializeField] GameObject tutorialButton;
     bool tutorialIsShown = true;
 
@@ -46,7 +46,7 @@ public class TutorialScript : MonoBehaviour
     {
         currentTutorial.text = tutorialQuestions[tutorialStage];
 
-        tutorialArrows[tutorialStage].SetActive(true);
+
         
 
         if (Input.GetKeyDown(KeyCode.Space) && tutorialStage == 5)
@@ -56,13 +56,24 @@ public class TutorialScript : MonoBehaviour
           
         }
 
-        if (tutorialStage > 6)
+        if (tutorialStage > 5)
         {
             Destroy(tutorialBackground);
             Destroy(currentTutorial);
             Destroy(tutorialButton);
         }
-       
+        if (tutorialIsShown == true)
+        {
+            tutorialArrows[tutorialStage].SetActive(true);
+            for (int i = 0; i <= tutorialArrows.Length; i++)
+            {
+                if (i != tutorialStage)
+                {
+                    tutorialArrows[i].SetActive(false);
+                }
+
+            }
+        }
 
     }
 
@@ -70,15 +81,9 @@ public class TutorialScript : MonoBehaviour
     {
         
         tutorialStage++;
-        for (int i = 0; i <= tutorialArrows.Length; i++)
-        {
-            if (i != tutorialStage)
-            {
-                tutorialArrows[i].SetActive(false);
-            }
 
-        }
         print(tutorialStage);
+
 
     }
 
@@ -89,6 +94,8 @@ public class TutorialScript : MonoBehaviour
             tutorialBackground.SetActive(false);
             currentTutorial.color = new Color(currentTutorial.color.r, currentTutorial.color.g, currentTutorial.color.b, 0);
             tutorialStageCashe = tutorialStage;
+
+
 
             tutorialIsShown = false;
         }
