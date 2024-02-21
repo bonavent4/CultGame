@@ -33,7 +33,7 @@ public class FreeCameraController : MonoBehaviour
             movement -= transform.parent.forward;
         if (Input.GetKey(strafeLeftKey) && transform.position.x > MaxPosition[2])
             movement -= transform.parent.right;
-        if (Input.GetKey(strafeRightKey) && transform.position.z < MaxPosition[3])
+        if (Input.GetKey(strafeRightKey) && transform.position.x < MaxPosition[3])
             movement += transform.parent.right;
         movement.Normalize();
         movement *= movementSpeed * Time.deltaTime;
