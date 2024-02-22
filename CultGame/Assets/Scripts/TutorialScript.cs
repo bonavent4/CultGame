@@ -8,12 +8,12 @@ public class TutorialScript : MonoBehaviour
     public int tutorialStage = 0;
     int tutorialStageCashe = 0;
     public float tutorialTimer = 0;
-    string[] tutorialQuestions = { "Tutorial\r\n\r\nClick on a tree stump to order your cultists to harvest wood.", 
-        "Build a town hall by clicking on the appropriate icon in the building menu, and then placing it in the world", 
-        "Now build a mine to aquire stone. The small icon above the mine will switch from orange to green when it is ready to harvest",
+    string[] tutorialQuestions = { "Tutorial\r\n\r\nClick on a tree stump to order your cultists to harvest wood. Use [WASD] to move the camera.", 
+        "Build a town hall by clicking on the appropriate icon in the building menu, and then placing it in the world.", 
+        "Now build a mine to aquire stone. The small icon above the mine will switch from orange to green when it is ready to harvest.",
         "This bar represents the happiness of your cultists. It will be reduced when your cultists do hard labor. To increase it, you must allow your cultists to relax. Build a bed and click on it to order a cultist to rest.",
-        "Now that you have stone, you should build a praying stand. When you cilck on the stand, your cultists will begin a prayer session",
-        "You should notice that this bar is increased when the prayer was complete. This bar represents my appeasemenPress [Space] to advance", 
+        "Now that you have stone, you should build a praying stand. When you cilck on the stand, your cultists will begin a prayer session.",
+        "You should notice that this bar is increased when the prayer was complete. This bar represents my appeasemenPress [Space] to advance.", 
         "By now, you should have noticed the Task List. Everytime you order your cultists to do something, the task will appear here. If you want to prioritize a certain task, move it to the top of the list. Tasks will be prioritized based in vertical order, from highes to lowest." };
     
     string[] taskQuestions = { "Click on a tree to harvest wood, then use the wood to build a town hall", "Build a mine, then use the stone to build a prayer stand. You will also need wood" };
